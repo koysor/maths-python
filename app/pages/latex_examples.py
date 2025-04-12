@@ -5,8 +5,12 @@ from sympy.parsing.latex import parse_latex
 st.set_page_config(layout="wide")
 st.markdown("### LaTeX Examples")
 
-st.write("For reference purposes this page contians examples of mathematical notation expressed in LaTeX code.")
-st.write("The LaTeX code is displayed in a code block, and the rendered LaTeX is displayed below it.")
+st.write(
+    "For reference purposes this page contians examples of mathematical notation expressed in LaTeX code."
+)
+st.write(
+    "The LaTeX code is displayed in a code block, and the rendered LaTeX is displayed below it."
+)
 
 
 def latex_to_sympy_and_print(latex_code):
@@ -59,7 +63,9 @@ latex_to_sympy_and_print(latex_code)
 
 st.markdown("#### Subscripts and Superscripts:")
 
-st.write(r"Subscripts in math mode are written as $a_b$ and superscripts are written as $a^b$. These can be combined and nested to write expressions such as")
+st.write(
+    r"Subscripts in math mode are written as $a_b$ and superscripts are written as $a^b$. These can be combined and nested to write expressions such as"
+)
 latex_code = r"""
 T^{i_1 i_2 \dots i_p}_{j_1 j_2 \dots j_q} = T(x^{i_1},\dots,x^{i_p},e_{j_1},\dots,e_{j_q})
 """
@@ -68,7 +74,9 @@ latex_to_sympy_and_print(latex_code)
 
 st.markdown("#### Integrals and Fractions:")
 
-st.write(r"We write integrals using $\int$ and fractions using $\frac{a}{b}$. Limits are placed on integrals using superscripts and subscripts:")
+st.write(
+    r"We write integrals using $\int$ and fractions using $\frac{a}{b}$. Limits are placed on integrals using superscripts and subscripts:"
+)
 latex_code = r"""
 \int_0^1 \frac{dx}{e^x} =  \frac{e-1}{e}
 """
@@ -77,7 +85,9 @@ latex_to_sympy_and_print(latex_code)
 
 st.markdown("#### Limits:")
 
-st.write(r"The command \limits changes the way the limits are displayed in the integral, if not present the limits would be next to the integral symbol instead of being on top and bottom:")
+st.write(
+    r"The command \limits changes the way the limits are displayed in the integral, if not present the limits would be next to the integral symbol instead of being on top and bottom:"
+)
 latex_code = r"""
 \int\limits_0^1 x^2 + y^2 dx 
 """
@@ -124,7 +134,9 @@ latex_to_sympy_and_print(latex_code)
 
 st.markdown("#### Bracket and Parentheses Sizing:")
 
-st.write(r"The size of brackets and parentheses can be manually set, or they can be resized dynamically")
+st.write(
+    r"The size of brackets and parentheses can be manually set, or they can be resized dynamically"
+)
 latex_code = r"""
 F = G \left( \frac{m_1 m_2}{r^2} \right)
 """
@@ -140,11 +152,25 @@ latex_to_sympy_and_print(latex_code)
 
 st.markdown("#### References")
 
-st.write("Learn LaTeX in 30 Minutes - https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes")
-st.write("Mathematical Expressions - https://www.overleaf.com/learn/latex/Mathematical_expressions")
-st.write("Brackets and Parentheses - https://www.overleaf.com/learn/latex/Brackets_and_Parentheses")
-st.write("Subscripts and Superscripts - https://www.overleaf.com/learn/latex/Subscripts_and_superscripts")
-st.write("Fractions and Binomials - https://www.overleaf.com/learn/latex/Fractions_and_Binomials")
+st.write(
+    "Learn LaTeX in 30 Minutes - https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes"
+)
+st.write(
+    "Mathematical Expressions - https://www.overleaf.com/learn/latex/Mathematical_expressions"
+)
+st.write(
+    "Brackets and Parentheses - https://www.overleaf.com/learn/latex/Brackets_and_Parentheses"
+)
+st.write(
+    "Subscripts and Superscripts - https://www.overleaf.com/learn/latex/Subscripts_and_superscripts"
+)
+st.write(
+    "Fractions and Binomials - https://www.overleaf.com/learn/latex/Fractions_and_Binomials"
+)
 st.write("Operators - https://www.overleaf.com/learn/latex/Operators")
-st.write("LaTeX Symbols - https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols")
-st.write(" - https://gb.mirrors.cicku.me/ctan/info/symbols/comprehensive/symbols-a4.pdf")
+st.write(
+    "LaTeX Symbols - https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols"
+)
+st.write(
+    " - https://gb.mirrors.cicku.me/ctan/info/symbols/comprehensive/symbols-a4.pdf"
+)
