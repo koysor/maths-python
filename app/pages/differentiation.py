@@ -11,6 +11,7 @@ Differentiation is the process of finding the slope or rate of change of a funct
 """
 st.info(summary_differentiation)
 
+
 st.markdown("### Differentiating from First Principles")
 
 col1, col2 = st.columns([4,3])
@@ -20,13 +21,28 @@ with col1:
     the slope of the line between the two points approaches the slope of the tangent line at a particular point on the curve.""")
 
     latex_code = r"""
-    \lim_{h \to 0 } \frac{f(x+h)-f(x)}{h}
+    \frac{dy}{dx} = \lim_{h \to 0 } \frac{f(x+h)-f(x)}{h}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
 with col2:
     st.video("https://www.youtube.com/watch?v=K8bVclWiEoM")
+
+
+st.markdown("### Second Derivative")
+
+col1, col2 = st.columns([4,3])
+
+with col1:
+    st.write("The second derivative is the rate at which the slope or first derivative is changing.")
+    latex_code = r"""
+    \frac{d^2y}{dx^2}
+    """
+    st.latex(latex_code)
+
+with col2:
+    st.video("https://www.youtube.com/watch?v=L9hU4xrhEDs")
 
 
 st.markdown("#### Differentiation Example with Sympy")
@@ -157,7 +173,7 @@ with col1:
     latex_code = r"""
     \frac{du}{dx} = 3x^2 \\
     \frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx} \\
-    = \frac{3x^2}{2\times\sqrt{x^3 + 1}}
+    \frac{dy}{dx} = \frac{3x^2}{2\times\sqrt{x^3 + 1}}
     """
     st.latex(latex_code)
 
@@ -174,6 +190,8 @@ st.write(dy_dx)
     """
     st.code(code_snippet)
     exec(code_snippet)
+
+    st.write("The output from the sympy.diff function is consistent with the workings above but rearranged, e.g. with the 3/2 faction replaced with 1.5 in the numerator.")
 
 with col2:
     st.video("https://www.youtube.com/watch?v=9IAUw5brhf4&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=87&pp=iAQB")
@@ -254,3 +272,14 @@ with col1:
 
 with col2:
     st.video("https://www.youtube.com/watch?v=ao9YmyNTLN4&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=112")
+
+
+st.markdown("#### Partial Derivatives")
+
+col1, col2 = st.columns([4,3])
+
+with col1:
+    pass
+
+with col2:
+    st.video("https://www.youtube.com/watch?v=AXqhWeUEtQU")

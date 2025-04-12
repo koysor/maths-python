@@ -1,12 +1,12 @@
 import streamlit as st
 from sympy.parsing.latex import parse_latex
-from sympy import lambdify, symbols
 
 
 st.set_page_config(layout="wide")
 st.markdown("### LaTeX Examples")
 
-st.markdown("For reference purposes this page contians examples of mathematical notation expressed in LaTeX code.")
+st.write("For reference purposes this page contians examples of mathematical notation expressed in LaTeX code.")
+st.write("The LaTeX code is displayed in a code block, and the rendered LaTeX is displayed below it.")
 
 
 def latex_to_sympy_and_print(latex_code):
@@ -20,6 +20,15 @@ st.markdown("#### The Black-Scholes equation:")
 
 latex_code = r"""
 \frac{\partial V}{\partial t} + \frac{1}{2} \sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - rV = 0
+"""
+latex_to_sympy_and_print(latex_code)
+
+
+st.markdown("#### Itô's Lemma:")
+
+latex_code = r"""
+dX_t = \mu(X_t, t) dt + \sigma(X_t, t) dW_t \\
+df = \left( \frac{\partial f}{\partial t} + \mu \frac{\partial f}{\partial x} + \frac{1}{2} \sigma^2 \frac{\partial^2 f}{\partial x^2} \right) dt + \sigma \frac{\partial f}{\partial x} dW_t.
 """
 latex_to_sympy_and_print(latex_code)
 
