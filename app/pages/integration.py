@@ -102,7 +102,7 @@ with col1:
     pass
 
 with col2:
-    st.video("")
+    st.video("https://www.youtube.com/watch?v=i3uX8VTZz6s&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=104&pp=iAQB")
 
 
 st.markdown("#### Integrating Trigonometric Functions")
@@ -113,7 +113,7 @@ with col1:
     pass
 
 with col2:
-    st.video("")
+    st.video("https://www.youtube.com/watch?v=XKXWTaL8JUY&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=105&pp=iAQB")
 
 
 st.markdown("#### Reverse Chain Rule")
@@ -124,7 +124,7 @@ with col1:
     pass
 
 with col2:
-    st.video("")
+    st.video("https://www.youtube.com/watch?v=q8o5zVQiajM&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=107&pp=iAQB")
 
 
 st.markdown("#### Integration by Substitution")
@@ -135,7 +135,18 @@ with col1:
     pass
 
 with col2:
-    st.video("")
+    st.video("https://www.youtube.com/watch?v=l9s0ROOBocA&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=109&t=204s&pp=iAQB")
+
+
+st.markdown("#### Integration by Parts")
+
+col1, col2 = st.columns([4,3])
+
+with col1:
+    pass
+
+with col2:
+    st.video("https://www.youtube.com/watch?v=_62XWRgZwGA&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=110&pp=iAQB")
 
 
 st.markdown("#### Numerical Integration")
@@ -149,15 +160,7 @@ with col2:
     st.video("")
 
 
-st.markdown("#### ")
 
-col1, col2 = st.columns([4,3])
-
-with col1:
-    pass
-
-with col2:
-    st.video("")
 
 
 st.markdown("#### ")
