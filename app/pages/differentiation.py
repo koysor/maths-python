@@ -220,11 +220,15 @@ st.markdown("#### Differentiating Exponential Functions")
 col1, col2 = st.columns([4, 3])
 
 with col1:
-    function_type = st.radio(label="Function Type:", options=['Exponential', 'Natural Logarithm'])
+    function_type = st.radio(
+        label="Function Type:", options=["Exponential", "Natural Logarithm"]
+    )
     st.write(function_type)
 
-    if function_type == 'Exponential':
-        st.write("The derivative of an exponential function is the same as the function itself.")
+    if function_type == "Exponential":
+        st.write(
+            "The derivative of an exponential function is the same as the function itself."
+        )
         latex_code = r"""
         \frac{d}{dx} (\exp x) = e^x
         """
@@ -244,8 +248,10 @@ st.write(f_derivative)"""
         st.code(code_snippet)
         exec(code_snippet)
 
-    elif function_type == 'Natural Logarithm':
-        st.write("The derivative of a natural logarithm function is the reciprocal of the function.")
+    elif function_type == "Natural Logarithm":
+        st.write(
+            "The derivative of a natural logarithm function is the reciprocal of the function."
+        )
         latex_code = r"""
         \frac{d}{dx} (ln x) = \frac{1}{x}
         """
@@ -277,7 +283,10 @@ col1, col2 = st.columns([4, 3])
 
 with col1:
 
-    trig_function = st.selectbox(label="Trigonometric Function:", options=['sin', 'cos', 'tan', 'csc', 'sec', 'cot'])
+    trig_function = st.selectbox(
+        label="Trigonometric Function:",
+        options=["sin", "cos", "tan", "csc", "sec", "cot"],
+    )
 
     code_snippet = f"""
 import streamlit as st
@@ -294,12 +303,12 @@ st.write('The derivative of {trig_function}(x) is:')
 st.write(f_derivative)
 """
 
-    
-    
     st.code(code_snippet)
     exec(code_snippet)
-    code_snippet += f"st.write('The derivative of {trig_function}(x) is: {f_derivative}')"
-    
+    code_snippet += (
+        f"st.write('The derivative of {trig_function}(x) is: {f_derivative}')"
+    )
+
 
 with col2:
     st.video(
@@ -312,8 +321,12 @@ st.markdown("#### Product Rule")
 col1, col2 = st.columns([4, 3])
 
 with col1:
-    st.write("The Produce Rule allows you to differentiate two functions which are multiplied together.")
-    st.write("An example of a formula that can be differentiated using the Product Rule is:")
+    st.write(
+        "The Produce Rule allows you to differentiate two functions which are multiplied together."
+    )
+    st.write(
+        "An example of a formula that can be differentiated using the Product Rule is:"
+    )
 
     latex_code = r"""
     y = e^x (x^2 - 2)
@@ -379,20 +392,125 @@ st.markdown("#### Quotient Rule")
 col1, col2 = st.columns([4, 3])
 
 with col1:
-    pass
+    st.write(
+        "When one function is divided by another function, the Quotient Rule is used to differentiate them."
+    )
+    st.write("The Golden rule, if:")
+
+    latex_code = r"""
+    y = \frac{u}{v}
+    """
+    st.latex(latex_code)
+
+    st.write("And **u** and **v** are both functions of x, then:")
+
+    latex_code = r"""
+    \frac{dy}{dx} = \frac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2}
+    """
+    st.latex(latex_code)
+
+    st.write("Worked example:")
+    latex_code = r"""
+    y = \frac{\sin 5x}{x^2} \\
+    u = \sin 5x \\
+    v = x^2 \\
+    """
+    st.latex(latex_code)
+
+    st.write("Differentiate **u** and **v** separately.")
+    latex_code = r"""
+    \frac{du}{dx} = 5 \cos 5x \\
+    \frac{dv}{dx} = 2x \\
+    """
+    st.latex(latex_code)
+
+    st.write("Resulting in:")
+    latex_code = r"""
+    \frac{dy}{dx} = \frac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2} \\ 
+    = \frac{x^2(5\cos 5x) - (\sin 5x)(2x)}{(x^2)^2} \\
+    """
+    st.latex(latex_code)
+
+    st.write("The final result is:")
+    latex_code = r"""
+    = \frac{5x \cos 5x - 2 \sin 5x}{x^3}
+    """
+    st.latex(latex_code)
+
 
 with col2:
     st.video(
         "https://www.youtube.com/watch?v=Cj9hiHBt1ss&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=94&t=8s&pp=iAQB"
     )
 
-
 st.markdown("#### Parametric Differentiation")
 
 col1, col2 = st.columns([4, 3])
 
 with col1:
-    pass
+    st.write(
+        """This version of the **Chain Rule** is used to find the derivative of a function that is defined by **parametric equations**."""
+    )
+    st.write(
+        """The formula gives you the derivative **in terms of t** and not in terms of x or y."""
+    )
+    st.write(
+        "You need to know the value of **t** for a particular point on the curve to find the gradient of the curve at that point."
+    )
+
+    st.write("Golden rule:")
+    latex_code = r"""
+    \frac{dy}{dx} = \frac{dy}{dt} \div \frac{dx}{dt}
+    """
+    st.latex(latex_code)
+
+    st.write("Worked example:")
+    latex_code = r"""
+    x = \sin^2t \\
+    y = 2 \tan t \\
+    0 \leq t \geq \frac{\pi}{2}
+    """
+    st.latex(latex_code)
+
+    st.write("In order to find the derivative in terms of t:")
+    latex_code = r"""
+    \frac{dx}{dt} = 2 \sin t \cos t \\
+    \frac{dy}{dt} = 2 \sec^2 t
+    """
+    st.latex(latex_code)
+
+    st.write("Resulting in:")
+    latex_code = r"""
+    \frac{dy}{dx} = \frac{dy}{dt} \div \frac{dx}{dt} = \frac{2\sec^2 t}{2\sin t \cos t} \\
+    = \frac{1}{\sin t \cos^3 t} \\
+    """
+    st.latex(latex_code)
+
+    code_snippet = """
+import streamlit as st
+import sympy as sp
+
+t = sp.symbols('t')
+x = sp.sin(t)**2
+y = 2 * sp.tan(t)
+
+# Differentiate
+dx_dt = sp.diff(x, t)
+dy_dt = sp.diff(y, t)
+
+st.write('The derivative of x with respect to t is:')
+st.write(dx_dt)
+st.write('The derivative of y with respect to t is:')
+st.write(dy_dt)
+st.write('The derivative of y with respect to x is:')
+st.write(dy_dt/dx_dt)
+    """
+    st.code(code_snippet)
+    exec(code_snippet)
+
+    st.write(
+        "The output from the sympy.diff function is consistent with the workings above but rearranged."
+    )
 
 with col2:
     st.video(
