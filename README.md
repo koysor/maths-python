@@ -1,2 +1,3 @@
 # maths-python
-Snippets of Python code useful for mathematics and statistics.
+Snippets of Python code useful for mathematics and statistics demonstrated via a Stream web application at https://maths-python-koysor.streamlit.app/ 
+.
