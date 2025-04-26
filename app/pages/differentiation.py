@@ -14,11 +14,13 @@ st.info(summary_differentiation)
 
 st.markdown("### Differentiating from First Principles")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
-    st.write("""As the distance between two points on a curve approaches zero, 
-    the slope of the line between the two points approaches the slope of the tangent line at a particular point on the curve.""")
+    st.write(
+        """As the distance between two points on a curve approaches zero, 
+    the slope of the line between the two points approaches the slope of the tangent line at a particular point on the curve."""
+    )
 
     latex_code = r"""
     \frac{dy}{dx} = \lim_{h \to 0 } \frac{f(x+h)-f(x)}{h}
@@ -32,10 +34,12 @@ with col2:
 
 st.markdown("### Second Derivative")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
-    st.write("The second derivative is the rate at which the slope or first derivative is changing.")
+    st.write(
+        "The second derivative is the rate at which the slope or first derivative is changing."
+    )
     latex_code = r"""
     \frac{d^2y}{dx^2}
     """
@@ -47,7 +51,9 @@ with col2:
 
 st.markdown("#### Differentiation Example with Sympy")
 
-st.write("The Sympy library is used to perform symbolic differentiation which produces as output an exact formula for the derivative.")
+st.write(
+    "The Sympy library is used to perform symbolic differentiation which produces as output an exact formula for the derivative."
+)
 
 expression = "x^2 + 3x + 5"
 
@@ -76,14 +82,18 @@ st.write(f"Second Derivative: {f_double_prime}")
 st.code(code_snippet)
 exec(code_snippet)
 
-st.write("Note that sp.symbols() tells Sympy to treat x as a mathematical variale or symbol and not as a standard Python variable.")
+st.write(
+    "Note that sp.symbols() tells Sympy to treat x as a mathematical variable or symbol and not as a standard Python variable."
+)
 
 
 st.markdown("#### Differentiation Example Using the Finite Differences Method")
 
-st.write("""You can implement differentiation using the finite differences method.
-    Differentiation using finite differences is a numerical method to approximate the derivative of a function at a particular point based on discreate data points.
-    The difference between the discreate data points should be small to get a good approximation of the tangent line at a particular point.""")
+st.write(
+    """You can implement differentiation using the finite differences method.
+    Differentiation using finite differences is a numerical method to approximate the derivative of a function at a particular point based on discrete data points.
+    The difference between the discrete data points should be small to get a good approximation of the tangent line at a particular point."""
+)
 
 
 code_snippet = """
@@ -130,18 +140,22 @@ st.write(f"The derivative of f(x) at x={x_value[0]} is approximately: {deriv[0]}
 st.code(code_snippet)
 exec(code_snippet)
 
-st.info("""The scipy.optimize.approx_fprime function is used to compute the derivative of a function at a particular point 
+st.info(
+    """The scipy.optimize.approx_fprime function is used to compute the derivative of a function at a particular point 
     using the finite differences method.
     See https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.approx_fprime.html
-    """)
+    """
+)
 
 
 st.markdown("#### The Chain Rule")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
-    st.write("The chain rule is used to differentiate composite functions.  It allows you to differentiate a function nested within another function.")
+    st.write(
+        "The chain rule is used to differentiate **composite functions**.  It allows you to differentiate a function nested within another function.  It is useful because it tells us how changes in the inner function affect the outer function."
+    )
     latex_code = r"""
     y = f(g(x))
     """
@@ -191,92 +205,187 @@ st.write(dy_dx)
     st.code(code_snippet)
     exec(code_snippet)
 
-    st.write("The output from the sympy.diff function is consistent with the workings above but rearranged, e.g. with the 3/2 faction replaced with 1.5 in the numerator.")
+    st.write(
+        "The output from the sympy.diff function is consistent with the workings above but rearranged, e.g. with the 3/2 faction replaced with 1.5 in the numerator."
+    )
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=9IAUw5brhf4&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=87&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=9IAUw5brhf4&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=87&pp=iAQB"
+    )
 
 
 st.markdown("#### Differentiating Exponential Functions")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
     pass
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=MTGKaRwVh7M&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=89&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=MTGKaRwVh7M&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=89&pp=iAQB"
+    )
 
 
-st.markdown("#### Differentiating Trigonometric Functions")
+st.markdown("#### Differentiating Trigonometric Functions:")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
-    pass
+
+    trig_function = st.selectbox(label="Trigonometric Function:", options=['sin', 'cos', 'tan', 'csc', 'sec', 'cot'])
+
+    code_snippet = f"""
+import streamlit as st
+import sympy as sp
+
+x = sp.symbols('x')
+
+# Define the function
+f = sp.{trig_function}(x)
+
+# Differentiate
+f_derivative = sp.diff(f, x)
+st.write('The derivative of {trig_function}(x) is:')
+st.write(f_derivative)
+"""
+
+    
+    
+    st.code(code_snippet)
+    exec(code_snippet)
+    code_snippet += f"st.write('The derivative of {trig_function}(x) is: {f_derivative}')"
+    
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=f7ZDGojBjvE&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=91&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=f7ZDGojBjvE&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=91&pp=iAQB"
+    )
 
 
 st.markdown("#### Product Rule")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
-    pass
+    st.write("The Produce Rule allows you to differentiate two functions which are multiplied together.")
+    st.write("An example of a formula that can be differentiated using the Product Rule is:")
+
+    latex_code = r"""
+    y = e^x (x^2 - 2)
+    """
+    st.latex(latex_code)
+
+    st.write("Where **u** represents the part of the above function:")
+
+    latex_code = r"""
+    u = e^x
+    """
+    st.latex(latex_code)
+
+    st.write("Where **v** represents the part of the above function:")
+
+    latex_code = r"""
+    v = (x^2 - 2)
+    """
+    st.latex(latex_code)
+
+    st.write("The Golden rule is")
+    latex_code = r"""
+    \frac{dy}{dx} = u \cdot \frac{dv}{dx} + v \cdot \frac{du}{dx}
+    """
+    st.latex(latex_code)
+
+    st.write("Worked example:")
+
+    latex_code = r"""
+    y = x^4 \ln 3x
+    """
+    st.latex(latex_code)
+
+    latex_code = r"""
+    u = x^4 \\
+    v = \ln 3x \\
+    """
+    st.latex(latex_code)
+
+    st.write("Differentiate **u** and **v** separately.")
+    latex_code = r"""
+    \frac{du}{dx} = 4x^3 \\ 
+    \frac{dv}{dx} = \frac{1}{x} \\ 
+    """
+    st.latex(latex_code)
+
+    st.write("Resulting in:")
+    latex_code = r"""
+    \frac{dy}{dx} = u \cdot \frac{dv}{dx} + v \cdot \frac{du}{dx} = x^4 \cdot \frac{1}{x} + \ln 3x \cdot 4x^3 \\
+    = x^3 + 4x^3 \ln 3x
+    = x^3(1 + 4 \ln 3x)
+    """
+    st.latex(latex_code)
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=51j5A5JrCwA&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=92&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=51j5A5JrCwA&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=92&pp=iAQB"
+    )
 
 
 st.markdown("#### Quotient Rule")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
     pass
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=Cj9hiHBt1ss&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=94&t=8s&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=Cj9hiHBt1ss&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=94&t=8s&pp=iAQB"
+    )
 
 
 st.markdown("#### Parametric Differentiation")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
     pass
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=wFFaBh2jG-8&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=97&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=wFFaBh2jG-8&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=97&pp=iAQB"
+    )
 
 
 st.markdown("#### Implicit Differentiation")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
     pass
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=FPFrDxl8GxQ&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=98&pp=iAQB")
+    st.video(
+        "https://www.youtube.com/watch?v=FPFrDxl8GxQ&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=98&pp=iAQB"
+    )
 
 
 st.markdown("#### Solving Differential Equations")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
     pass
 
 with col2:
-    st.video("https://www.youtube.com/watch?v=ao9YmyNTLN4&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=112")
+    st.video(
+        "https://www.youtube.com/watch?v=ao9YmyNTLN4&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=112"
+    )
 
 
 st.markdown("#### Partial Derivatives")
 
-col1, col2 = st.columns([4,3])
+col1, col2 = st.columns([4, 3])
 
 with col1:
     pass
