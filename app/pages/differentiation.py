@@ -12,6 +12,17 @@ Differentiation is the process of finding the slope or rate of change of a funct
 st.info(summary_differentiation)
 
 
+st.markdown("### Notation")
+
+st.write("The rate of change of y with respect to x is denoted as:")
+latex_code = r"""
+\frac{dy}{dx}
+"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
+st.write("I.e. how quicky y changes as x changes.")
+
+
 st.markdown("### Differentiating from First Principles")
 
 col1, col2 = st.columns([4, 3])
@@ -56,7 +67,7 @@ with col1:
     """
     st.latex(latex_code)
 
-    n =st.number_input("Enter a value for n:", value=2, step=1)
+    n = st.number_input("Enter a value for n:", value=2, step=1)
 
     code_snippet = f"""
 import streamlit as st
