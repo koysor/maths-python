@@ -37,6 +37,13 @@ df = \left( \frac{\partial f}{\partial t} + \mu \frac{\partial f}{\partial x} + 
 latex_to_sympy_and_print(latex_code)
 
 
+st.markdown("#### Euler's Formula:")
+
+latex_code = r"""
+e^{i\theta} = \cos\theta + i\sin\theta"""
+latex_to_sympy_and_print(latex_code)
+
+
 st.markdown("#### Binomial Coefficient:")
 
 latex_code = r"""
