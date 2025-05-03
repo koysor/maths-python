@@ -5,9 +5,9 @@ st.markdown("### Complex Numbers")
  
 st.write("A **Complex Number** is a number that has two parts.  A real part and an imaginary part.")
 
-co11, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
-with co11:
+with col1:
 
     code_snippet = """
 import streamlit as st
