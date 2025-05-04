@@ -13,6 +13,7 @@ dependencies = [
     "mathml2latex>=0.2.12",
     "matplotlib>=3.10.1",
     "pandas>=2.2.3",
+    "ruff>=0.9.9",
     "scipy>=1.15.2",
     "streamlit>=1.42.2",
     "sympy>=1.13.3",
