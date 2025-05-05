@@ -2,4 +2,4 @@ import streamlit as st
 
 
 st.set_page_config(layout="wide")
-st.markdown("### An application to demonstrate snippets of Python and the use of LaTex for common mathematical operations")
+st.markdown("### Snippets of Python and LaTex Code for Maths")
