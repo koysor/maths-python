@@ -2,7 +2,7 @@ import streamlit as st
 
 
 st.set_page_config(layout="wide")
-st.markdown("### Differentiation")
+st.markdown("### Differentiation Power Rule")
 
 
 st.markdown("#### The Power Rule")
@@ -21,7 +21,7 @@ with col1:
     """
     st.latex(latex_code)
     st.write(
-        """where n is a constant, then the derivative of f(x) with respect to x is given by:"""
+        """where $$n$$ is a constant, then the derivative of $$f(x)$$ with respect to $$x$$ is given by:"""
     )
 
     latex_code = r"""
@@ -39,7 +39,7 @@ x = sp.symbols('x')
 f = x**{n}
 # Differentiate
 f_derivative = sp.diff(f, x)
-st.write('The derivative of x^{n} is:')
+st.write('The derivative of $$x^{n}$$ is:')
 st.write(f_derivative)
 """
     st.code(code_snippet)
