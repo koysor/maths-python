@@ -26,23 +26,33 @@ with col1:
 
     st.write("Worked example:")
     latex_code = r"""
-    y = \frac{\sin 5x}{x^2} \\
-    u = \sin 5x \\
-    v = x^2 \\
+    \begin{align*}
+    y &= \frac{\sin 5x}{x^2} \\
+    ~ \\
+    u &= \sin 5x \\
+    ~ \\
+    v &= x^2 \\
+    \end{align*}
     """
     st.latex(latex_code)
 
     st.write("Differentiate **u** and **v** separately.")
     latex_code = r"""
-    \frac{du}{dx} = 5 \cos 5x \\
-    \frac{dv}{dx} = 2x \\
+    \begin{align*}
+    \frac{du}{dx} &= 5 \cos 5x \\
+    ~ \\
+    \frac{dv}{dx} &= 2x \\
+    \end{align*}
     """
     st.latex(latex_code)
 
     st.write("Resulting in:")
     latex_code = r"""
-    \frac{dy}{dx} = \frac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2} \\ 
-    = \frac{x^2(5\cos 5x) - (\sin 5x)(2x)}{(x^2)^2} \\
+    \begin{align*}
+        \frac{dy}{dx} &= \frac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2} \\ 
+        ~ \\
+        &= \frac{x^2(5\cos 5x) - (\sin 5x)(2x)}{(x^2)^2} \\
+    \end{align*}
     """
     st.latex(latex_code)
 
