@@ -1,8 +1,26 @@
 import streamlit as st
 
 st.set_page_config(layout="wide")
-st.markdown("### Differentiation Parametric")
+st.markdown("### Differentiation of Parametric Equations")
 
+
+st.markdown("##### What is a Parametric Equation?")
+st.write(
+    """A **parametric equation** is an equation that expresses a set of related variables as functions of an **independent variable**, called a parameter - which is often denoted as **$$t$$**.
+    \r\nE.g."""
+)
+
+latex_code = r"""
+x = f(t) \\
+y = g(t) \\
+"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
+
+st.write("These are two **separate functions** that depend on the same parameter **$$t$$**.")
+
+
+st.markdown("#### Differentiating a Parametric Equation")
 
 col1, col2 = st.columns([4, 3])
 
@@ -11,39 +29,52 @@ with col1:
         """This version of the **Chain Rule** is used to find the derivative of a function that is defined by **parametric equations**."""
     )
     st.write(
-        """The formula gives you the derivative **in terms of t** and not in terms of x or y."""
+        """The formula gives you the derivative **in terms of $$t$$** and not in terms of $$x$$ or $$y$$."""
     )
     st.write(
-        "You need to know the value of **t** for a particular point on the curve to find the gradient of the curve at that point."
+        "You need to know the value of **$$t$$** for a particular point on the curve to find the gradient of the curve at that point."
     )
 
     st.write("Golden rule:")
     latex_code = r"""
     \frac{dy}{dx} = \frac{dy}{dt} \div \frac{dx}{dt}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Worked example:")
     latex_code = r"""
     x = \sin^2t \\
+    ~ \\
     y = 2 \tan t \\
+    ~ \\
     0 \leq t \geq \frac{\pi}{2}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-    st.write("In order to find the derivative in terms of t:")
+    st.write("In order to find the derivative in terms of $$t$$:")
     latex_code = r"""
     \frac{dx}{dt} = 2 \sin t \cos t \\
+    ~ \\
     \frac{dy}{dt} = 2 \sec^2 t
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Resulting in:")
     latex_code = r"""
-    \frac{dy}{dx} = \frac{dy}{dt} \div \frac{dx}{dt} = \frac{2\sec^2 t}{2\sin t \cos t} \\
+    \frac{dy}{dx} = \frac{dy}{dt} \div \frac{dx}{dt} \\
+    ~ \\
+    = \frac{2\sec^2 t}{2\sin t \cos t} \\
+    ~ \\
     = \frac{1}{\sin t \cos^3 t} \\
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
+
+
+    st.markdown("### With SymPy")
 
     code_snippet = """
 import streamlit as st
@@ -57,11 +88,11 @@ y = 2 * sp.tan(t)
 dx_dt = sp.diff(x, t)
 dy_dt = sp.diff(y, t)
 
-st.write('The derivative of x with respect to t is:')
+st.write('The derivative of $$x$$ with respect to $$t$$ is:')
 st.write(dx_dt)
-st.write('The derivative of y with respect to t is:')
+st.write('The derivative of $$y$$ with respect to $$t$$ is:')
 st.write(dy_dt)
-st.write('The derivative of y with respect to x is:')
+st.write('The derivative of $$y$$ with respect to $$x$$ is:')
 st.write(dy_dt/dx_dt)
     """
     st.code(code_snippet)
