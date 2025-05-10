@@ -17,15 +17,17 @@ with col1:
     st.code(latex_code, language='latex')
     st.latex(latex_code)
 
-    st.write("Partial derivative with respect to x:")
+    st.write("Partial derivative with respect to $$x$$:")
+    st.write("- Treat $$y$$ as a constant and differentiate with respect to $$x$$.")
     latex_code = r"""
     \frac{\partial f}{\partial x} = 2x + 3y^2
     """
     st.code(latex_code, language='latex')
     st.latex(latex_code)
-    st.write("Partial derivative with respect to y:")
+    st.write("Partial derivative with respect to $$y$$:")
+    st.write("- Treat $$x$$ as a constant and differentiate with respect to $$y$$.")
     latex_code = r"""
-    \frac{\partial f}{\partial y} = x^2 + 6xy
+    \frac{\partial f}{\partial y} = 6xy
     """
     st.code(latex_code, language='latex')
     st.latex(latex_code)
@@ -44,15 +46,15 @@ import streamlit as st
 x, y = sp.symbols('x y')
 
 # Define the function
-f = x**2 * y + 3 * x * y**2
+f = x**2 + 3 * x * y**2
 st.write('Function:', f)
 
 # Compute the partial derivatives
 df_dx = sp.diff(f, x)
 df_dy = sp.diff(f, y)
 
-st.write(r'Partial derivative with respect to x, $$\\frac{\\partial f}{\\partial x} $$:', df_dx)
-st.write(r'Partial derivative with respect to y, $$\\frac{\\partial f}{\\partial y} $$:', df_dy)
+st.write(r'Partial derivative with respect to $$x$$, $$\\frac{\\partial f}{\\partial x} $$:', df_dx)
+st.write(r'Partial derivative with respect to $$y$$, $$\\frac{\\partial f}{\\partial y} $$:', df_dy)
 """
 st.code(code_snippet, language='python')
 exec(code_snippet)
