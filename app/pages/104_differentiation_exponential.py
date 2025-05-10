@@ -44,6 +44,7 @@ st.write(f_derivative)"""
         latex_code = r"""
         \frac{d}{dx} (ln x) = \frac{1}{x}
         """
+        st.code(latex_code, language="latex")
         st.latex(latex_code)
 
         code_snippet = """
@@ -54,7 +55,7 @@ x = sp.symbols('x')
 f = sp.ln(x)
 # Differentiate
 f_derivative = sp.diff(f, x)
-st.write('The derivative of ln(x) is:')
+st.write('The derivative of $$ln(x)$$ is:')
 st.write(f_derivative)"""
 
         st.code(code_snippet)
