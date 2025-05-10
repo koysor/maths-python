@@ -23,7 +23,7 @@ f = sp.{trig_function}(x)
 
 # Differentiate
 f_derivative = sp.diff(f, x)
-st.write('The derivative of {trig_function}(x) is:')
+st.write('The derivative of $${trig_function}(x)$$ is:')
 st.write(f_derivative)
 """
 

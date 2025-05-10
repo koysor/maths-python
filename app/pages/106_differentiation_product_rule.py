@@ -8,7 +8,7 @@ col1, col2 = st.columns([4, 3])
 
 with col1:
     st.write(
-        "The Produce Rule allows you to differentiate two functions which are multiplied together."
+        "The **Product Rule** allows you to differentiate two functions which are multiplied together."
     )
     st.write(
         "An example of a formula that can be differentiated using the Product Rule is:"
@@ -36,7 +36,7 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-    st.write("The Golden rule is")
+    st.write("The **Product Rule** is")
     latex_code = r"""
     \frac{dy}{dx} = u \cdot \frac{dv}{dx} + v \cdot \frac{du}{dx}
     """
