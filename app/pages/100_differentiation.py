@@ -14,13 +14,19 @@ st.info(summary_differentiation)
 
 st.markdown("### Notation")
 
-st.write("The rate of change of y with respect to x is denoted as:")
-latex_code = r"""
-\frac{dy}{dx}
-"""
-st.code(latex_code, language="latex")
-st.latex(latex_code)
-st.write("I.e. how quicky y changes as x changes.")
+col1, col2 = st.columns(2)
+
+with col1:
+    st.write("""For a function $$y(x)$$""")
+
+with col2:
+    st.write("The rate of change of y with respect to x is denoted as:")
+    latex_code = r"""
+    \frac{dy}{dx}
+    """
+    st.code(latex_code, language="latex")
+    st.latex(latex_code)
+    st.write("I.e. how quicky y changes as x changes.")
 
 
 st.markdown("### Differentiating from First Principles")

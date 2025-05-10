@@ -25,14 +25,14 @@ import streamlit as st
 x = sp.symbols('x')
 
 f = x**2 + 3*x + 5
-st.write(f"Function: {f}")
+st.write(f"Function: $${f}$$")
 
 f_prime = sp.diff(f, x)
-st.write(f"Derivative: {f_prime}")
+st.write(f"Derivative: $${f_prime}$$")
 
 f_double_prime = sp.diff(f_prime, x)
 st.write("We differentiate twice to get the second-order derivative.")
-st.write(f"Second Derivative: {f_double_prime}")
+st.write(f"Second Derivative: $${f_double_prime}$$")
 """
 
 st.code(code_snippet)
@@ -65,8 +65,8 @@ def numerical_derivative(func, x, h=1e-5):
 x_value = 1.0
 derivative_at_x = numerical_derivative(f, x_value)
 
-st.write(f"The derivative of f(x) at x={x_value} is approximately: {derivative_at_x}")
-st.write(f"This is consistent with the First Derivative symbol above, {f_prime} .  As 2*(1) + 3 = 5.")
+st.write(f"The derivative of $$f(x)$$ at x={x_value} is approximately: $${derivative_at_x}$$")
+st.write(f"This is consistent with the First Derivative symbol above, $${f_prime}$$ .  \\r\\nAs $$2*(1) + 3 = 5$$.")
 """
 
 st.code(code_snippet)
@@ -85,12 +85,12 @@ def f(x):
 
 x_value = np.array([1.0])
 epsilon = np.sqrt(np.finfo(float).eps)  # Optimal step size for numerical differentiation
-st.write(f"epsilon: {epsilon}")
+st.write(f"epsilon: $${epsilon}$$")
 
 # Compute the derivative
 deriv = approx_fprime(x_value, f, epsilon)
 
-st.write(f"The derivative of f(x) at x={x_value[0]} is approximately: {deriv[0]}")
+st.write(f"The derivative of $$f(x)$$ at $$x={x_value[0]}$$ is approximately: $${deriv[0]}$$")
 """
 
 st.code(code_snippet)

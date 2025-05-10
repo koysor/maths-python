@@ -10,7 +10,7 @@ col1, col2 = st.columns([4, 3])
 with col1:
     summary_integration = """
     Integration is the opposite of differentiation.
-    \nFor a given function f(x), integration is used to find the area under the curve of the function between two points on the x-axis.
+    \nFor a given function $$f(x)$$, integration is used to find the area under the curve of the function between two points on the x-axis.
     """
     st.info(summary_integration)
 

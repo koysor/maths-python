@@ -6,10 +6,10 @@ st.set_page_config(layout="wide")
 st.markdown("### LaTeX Examples")
 
 st.write(
-    "For reference purposes this page contians examples of mathematical notation expressed in LaTeX code."
+    "LaTex is a markup language used for typsetting and often used for presenting mathematical and scientific documents.  \r\nFor reference purposes this page contians examples of mathematical notation expressed in LaTeX code."
 )
 st.write(
-    "The LaTeX code is displayed in a code block, and the rendered LaTeX is displayed below it."
+    "The LaTeX code is displayed in a code block, and the rendered LaTeX output is displayed below it."
 )
 
 
