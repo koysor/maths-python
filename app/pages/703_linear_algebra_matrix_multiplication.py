@@ -32,10 +32,11 @@ st.write(
 )
 
 
-st.markdown("##### Example of Matrix Multiplication")
+st.markdown("##### Example of Matrix Multiplication with SymPy")
 
 utils.display_run_python_snippet(
     code_snippet="""
+import streamlit as st
 from sympy import Matrix, latex                   
 
 A = Matrix( [ [5, -1, 2], [8, 3, -4] ] )
@@ -76,3 +77,23 @@ st.info(
 - 8 * 2 + 3 * (-3) + (-4) * 4 = 16 - 9 - 16 = -9 \r\n
         """
 )
+
+
+st.markdown("##### Example of Matrix Multiplication with NumPy")
+
+utils.display_run_python_snippet(
+    code_snippet="""
+import streamlit as st
+from sympy import latex
+import numpy as np                  
+
+A = [[5, -1, 2], [8, 3, -4]]
+B = [[2, 2], [9, -3], [7, 4]]
+                                 
+C = np.dot(A, B)
+st.write(str(type(C)))
+st.latex(r'C = A * B = ' + latex(C))                                           
+"""
+)
+
+
