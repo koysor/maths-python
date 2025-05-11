@@ -13,7 +13,7 @@ with col1:
     st.write(
         "An example of a formula that can be differentiated using the Product Rule is:"
     )
-    
+
     latex_code = r"""
     y = e^x (x^2 - 2)
     """

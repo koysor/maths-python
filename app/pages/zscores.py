@@ -4,7 +4,9 @@ from scipy.stats import zscore
 st.set_page_config(layout="wide")
 st.markdown("### Z-Scores")
 
-st.write("A Z-score indicates how many standard deviations an element is from the mean.")
+st.write(
+    "A Z-score indicates how many standard deviations an element is from the mean."
+)
 
 st.write("Example:")
 

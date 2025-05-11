@@ -216,12 +216,18 @@ with col2:
         "https://www.youtube.com/watch?v=l9s0ROOBocA&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=109&t=204s&pp=iAQB"
     )
 
-st.info(r"1. Find $$\frac{du}{dx}$$ and write an expression for $$dx$$ in the form $$f(x) ~ du$$.")
+st.info(
+    r"1. Find $$\frac{du}{dx}$$ and write an expression for $$dx$$ in the form $$f(x) ~ du$$."
+)
 st.write(r"$$u = e^{3x}$$")
 st.write("Therefore:")
 st.write(r"$$\frac{du}{dx} = 3e^{3x}$$")
-st.write(r"$$dx$$ is equivalent to $$(\frac{1}{3e^{3x}}) ~ du$$.  Note that $$dx$$ is treated symbolically to be rearranged for substitution.")
-st.write(r"$$(\frac{1}{3e^{3x}}) ~ du$$ is now ex expression in the form of $$f(x) ~ du$$.")
+st.write(
+    r"$$dx$$ is equivalent to $$(\frac{1}{3e^{3x}}) ~ du$$.  Note that $$dx$$ is treated symbolically to be rearranged for substitution."
+)
+st.write(
+    r"$$(\frac{1}{3e^{3x}}) ~ du$$ is now ex expression in the form of $$f(x) ~ du$$."
+)
 
 st.info("2. Swap $$dx$$ for $$f(x) ~ du$$ in the integral and simplify if possible.")
 latex_code = r"""
@@ -251,7 +257,7 @@ st.info("5. Reverse the substitution to get the final answer in terms of x.")
 latex_code = r"""
 = - \frac{1}{3} (e^{3x} + 1)^{-1} + C
 """
-st.code(latex_code, language="latex")       
+st.code(latex_code, language="latex")
 st.latex(latex_code)
 
 
@@ -261,8 +267,10 @@ col1, col2 = st.columns([4, 3])
 
 with col1:
 
-    st.write("Integrations by partys is used to integrate the product of two functions.")
-    
+    st.write(
+        "Integrations by partys is used to integrate the product of two functions."
+    )
+
     latex_code = r"""
     \int u \frac{dv}{dx} \, dx = uv - \int v \frac{du}{dx} \, dx
     """
@@ -272,7 +280,9 @@ with col1:
         "Where $$u$$ and $$v$$ are functions of $$x$$.  The function $$u$$ is chosen to be the function which is easier to differentiate."
     )
     st.write(r"$$u \frac{dv}{dx}$$ is the function which is being integrated.")
-    st.write(r"We must determine which part of the function is $$u$$ and which part is $$\frac{dv}{dx}$$.")
+    st.write(
+        r"We must determine which part of the function is $$u$$ and which part is $$\frac{dv}{dx}$$."
+    )
 
     st.write("Example use integration by parts to find the integral:")
     latex_code = r"""

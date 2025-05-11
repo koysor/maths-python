@@ -34,8 +34,7 @@ x, y, z = sp.symbols('x y z')
 # Create a column vector
 v = sp.Matrix([x, y, z])
 
-print("Vector v:")
-st.write(sp.init_printing(v))
+st.write(v)
 """
 st.code(code_snippet, language="python")
 exec(code_snippet)
@@ -79,7 +78,7 @@ exec(code_snippet)
 st.write("This creates a 2x3 matrix with the specified values.")
 
 st.markdown("### Matrix Operations")
-st.markdown("### Adjoint")
+st.markdown("### Adjoin")
 st.markdown("### Determinants")
 st.markdown("### Eigenvalues and Eigenvectors")
 st.markdown("### Matrix Multiplication")

@@ -17,7 +17,9 @@ y = g(t) \\
 st.code(latex_code, language="latex")
 st.latex(latex_code)
 
-st.write("These are two **separate functions** that depend on the same parameter **$$t$$**.")
+st.write(
+    "These are two **separate functions** that depend on the same parameter **$$t$$**."
+)
 
 
 st.markdown("#### Differentiating a Parametric Equation")
@@ -72,7 +74,6 @@ with col1:
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
-
 
     st.markdown("### With SymPy")
 

@@ -7,14 +7,16 @@ st.markdown("### Partial Differentiation")
 col1, col2 = st.columns([4, 3])
 
 with col1:
-    st.write("**Partial Differentiation** is a technique used in calculus to take the derivative of a multivariable function with respect to one variable while treating the other variables as constants.")
+    st.write(
+        "**Partial Differentiation** is a technique used in calculus to take the derivative of a multivariable function with respect to one variable while treating the other variables as constants."
+    )
 
     st.write("Example:")
 
     latex_code = r"""
     f(x, y) = x^2 + 3xy^2
     """
-    st.code(latex_code, language='latex')
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Partial derivative with respect to $$x$$:")
@@ -22,14 +24,14 @@ with col1:
     latex_code = r"""
     \frac{\partial f}{\partial x} = 2x + 3y^2
     """
-    st.code(latex_code, language='latex')
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
     st.write("Partial derivative with respect to $$y$$:")
     st.write("- Treat $$x$$ as a constant and differentiate with respect to $$y$$.")
     latex_code = r"""
     \frac{\partial f}{\partial y} = 6xy
     """
-    st.code(latex_code, language='latex')
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
 with col2:
@@ -56,5 +58,5 @@ df_dy = sp.diff(f, y)
 st.write(r'Partial derivative with respect to $$x$$, $$\\frac{\\partial f}{\\partial x} $$:', df_dx)
 st.write(r'Partial derivative with respect to $$y$$, $$\\frac{\\partial f}{\\partial y} $$:', df_dy)
 """
-st.code(code_snippet, language='python')
+st.code(code_snippet, language="python")
 exec(code_snippet)

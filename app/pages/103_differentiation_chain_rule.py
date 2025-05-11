@@ -23,7 +23,7 @@ with col1:
     u = g(x) ~~\rightarrow\text~~{the~inner~function} \\
     y = f(u) ~~\rightarrow\text~~{the~outer~function} 
     """
-    st.latex(latex_code)    
+    st.latex(latex_code)
 
     st.write("Then the derivative of $$y$$ with respect to $$x$$ is given by:")
     latex_code = r"""
@@ -32,8 +32,12 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-    st.write("This means that we differentiate the outer function with respect to the inner function and then multiply by the derivative of the inner function with respect to $$x$$.")
-    st.write("This is useful when we have a function that is a composition of two or more functions.")
+    st.write(
+        "This means that we differentiate the outer function with respect to the inner function and then multiply by the derivative of the inner function with respect to $$x$$."
+    )
+    st.write(
+        "This is useful when we have a function that is a composition of two or more functions."
+    )
 
     st.markdown("#### Example:")
     st.write("Substitute the inside function with $$u$$.")

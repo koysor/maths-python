@@ -9,9 +9,9 @@ st.markdown("#### The Power Rule")
 
 
 st.write(
-        """The Power Rule is a basic rule of differentiation that allows you to differentiate polynomial functions.
+    """The Power Rule is a basic rule of differentiation that allows you to differentiate polynomial functions.
     It states that if you have a function of the form:"""
-    )
+)
 
 latex_code = r"""
 f(x) = x^n
@@ -35,7 +35,7 @@ with col1:
 
     n = st.number_input("Enter a value for n:", value=2, step=1)
 
-    code_snippet = fr"""
+    code_snippet = rf"""
 import streamlit as st
 import sympy as sp
 x = sp.symbols('x')
@@ -55,7 +55,9 @@ st.write(f_derivative)
     )
 
 with col2:
-    st.write("The SymPy diff() function can be used to compute derivatives symbolically.")
+    st.write(
+        "The SymPy diff() function can be used to compute derivatives symbolically."
+    )
 
     st.code("simypy.difff(expression, variable, n=1)")
     st.write(

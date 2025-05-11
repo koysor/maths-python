@@ -7,15 +7,19 @@ st.markdown("### Differentiation Implicit")
 col1, col2 = st.columns([4, 3])
 
 with col1:
-    st.write("**Implicit Differentiation** is a technique used to find the derivative of a function which is not explcitly expressed as **$$y = f(x)$$**. Instead, the function is given in an implicit form, such as **$$F(x, y) = 0$$**. In this case, we can use implicit differentiation to find the derivative of **$$y$$** with respect to **$$x$$**.")
+    st.write(
+        "**Implicit Differentiation** is a technique used to find the derivative of a function which is not explcitly expressed as **$$y = f(x)$$**. Instead, the function is given in an implicit form, such as **$$F(x, y) = 0$$**. In this case, we can use implicit differentiation to find the derivative of **$$y$$** with respect to **$$x$$**."
+    )
 
     st.write("**Example:**")
-    st.latex(r"""
+    st.latex(
+        r"""
         \begin{align*}
             x^2 + y^2 &= 25 \\
 
         \end{align*}
-    """)
+    """
+    )
 
     st.write("**Step 1:** Differentiate both sides with respect to **$$x$$**.")
     latex_code = r"""
@@ -40,8 +44,12 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-    st.write("The final result provides the **slope of the tangent line** at any point on the curve defined by the implicit equation. This is useful for finding the slope of curves that are not easily expressed in explicit form.")
-    st.write("**Note:** The implicit differentiation process is similar to the standard differentiation process, but it requires the use of the chain rule when differentiating terms involving **$$y$$**.")
+    st.write(
+        "The final result provides the **slope of the tangent line** at any point on the curve defined by the implicit equation. This is useful for finding the slope of curves that are not easily expressed in explicit form."
+    )
+    st.write(
+        "**Note:** The implicit differentiation process is similar to the standard differentiation process, but it requires the use of the chain rule when differentiating terms involving **$$y$$**."
+    )
 
 with col2:
     st.video(
