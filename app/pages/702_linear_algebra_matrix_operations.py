@@ -11,6 +11,7 @@ st.markdown("##### Matrix Addition")
 
 utils.display_run_python_snippet(
     code_snippet="""
+import streamlit as st
 from sympy import Matrix, latex
 import numpy as np                        
 
@@ -50,6 +51,7 @@ st.markdown("##### Matrix Subtraction")
 
 utils.display_run_python_snippet(
     code_snippet="""
+import streamlit as st
 from sympy import Matrix, latex
 import numpy as np                        
 
@@ -71,6 +73,7 @@ st.markdown("##### Multiply a Matrix by a Scalar")
 
 utils.display_run_python_snippet(
     code_snippet="""
+import streamlit as st
 from sympy import Matrix, latex
 import numpy as np                        
 

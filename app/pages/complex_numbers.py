@@ -25,6 +25,39 @@ st.write('The absolute value is: ', abs(a))
     st.code(code_snippet, language="python")
     exec(code_snippet)
 
+    st.markdown("##### Python cmath library")
+    st.write(
+        "Python has a built-in library called **cmath** that provides functions to work with complex numbers."
+    )
+
+    code_snippet = """
+import streamlit as st
+import cmath
+
+z = 3 + 4j
+
+# Absolute value (modulus)
+st.write(cmath.polar(z))  # (magnitude, phase)
+
+# Phase angle
+st.write(cmath.phase(z))  # Angle in radians
+
+# Convert from polar to rectangular
+r, phi = 2, cmath.pi / 4
+st.write(cmath.rect(r, phi))  # x + yj
+
+# Exponential
+st.write(cmath.exp(z))
+
+# Logarithm
+st.write(cmath.log(z))
+
+# Square root
+st.write(cmath.sqrt(z))
+    """
+    st.code(code_snippet, language="python")
+    exec(code_snippet)
+
 with col2:
 
     code_snippet = """

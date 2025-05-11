@@ -36,6 +36,7 @@ st.markdown("##### Example:")
 
 utils.display_run_python_snippet(
     code_snippet="""
+import streamlit as st
 from sympy import Matrix, latex                   
 
 A = Matrix( [ [6, 5], [1, 2] ] )
