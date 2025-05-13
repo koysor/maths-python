@@ -35,18 +35,10 @@ with col1:
 
     n = st.number_input("Enter a value for n:", value=2, step=1)
 
-    code_snippet = rf"""
-import streamlit as st
-import sympy as sp
-x = sp.symbols('x')
-# Define the function
-f = x**{n}
-# Differentiate
-f_derivative = sp.diff(f, x)
-st.write('The derivative of $$x^{n}$$ is:')
-st.write('$$\\frac{{d}}{{dx}}(x^{n}) = {n} \\cdot x^{{{n}-1}}$$')
-st.write(f_derivative)
-"""
+    with open("app/pages/code_snippets/differentiation_power_rule.py", "r") as f:
+        code_snippet = f.read()
+    code_snippet = code_snippet.replace("n = 2", f"n = {n}")
+
     st.code(code_snippet)
     exec(code_snippet)
 
