@@ -17,4 +17,5 @@ dependencies = [
     "scipy>=1.15.2",
     "streamlit>=1.42.2",
     "sympy>=1.13.3",
+    "ty>=0.0.1a1",
 ]
