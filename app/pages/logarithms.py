@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 st.markdown("### Logarithms")
+
 st.write(
     "Logarithms, or logs, are a way of expressing numbers in terms of their powers."
 )
