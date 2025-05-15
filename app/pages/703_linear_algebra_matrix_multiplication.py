@@ -95,5 +95,3 @@ st.write(str(type(C)))
 st.latex(r'C = A * B = ' + latex(C))                                           
 """
 )
-
-

@@ -18,22 +18,9 @@ f(x) = {expression}
 """
 st.latex(latex_code)
 
-code_snippet = """
-import sympy as sp
-import streamlit as st
 
-x = sp.symbols('x')
-
-f = x**2 + 3*x + 5
-st.write(f"Function: $${f}$$")
-
-f_prime = sp.diff(f, x)
-st.write(f"Derivative: $${f_prime}$$")
-
-f_double_prime = sp.diff(f_prime, x)
-st.write("We differentiate twice to get the second-order derivative.")
-st.write(f"Second Derivative: $${f_double_prime}$$")
-"""
+with open("app/pages/code_snippets/differentiation_sympy.py", "r") as f:
+    code_snippet = f.read()
 
 st.code(code_snippet)
 exec(code_snippet)
@@ -52,46 +39,23 @@ st.write(
 )
 
 
-code_snippet = """
-import streamlit as st
-
-def f(x):
-    return x**2 + 3*x + 5
-
-def numerical_derivative(func, x, h=1e-5):
-    return (func(x + h) - func(x - h)) / (2 * h)
-
-# Choose a point to evaluate the derivative
-x_value = 1.0
-derivative_at_x = numerical_derivative(f, x_value)
-
-st.write(f"The derivative of $$f(x)$$ at x={x_value} is approximately: $${derivative_at_x}$$")
-st.write(f"This is consistent with the First Derivative symbol above, $${f_prime}$$ .  \\r\\nAs $$2*(1) + 3 = 5$$.")
-"""
+with open("app/pages/code_snippets/differentiation_finite_differences.py", "r") as f:
+    code_snippet = f.read()
 
 st.code(code_snippet)
 exec(code_snippet)
 
+st.write(
+    "This is consistent with the First Derivative symbol above, $$2x + 3$$ .  \\r\\nAs $$2*(1) + 3 = 5$$."
+)
+
 
 st.markdown("#### Differentiation Example Using SciPy")
 
-code_snippet = """
-import streamlit as st
-import numpy as np
-from scipy.optimize import approx_fprime
-
-def f(x):
-    return x[0]**2 + 3*x[0] + 5  # Function expects an array input
-
-x_value = np.array([1.0])
-epsilon = np.sqrt(np.finfo(float).eps)  # Optimal step size for numerical differentiation
-st.write(f"epsilon: $${epsilon}$$")
-
-# Compute the derivative
-deriv = approx_fprime(x_value, f, epsilon)
-
-st.write(f"The derivative of $$f(x)$$ at $$x={x_value[0]}$$ is approximately: $${deriv[0]}$$")
-"""
+with open(
+    "app/pages/code_snippets/differentiation_scipy.py", "r"
+) as f:  
+    code_snippet = f.read()  # Read the content of the file
 
 st.code(code_snippet)
 exec(code_snippet)
