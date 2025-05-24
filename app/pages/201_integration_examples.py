@@ -14,16 +14,8 @@ st.latex(latex_code)
 
 st.write("The SymPy library in Python can be used...")
 
-code_snippet = """
-from sympy import symbols, integrate
-
-x = symbols("x")
-
-f = 6*x + 1
-
-# Calculate the definite integral from 2 to 5
-st.write(integrate(f, (x, 2, 5)))
-"""
+with open("app/pages/code_snippets/integration.py", "r") as f:
+    code_snippet = f.read()
 
 st.code(code_snippet)
 exec(code_snippet)

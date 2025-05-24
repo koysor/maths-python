@@ -2,7 +2,7 @@ import streamlit as st
 
 
 st.set_page_config(layout="wide")
-st.markdown("####Integration by Substitution")
+st.markdown("### Integration by Substitution")
 
 
 col1, col2 = st.columns([4, 3])
