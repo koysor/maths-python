@@ -32,6 +32,7 @@ st.write("Rule to integrate terms which are written in the form of $$ax^n$$:")
 latex_code = r"""
 \int ax^n \,dx = \frac{a}{n+1}x^{n+1} + C
 """
+st.code(latex_code, language="latex")
 st.latex(latex_code)
 st.write("$$\int$$ is the symbol for integration.")
 st.write("We increase the power of x by 1 and then divide by the new power.")
@@ -47,26 +48,29 @@ st.write("Working example of indefinite integration:")
 latex_code = r"""
 \int 6x + 1 \,dx \\
 """
+st.code(latex_code, language="latex")
 st.latex(latex_code)
 
 st.write("We can split the integral into two parts:")
-st.latex(
-    r"""
+latex_code = r"""
 \int 6x \,dx = \frac{6}{1+1}x^{1+1} \\
-= 3x^2       
-"""
-)
+~\\
+= 3x^2"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
 
-st.latex(
-    r"""
+latex_code = r"""
 \int 1 \,dx = x \\
 """
-)
+st.code(latex_code, language="latex")
+st.latex(latex_code)
 
 latex_code = r"""
 \frac{6}{1+1}x^{1+1} + 1 + C \\
+~\\
 = 3x^2 + x + C  
 """
+st.code(latex_code, language="latex")
 st.latex(latex_code)
 
 
@@ -83,6 +87,7 @@ with col1:
     latex_code = """
     \int_{2}^{5} (6x + 1) \,dx
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write(
@@ -92,13 +97,19 @@ with col1:
     latex_code = """
     = [3x^2 + x]_2^5
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     latex_code = r"""
-    = (3 \times 5^2 + 5) - (3 \times 2^2 + 2)
-    = 80 - 14
-    = 66
+    \begin{align*}
+        &= (3 \times 5^2 + 5) - (3 \times 2^2 + 2) \\
+        ~ \\
+        &= 80 - 14 \\
+        ~ \\
+        &= 66
+    \end{align*}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("")
