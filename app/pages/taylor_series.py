@@ -18,7 +18,7 @@ st.code(latex_code, language="latex")
 st.latex(latex_code)
 st.write("Where:")
 st.write(
-    "- \(f^{(n)}(a)\) is the nth derivative of the function evaluated at the point \(a\)."
+    r"- $$f^{(n)}(a)$$ is the nth derivative of the function evaluated at the point $$(a)$$."
 )
 st.write("- \(n!\) is the factorial of \(n\).")
 st.write("- \(x\) is the variable.")
