@@ -52,23 +52,30 @@ st.code(latex_code, language="latex")
 st.latex(latex_code)
 
 st.write("We can split the integral into two parts:")
+st.write("Term 1:")
 latex_code = r"""
-\int 6x \,dx = \frac{6}{1+1}x^{1+1} \\
-~\\
-= 3x^2"""
+\begin{align*}
+    \int 6x \,dx &= \frac{6}{1+1}x^{1+1} \\
+    ~\\
+    &= 3x^2
+\end{align*}"""
 st.code(latex_code, language="latex")
 st.latex(latex_code)
 
+st.write("Term 2:")
 latex_code = r"""
 \int 1 \,dx = x \\
 """
 st.code(latex_code, language="latex")
 st.latex(latex_code)
 
+st.write("Combine the two terms and add the constant of integration C:")
 latex_code = r"""
-\frac{6}{1+1}x^{1+1} + 1 + C \\
+\begin{align*}
+&= \frac{6}{1+1}x^{1+1} + x + C \\
 ~\\
-= 3x^2 + x + C  
+&= 3x^2 + x + C
+\end{align*}
 """
 st.code(latex_code, language="latex")
 st.latex(latex_code)
