@@ -3,7 +3,7 @@ from sympy import symbols, diff
 
 
 x = symbols("x")
-y = (x**3 + 1)**(1/2)
+y = (x**3 + 1) ** (1 / 2)
 
 # Compute the derivative using chain rule
 dy_dx = diff(y, x)
