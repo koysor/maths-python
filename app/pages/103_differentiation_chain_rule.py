@@ -27,7 +27,11 @@ with col1:
 
     st.write("Then the derivative of $$y$$ with respect to $$x$$ is given by:")
     latex_code = r"""
-    \frac{dy}{dx} = \frac{df}{du} \cdot \frac{du}{dx} = f'(g(x)) \cdot g'(x) \\
+    \begin{align*}
+    \frac{dy}{dx} &= \frac{df}{du} \cdot \frac{du}{dx} \\
+    \\
+    &= f'(g(x)) \cdot g'(x) \\
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
@@ -42,9 +46,11 @@ with col1:
     st.markdown("#### Example:")
     st.write("Substitute the inside function with $$u$$.")
     latex_code = r"""
-    y = \sqrt{x^3 + 1} \\
-    u = x^3 + 1 \\
-    y = \sqrt{u} = u^{1/2}
+    \begin{align*}
+        y &= \sqrt{x^3 + 1} \\
+        u &= x^3 + 1 \\
+        y &= \sqrt{u} = u^{1/2}
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
@@ -58,17 +64,21 @@ with col1:
 
     st.write("Replace $$u$$ with the inside function.")
     latex_code = r"""
-    \frac{dy}{du} = \frac{1}{2}(x^3 + 1)^{-1/2} \\
-    = \frac{1}{2\times\sqrt{x^3 + 1}}
+    \begin{align*}
+        \frac{dy}{du} &= \frac{1}{2}(x^3 + 1)^{-1/2} \\
+        &= \frac{1}{2\times\sqrt{x^3 + 1}}
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Multiply the result by the derivative of $$u$$.")
     latex_code = r"""
-    \frac{du}{dx} = 3x^2 \\
-    \frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx} \\
-    \frac{dy}{dx} = \frac{3x^2}{2\times\sqrt{x^3 + 1}}
+    \begin{align*}
+        \frac{du}{dx} &= 3x^2 \\
+        \frac{dy}{dx} &= \frac{dy}{du} \times \frac{du}{dx} \\
+        \frac{dy}{dx} &= \frac{3x^2}{2\times\sqrt{x^3 + 1}}
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
@@ -80,7 +90,7 @@ with col1:
     exec(code_snippet)
 
     st.write(
-        "The output from the sympy.diff function is consistent with the workings above but rearranged, e.g. with the 3/2 faction replaced with 1.5 in the numerator."
+        "The output from the sympy.diff function is consistent with the workings above but rearranged, e.g. with the 3/2 fraction replaced with 1.5 in the numerator."
     )
 
 with col2:
