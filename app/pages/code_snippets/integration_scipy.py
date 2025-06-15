@@ -13,6 +13,7 @@ b = 5  # upper limit
 result, error = quad(f, a, b)
 
 st.write("Integral:", result)
+st.write("Estimated error:", error)
 
 st.info(
     "SciPy's `quad` function computes the definite integral of a function over a specified interval. The result is the area under the curve of the function between the limits of integration. \
