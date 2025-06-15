@@ -73,17 +73,9 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-    code_snippet = """
-from sympy import symbols, diff
-
-x = symbols("x")
-y = (x**3 + 1)**(1/2)
-
-# Compute the derivative using chain rule
-dy_dx = diff(y, x)
-
-st.write(dy_dx)
-    """
+    with open("app/pages/code_snippets/differentiation_chain_rule.py", "r") as f:
+        code_snippet = f.read()
+    
     st.code(code_snippet)
     exec(code_snippet)
 

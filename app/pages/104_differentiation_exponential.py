@@ -23,16 +23,8 @@ with col1:
         st.code(latex_code, language="latex")
         st.latex(latex_code)
 
-        code_snippet = """
-import streamlit as st
-import sympy as sp
-x = sp.symbols('x')
-# Define the function
-f = sp.exp(x)
-# Differentiate
-f_derivative = sp.diff(f, x)
-st.write('The derivative of $$e^x$$ is:')
-st.write(f_derivative)"""
+        with open("app/pages/code_snippets/differentiation_exponential.py", "r") as f:
+            code_snippet = f.read()
 
         st.code(code_snippet)
         exec(code_snippet)
@@ -47,16 +39,8 @@ st.write(f_derivative)"""
         st.code(latex_code, language="latex")
         st.latex(latex_code)
 
-        code_snippet = """
-import streamlit as st
-import sympy as sp
-x = sp.symbols('x')
-# Define the function
-f = sp.ln(x)
-# Differentiate
-f_derivative = sp.diff(f, x)
-st.write('The derivative of $$ln(x)$$ is:')
-st.write(f_derivative)"""
+        with open("app/pages/code_snippets/differentiation_natural_logarithm.py", "r") as f:
+            code_snippet = f.read()
 
         st.code(code_snippet)
         exec(code_snippet)

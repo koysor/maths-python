@@ -51,7 +51,7 @@ with col2:
         "The SymPy diff() function can be used to compute derivatives symbolically."
     )
 
-    st.code("simypy.difff(expression, variable, n=1)")
+    st.code("simypy.diff(expression, variable, n=1)")
     st.write(
         "Where expression is the expression to differentiate, variable is the variable with respect to which to differentiate, and n is the order of the derivative."
     )

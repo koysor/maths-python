@@ -15,6 +15,7 @@ with col1:
     latex_code = r"""
     y = \frac{u}{v}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("And **u** and **v** are both functions of x, then:")
@@ -22,6 +23,7 @@ with col1:
     latex_code = r"""
     \frac{dy}{dx} = \frac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Worked example:")
@@ -34,6 +36,7 @@ with col1:
     v &= x^2 \\
     \end{align*}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Differentiate **u** and **v** separately.")
@@ -44,6 +47,7 @@ with col1:
     \frac{dv}{dx} &= 2x \\
     \end{align*}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Resulting in:")
@@ -54,12 +58,14 @@ with col1:
         &= \frac{x^2(5\cos 5x) - (\sin 5x)(2x)}{(x^2)^2} \\
     \end{align*}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("The final result is:")
     latex_code = r"""
     = \frac{5x \cos 5x - 2 \sin 5x}{x^3}
     """
+    st.code(latex_code, language="latex")
     st.latex(latex_code)
 
 
@@ -67,3 +73,10 @@ with col2:
     st.video(
         "https://www.youtube.com/watch?v=Cj9hiHBt1ss&list=PLHnDkwDE03A88Tj3mrg_LRpUWqyVipHkM&index=94&t=8s&pp=iAQB"
     )
+
+
+st.markdown("##### Alternatively use the Power Rule")
+
+latex_code = r"""u = \frac {3}{x} = 3x^{-1}"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
