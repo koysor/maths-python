@@ -40,23 +40,8 @@ with col2:
 
 st.markdown("### Using SymPy")
 
-code_snippet = """
-import sympy as sp
-import streamlit as st
+with open("app/pages/code_snippets/differentiation_partial.py", "r") as f:
+    code_snippet = f.read()
 
-# Define the variables
-x, y = sp.symbols('x y')
-
-# Define the function
-f = x**2 + 3 * x * y**2
-st.write('Function:', f)
-
-# Compute the partial derivatives
-df_dx = sp.diff(f, x)
-df_dy = sp.diff(f, y)
-
-st.write(r'Partial derivative with respect to $$x$$, $$\\frac{\\partial f}{\\partial x} $$:', df_dx)
-st.write(r'Partial derivative with respect to $$y$$, $$\\frac{\\partial f}{\\partial y} $$:', df_dy)
-"""
 st.code(code_snippet, language="python")
 exec(code_snippet)
