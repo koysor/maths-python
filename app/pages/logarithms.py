@@ -36,3 +36,30 @@ with col2:
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
+
+
+st.markdown("### Laws of Logarithms")
+
+latex_code = r"""
+\log_a{x} + \log_a{y} = \log_a{(x \cdot y)}
+"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
+
+latex_code = r"""
+\log_a{x} - \log_a{y} = \log_a{(\frac{x}{y})}
+"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
+
+latex_code = r"""
+\log_a{\frac{1}{x}} = -\log_a{x}
+"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
+
+latex_code = r"""
+\log_a{x^n} = n\log_a{x}
+"""
+st.code(latex_code, language="latex")
+st.latex(latex_code)
