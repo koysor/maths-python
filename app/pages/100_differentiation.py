@@ -45,6 +45,12 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
+    st.info("**Constant** terms differentiate to **zero**. \r\n" \
+    r"$$f(x) = 79 \rightarrow f'(x) = 0$$")
+
+    st.info("**$$X$$** terms differentiate to **a constant**. \r\n" \
+    r"$$f(x) = 5x + 1 \rightarrow f'(x) = 5$$")
+
 with col2:
     st.video("https://www.youtube.com/watch?v=K8bVclWiEoM")
 

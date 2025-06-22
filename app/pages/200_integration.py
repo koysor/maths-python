@@ -9,7 +9,7 @@ col1, col2 = st.columns([4, 3])
 
 with col1:
     summary_integration = """
-    Integration is the opposite of differentiation.
+    Integration is the **opposite** of differentiation.
     \nFor a given function $$f(x)$$, integration is used to find the area under the curve of the function between two points on the x-axis.
     """
     st.info(summary_integration)
@@ -46,7 +46,7 @@ st.latex(latex_code)
 st.write("$$\int$$ is the symbol for integration.")
 st.write("We increase the power of x by 1 and then divide by the new power.")
 st.write(
-    "Add C which is the constant of integration.  When we differentiate, any constant terms will disapper.  Therefore many functions have the same derivative."
+    "Add $$C$$ which is the constant of integration.  When we differentiate, any constant terms will disapper.  Therefore many functions have the same derivative."
 )
 st.write(
     "When we integrate, we need to add a constant term to the function to account for this."
