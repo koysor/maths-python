@@ -52,26 +52,37 @@ with col1:
     st.latex(latex_code)
 
     latex_code = r"""
-    u = x^4 \\
-    v = \ln 3x \\
+    \begin{align*}
+        u &= x^4 \\
+        \\
+        v &= \ln 3x \\
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Differentiate **u** and **v** separately.")
     latex_code = r"""
-    \frac{du}{dx} = 4x^3 \\ 
-    \frac{dv}{dx} = \frac{1}{x} \\ 
+    \begin{align*}
+        \frac{du}{dx} &= 4x^3 \\ 
+        \\
+        \frac{dv}{dx} &= \frac{1}{x} \\ 
+        \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
     st.write("Resulting in:")
     latex_code = r"""
-    \frac{dy}{dx} = u \cdot \frac{dv}{dx} + v \cdot \frac{du}{dx} \\
-    = x^4 \cdot \frac{1}{x} + \ln 3x \cdot 4x^3 \\
-    = x^3 + 4x^3 \ln 3x
-    = x^3(1 + 4 \ln 3x)
+    \begin{align*}
+        \frac{dy}{dx} &= u \cdot \frac{dv}{dx} + v \cdot \frac{du}{dx} \\
+        \\
+        &= x^4 \cdot \frac{1}{x} + \ln 3x \cdot 4x^3 \\
+        \\
+        &= x^3 + 4x^3 \ln 3x \\
+        \\
+        &= x^3(1 + 4 \ln 3x)
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)

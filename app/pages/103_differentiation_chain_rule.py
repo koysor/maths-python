@@ -28,9 +28,9 @@ with col1:
     st.write("Then the derivative of $$y$$ with respect to $$x$$ is given by:")
     latex_code = r"""
     \begin{align*}
-    \frac{dy}{dx} &= \frac{df}{du} \cdot \frac{du}{dx} \\
-    \\
-    &= f'(g(x)) \cdot g'(x) \\
+        \frac{dy}{dx} &= \frac{dy}{du} \cdot \frac{du}{dx} \\
+        \\
+        &= f'(g(x)) \cdot g'(x) \\
     \end{align*}
     """
     st.code(latex_code, language="latex")
@@ -82,6 +82,9 @@ with col1:
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
+
+
+    st.markdown("#### Example with SymPy")
 
     with open("app/pages/code_snippets/differentiation_chain_rule.py", "r") as f:
         code_snippet = f.read()
