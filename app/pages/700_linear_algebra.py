@@ -16,9 +16,9 @@ st.write("A vector in 2D space can be represented as:")
 latex_code = r"""
 \vec{v} = 
 \begin{bmatrix}
-x \\
-y \\
-z
+    x \\
+    y \\
+    z
 \end{bmatrix}
 """
 st.code(latex_code, language="latex")
@@ -48,8 +48,8 @@ st.write(
 latex_code = r"""
 M =
 \begin{bmatrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
 \end{bmatrix}
 """
 st.code(latex_code, language="latex")
@@ -59,8 +59,8 @@ st.write("For example, a 2x3 matrix has 2 rows and 3 columns:")
 latex_code = r"""
 A =
 \begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6
+    1 & 2 & 3 \\
+    4 & 5 & 6
 \end{bmatrix}
 """
 st.code(latex_code, language="latex")
