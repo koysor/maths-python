@@ -22,11 +22,15 @@ with col2:
 
 st.markdown("####  Indefinite and Definite Integration")
 
-st.write("In **Indefinite Integration**, the purpose is to find a general form of the original function whose derivative is the integrand.  " \
-"No limits of integration are specified and the result is a function plus a constant of integration, $$C$$.")
+st.write(
+    "In **Indefinite Integration**, the purpose is to find a general form of the original function whose derivative is the integrand.  "
+    "No limits of integration are specified and the result is a function plus a constant of integration, $$C$$."
+)
 
-st.write("In **Definite Integration**, No $$+ C$$ is added, because the constant of integration is not needed.  " \
-"Limits of integration are given and the result is a number, representing the area under the curve between those limits.")
+st.write(
+    "In **Definite Integration**, No $$+ C$$ is added, because the constant of integration is not needed.  "
+    "Limits of integration are given and the result is a number, representing the area under the curve between those limits."
+)
 
 
 st.markdown("#### Indefinite Integration")

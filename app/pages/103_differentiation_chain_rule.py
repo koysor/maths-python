@@ -83,12 +83,11 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-
     st.markdown("#### Example with SymPy")
 
     with open("app/pages/code_snippets/differentiation_chain_rule.py", "r") as f:
         code_snippet = f.read()
-    
+
     st.code(code_snippet)
     exec(code_snippet)
 

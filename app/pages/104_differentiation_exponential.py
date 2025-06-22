@@ -39,7 +39,9 @@ with col1:
         st.code(latex_code, language="latex")
         st.latex(latex_code)
 
-        with open("app/pages/code_snippets/differentiation_natural_logarithm.py", "r") as f:
+        with open(
+            "app/pages/code_snippets/differentiation_natural_logarithm.py", "r"
+        ) as f:
             code_snippet = f.read()
 
         st.code(code_snippet)

@@ -32,9 +32,7 @@ st.write(
 
 st.markdown("#### Differentiation Example Using SciPy")
 
-with open(
-    "app/pages/code_snippets/differentiation_scipy.py", "r"
-) as f:  
+with open("app/pages/code_snippets/differentiation_scipy.py", "r") as f:
     code_snippet = f.read()  # Read the content of the file
 
 st.code(code_snippet)
