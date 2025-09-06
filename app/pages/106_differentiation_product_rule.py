@@ -67,7 +67,7 @@ with col1:
         \frac{du}{dx} &= 4x^3 \\ 
         \\
         \frac{dv}{dx} &= \frac{1}{x} \\ 
-        \end{align*}
+    \end{align*}
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
