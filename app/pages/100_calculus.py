@@ -17,7 +17,7 @@ table_md = """
 | Quotient Rule         | $\\frac{d}{dx}\\left[\\frac{f}{g}\\right] = \\frac{f'g - fg'}{g^2}$ | No simple rule                                | No clean inverse                  |
 | Chain Rule            | $\\frac{d}{dx}[f(g(x))] = f'(g(x)) \\cdot g'(x)$    | Use $u$-substitution                                          | Reverse of chain rule              |
 | Exponential Rule      | $\\frac{d}{dx}[e^x] = e^x$                           | $\\int e^x\\,dx = e^x + C$                                   | Perfect inverse                    |
-| Logarithmic Rule      | $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$              | $\\int \\frac{1}{x} \\,dx = \\ln|x| + C$                       | Inverse with absolute value        |
+| Logarithmic Rule      | $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$              | $\\int \\frac{1}{x}\\,dx = \\ln\\vert x\\vert + C$ | Inverse with absolute value        |
 | Trig Rule (sin)       | $\\frac{d}{dx}[\\sin x] = \\cos x$                  | $\\int \\cos x\\,dx = \\sin x + C$                           | Direct inverse                     |
 | Trig Rule (cos)       | $\\frac{d}{dx}[\\cos x] = -\\sin x$                 | $\\int \\sin x\\,dx = -\\cos x + C$                          | Direct inverse                     |
 | Trig Rule (tan)       | $\\frac{d}{dx}[\\tan x] = \\sec^2 x$                | $\\int \\sec^2 x\\,dx = \\tan x + C$                         | Direct inverse                     |
