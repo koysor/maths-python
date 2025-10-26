@@ -16,7 +16,7 @@ st.latex(latex_code)
 
 st.write("The SymPy library in Python can be used...")
 
-with open("app/pages/code_snippets/integration.py", "r") as f:
+with open("app/pages/code_snippets/integration_sympy.py", "r") as f:
     code_snippet = f.read()
 
 st.code(code_snippet)
