@@ -173,10 +173,10 @@ A = np.array([[4, 2], [1, 3]])
 eigenvals, eigenvecs = np.linalg.eig(A)
 
 st.write("Eigenvalues:")
-st.write(eigenvals)
+st.latex(latex(Matrix(eigenvals))) 
 
 st.write("Eigenvectors (as columns):")
-st.write(eigenvecs)
+st.latex(latex(Matrix(eigenvecs)))      
 
 st.write("Eigenvalues as LaTeX:")
 st.latex(r'\lambda_1 = ' + str(eigenvals[0]))
