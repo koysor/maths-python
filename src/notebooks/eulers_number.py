@@ -9,12 +9,14 @@ def _():
     import marimo as mo
     import numpy as np
     import matplotlib.pyplot as plt
+
     return mo, np, plt
 
 
 @app.cell
 def _(mo):
-    mo.md(r"""
+    mo.md(
+        r"""
     ### Euler's Number
 
     The number $e$ in mathematics is a fundamental mathematical constant approximately equal to 2.71828.  It is the base of the natural logarithm and the natural exponential function.
@@ -25,15 +27,18 @@ def _(mo):
 
     The function $y = e^x$ has a slope of 1 at $x = 0$ .
     The gradient of the function $e^x$ is also $e^x$.
-    """)
+    """
+    )
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(r"""
+    mo.md(
+        r"""
     ### $x$ against $e^x$
-    """)
+    """
+    )
     return
 
 
@@ -45,10 +50,10 @@ def _(np, plt):
 
     # Create the plot
     fig, ax = plt.subplots(figsize=(8, 5))
-    ax.plot(x, y, label='$e^x$')
-    ax.set_xlabel('x')
-    ax.set_ylabel('$e^x$')
-    ax.set_title('Plot of x vs $e^x$')
+    ax.plot(x, y, label="$e^x$")
+    ax.set_xlabel("x")
+    ax.set_ylabel("$e^x$")
+    ax.set_title("Plot of x vs $e^x$")
     ax.grid(True)
     ax.legend()
     fig.tight_layout()
