@@ -6,6 +6,16 @@ import utils
 st.set_page_config(layout="wide")
 st.markdown("### Linear Algebra Matrix Multiplication")
 
+st.markdown("##### Summary")
+
+st.write(
+    """
+Unlike scalar multiplication (multiplying a matrix by a number), matrix multiplication combines two matrices
+to produce a new matrix by computing dot products of rows and columns. This operation allows us to compose
+transformations, model relationships between variables, and perform complex calculations efficiently.
+"""
+)
+
 
 st.markdown("##### Matrix Multiplication")
 

@@ -69,20 +69,11 @@ st.write("A matrix can also be represented as a list of lists in Python:")
 code_snippet = """
 import streamlit as st
 import numpy as np
+from sympy import Matrix, latex
 
 A = np.array([[1, 2, 3], [4, 5, 6]])
-st.write(A)
+st.latex(latex(Matrix(A)))   
 """
 st.code(code_snippet, language="python")
 exec(code_snippet)
 st.write("This creates a 2x3 matrix with the specified values.")
-
-st.markdown("### Matrix Operations")
-st.markdown("### Adjoin")
-st.markdown("### Determinants")
-st.markdown("### Eigenvalues and Eigenvectors")
-st.markdown("### Matrix Multiplication")
-st.markdown("### Matrix Inversion")
-st.markdown("### Linear Transformations")
-st.markdown("### Covariance Matrices")
-st.markdown("### Applications of Linear Algebra")

@@ -11,6 +11,12 @@ st.write(
     "The determinant is a **scalar value** that can be computed from the elements of a **square matrix**. It provides important properties of the matrix, such as whether it is **invertible**."
 )
 
+st.write(
+    """
+Knowing the determinant is important because it reveals whether a system of linear equations has a unique solution and whether transformations preserve or distort space. In quantitative finance, determinants are used in portfolio optimization to assess the covariance matrix's invertibility when computing minimum variance portfolios, and in risk management to detect multicollinearity (when variables are highly correlated with each other) among risk factors which can lead to unstable hedging strategies.
+"""
+)
+
 st.write("The determinant of a 2x2 matrix is calculated as follows:")
 st.latex(
     r"M = "

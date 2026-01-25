@@ -25,8 +25,8 @@ C = A + B
 st.latex(r'C = A + B = ' + latex(C))
 
 C_np = np.array(C).astype(np.float64)
-st.write("C as numpy array:")  
-st.write(C_np)                                                  
+st.write("C as numpy array:")
+st.latex(latex(Matrix(C_np)))                                                  
 """
 )
 
@@ -75,12 +75,45 @@ utils.display_run_python_snippet(
     code_snippet="""
 import streamlit as st
 from sympy import Matrix, latex
-import numpy as np                        
+import numpy as np
 
 A = Matrix([[1, 2], [-1, 0]])
 st.latex(r'A = ' + latex(A))
-                                 
+
 C = 2*A
-st.latex(r'C = 2A = ' + latex(C))                                                
+st.latex(r'C = 2A = ' + latex(C))
+"""
+)
+
+st.info(
+    """
+Multiply each element by the scalar:
+- Top row: 2×1 = 2, 2×2 = 4
+- Bottom row: 2×(-1) = -2, 2×0 = 0
+"""
+)
+
+
+st.markdown("##### Multiply a Matrix by a Scalar (0.5)")
+
+utils.display_run_python_snippet(
+    code_snippet="""
+import streamlit as st
+from sympy import Matrix, latex
+import numpy as np
+
+A = Matrix([[4, 6], [8, 10]])
+st.latex(r'A = ' + latex(A))
+
+C = 0.5*A
+st.latex(r'C = 0.5A = ' + latex(C))
+"""
+)
+
+st.info(
+    """
+Multiply each element by 0.5:
+- Top row: 0.5×4 = 2, 0.5×6 = 3
+- Bottom row: 0.5×8 = 4, 0.5×10 = 5
 """
 )
