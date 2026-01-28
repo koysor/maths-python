@@ -29,9 +29,6 @@ st.write(f_derivative)
 
     st.code(code_snippet)
     exec(code_snippet)
-    code_snippet += (
-        f"st.write('The derivative of {trig_function}(x) is: {f_derivative}')"
-    )
 
 
 with col2:

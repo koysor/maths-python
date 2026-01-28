@@ -1,4 +1,7 @@
 import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
 
 
 st.set_page_config(layout="wide")
@@ -70,11 +73,6 @@ with col2:
     """
     )
 
-
-import streamlit as st
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import norm
 
 # Streamlit UI
 st.title("Normal Distribution with Shaded Area")

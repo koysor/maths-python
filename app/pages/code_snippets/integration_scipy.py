@@ -3,7 +3,9 @@ from scipy.integrate import quad
 
 
 # Define the function
-f = lambda x: 6 * x + 1
+def f(x):
+    return 6 * x + 1
+
 
 # Define limits of integration
 a = 2  # lower limit
