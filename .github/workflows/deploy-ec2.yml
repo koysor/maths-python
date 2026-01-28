@@ -1,0 +1,93 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'black[jupyter]==24.2.0' 'ruff>=0.4.0'
+
+      - name: Check code formatting with Black
+        run: black --check --diff .
+
+      - name: Check code quality with Ruff
+        run: ruff check .
+
+  deploy:
+    needs: code-quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            # Clone or update repository
+            cd ~/maths-python || git clone https://github.com/${{ github.repository }}.git ~/maths-python
+            cd ~/maths-python
+            git fetch origin
+            git reset --hard origin/main
+
+            # Clean up unused Docker resources before building
+            docker system prune -f
+
+            # Build the image
+            docker build --no-cache -f docker/Dockerfile -t maths-python-app .
+
+            # Stop and remove existing container
+            docker stop maths-python || true
+            docker rm maths-python || true
+
+            # Start new container on port 8505
+            docker run -d \
+              -p 8505:8501 \
+              --name maths-python \
+              --restart unless-stopped \
+              maths-python-app
+
+      - name: Health check
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+            echo "Waiting for app to start..."
+            sleep 30
+
+            # Verify container is running
+            if ! docker ps | grep -q maths-python; then
+              echo "Container is not running!"
+              docker logs maths-python
+              exit 1
+            fi
+
+            # Check health endpoint
+            curl -f http://localhost:8505/_stcore/health
+            echo "Health check passed!"
+
+      - name: Deployment summary
+        run: |
+          echo "Deployed to EC2"
+          echo "App available at: http://${{ secrets.EC2_HOST }}:8505"
