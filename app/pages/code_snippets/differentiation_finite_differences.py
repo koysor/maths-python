@@ -1,12 +1,9 @@
 import streamlit as st
+from app.maths_logic import numerical_derivative
 
 
 def f(x):
     return x**2 + 3 * x + 5
-
-
-def numerical_derivative(func, x, h=1e-5):
-    return (func(x + h) - func(x - h)) / (2 * h)
 
 
 # Choose a point to evaluate the derivative
