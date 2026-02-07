@@ -43,10 +43,20 @@ To deploy another Streamlit app, choose the next available port:
 
 ```bash
 # Example: new app on port 8506
-docker run -d -p 8506:8501 --name new-app --restart unless-stopped new-app-image
+docker run -d -p 8506:8501 --memory=150m --memory-swap=150m --name new-app --restart unless-stopped new-app-image
 ```
 
 Remember to add the port to the EC2 security group.
+
+### Memory Limits
+
+The EC2 instance has ~916 MiB RAM shared across 5 containers. Each container is capped at **150 MiB** (`--memory=150m --memory-swap=150m`) to prevent a single app from triggering a system-wide OOM kill.
+
+To update limits on running containers without restarting:
+
+```bash
+docker update --memory=150m --memory-swap=150m <container-name>
+```
 
 ### Deploy Commands
 
@@ -59,8 +69,8 @@ git clone https://github.com/koysor/maths-python.git
 cd maths-python
 sudo docker build -f docker/Dockerfile -t maths-python-app .
 
-# Run on port 8505
-sudo docker run -d -p 8505:8501 --name maths-python --restart unless-stopped maths-python-app
+# Run on port 8505 with 150 MiB memory limit
+sudo docker run -d -p 8505:8501 --memory=150m --memory-swap=150m --name maths-python --restart unless-stopped maths-python-app
 ```
 
 ### Update Deployment
@@ -71,7 +81,7 @@ git pull
 sudo docker stop maths-python
 sudo docker rm maths-python
 sudo docker build -f docker/Dockerfile -t maths-python-app .
-sudo docker run -d -p 8505:8501 --name maths-python --restart unless-stopped maths-python-app
+sudo docker run -d -p 8505:8501 --memory=150m --memory-swap=150m --name maths-python --restart unless-stopped maths-python-app
 ```
 
 ## Live URL
