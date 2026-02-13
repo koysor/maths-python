@@ -98,10 +98,10 @@ jobs:
             git fetch origin
             git reset --hard origin/main
 
-            # Stop existing containers (docker-compose managed)
+            # Stop existing containers (both named project and legacy 'docker' project)
             cd docker
             docker-compose -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
-            docker-compose down --remove-orphans 2>/dev/null || true
+            docker-compose -p docker -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
             cd ..
 
             # Stop legacy standalone container (from previous docker run deployments)

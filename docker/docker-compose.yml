@@ -1,6 +1,8 @@
 # Docker Compose for local development and testing
 # Run the Maths Python Streamlit application
 
+name: maths-python
+
 services:
   maths-python:
     image: maths-python

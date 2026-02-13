@@ -2,6 +2,8 @@
 # Uses pre-built image from GitHub Container Registry (GHCR)
 # HTTPS is provided by the Caddy reverse proxy in the quant-finance deployment
 
+name: maths-python
+
 services:
   maths-python:
     image: ghcr.io/koysor/maths-python:latest
