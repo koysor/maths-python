@@ -1,7 +1,6 @@
 import streamlit as st
 import sympy as sp
 
-
 x = sp.symbols("x")
 
 # Set the exponent

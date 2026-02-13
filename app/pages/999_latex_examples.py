@@ -1,7 +1,6 @@
 import streamlit as st
 from sympy.parsing.latex import parse_latex
 
-
 st.set_page_config(layout="wide")
 st.markdown("### LaTeX Examples")
 

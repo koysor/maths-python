@@ -1,7 +1,6 @@
 import sympy as sp
 import streamlit as st
 
-
 # Define the variables
 x, y = sp.symbols("x y")
 

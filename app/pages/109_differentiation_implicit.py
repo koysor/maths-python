@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 st.set_page_config(layout="wide")
 st.markdown("### Differentiation Implicit")
 
@@ -13,14 +12,12 @@ with col1:
     )
 
     st.write("**Example:**")
-    st.latex(
-        r"""
+    st.latex(r"""
         \begin{align*}
             x^2 + y^2 &= 25 \\
 
         \end{align*}
-    """
-    )
+    """)
 
     st.write("**Step 1:** Differentiate both sides with respect to **$$x$$**.")
     latex_code = r"""

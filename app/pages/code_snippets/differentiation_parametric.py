@@ -1,7 +1,6 @@
 import streamlit as st
 import sympy as sp
 
-
 t = sp.symbols("t")
 x = sp.sin(t) ** 2
 y = 2 * sp.tan(t)

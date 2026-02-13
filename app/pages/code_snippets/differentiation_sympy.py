@@ -1,7 +1,6 @@
 import sympy as sp
 import streamlit as st
 
-
 x = sp.symbols("x")
 
 f = x**2 + 3 * x + 5

@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-
 st.set_page_config(layout="wide")
 st.markdown("### The Normal Distribution")
 
@@ -28,13 +27,11 @@ with col1:
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
-    st.write(
-        """Where:
+    st.write("""Where:
     - $$\mu$$ is the mean
     - $$\sigma$$ is the standard deviation
     - $$\sigma^2$$ is the variance
-    """
-    )
+    """)
     st.write(
         "The mean (μ) is the center of the distribution, and the standard deviation (σ) determines the width of the curve."
     )
@@ -63,15 +60,13 @@ with col2:
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
-    st.write(
-        """Where:
+    st.write("""Where:
     - $$f(x)$$ is the probability density function (PDF)
     - $$\mu$$ is the mean
     - $$\sigma$$ is the standard deviation
     - $$e$$ is the base of the natural logarithm
     - $$\pi$$ is the constant pi
-    """
-    )
+    """)
 
 
 # Streamlit UI

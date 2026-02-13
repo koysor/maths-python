@@ -3,16 +3,13 @@ import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 st.set_page_config(layout="wide")
 st.markdown("### Completing the Square")
 
-st.write(
-    """Completing the square is a method for rewriting a quadratic expression
+st.write("""Completing the square is a method for rewriting a quadratic expression
 $$ax^{2} + bx + c$$ in a form that reveals it as (almost) a perfect square,
 typically $$a(x - h)^{2} + k$$. This makes it easier to solve quadratic equations
-and to read properties like the vertex of a parabola."""
-)
+and to read properties like the vertex of a parabola.""")
 
 st.info(
     """**Parabola** — A parabola is the U-shaped curve produced by graphing a quadratic
@@ -29,12 +26,10 @@ $a(x - h)^{2} + k$, the vertex is simply the point $(h,\\, k)$."""
 
 st.markdown("#### Core Idea")
 
-st.write(
-    r"""The first two terms of a quadratic, $x^{2} + bx$, can be turned into
+st.write(r"""The first two terms of a quadratic, $x^{2} + bx$, can be turned into
 the start of a perfect square $(x + \tfrac{b}{2})^{2}$ by adding
 $(\tfrac{b}{2})^{2}$.  We then subtract that same amount to keep the
-expression equal."""
-)
+expression equal.""")
 
 latex_code = (
     r"x^{2} + bx = \left(x + \frac{b}{2}\right)^{2} - \left(\frac{b}{2}\right)^{2}"
@@ -42,13 +37,11 @@ latex_code = (
 st.code(latex_code, language="latex")
 st.latex(latex_code)
 
-st.write(
-    r"""This identity has a neat geometric interpretation.  The expression
+st.write(r"""This identity has a neat geometric interpretation.  The expression
 $x^{2} + bx$ represents the area of a **rectangle** with width $x$ and height
 $x + b$.  By rearranging that same area we can form a **square** of side
 $x + \tfrac{b}{2}$, but to keep the areas equal we must subtract the small
-corner square of side $\tfrac{b}{2}$."""
-)
+corner square of side $\tfrac{b}{2}$.""")
 
 # ── Geometric diagram ──────────────────────────────────────────────────────────
 
@@ -309,14 +302,12 @@ ax_sq.set_title(
 fig_geo.tight_layout()
 st.pyplot(fig_geo)
 
-st.write(
-    r"""The blue region ($x^{2}$) is common to both shapes.  In the rectangle,
+st.write(r"""The blue region ($x^{2}$) is common to both shapes.  In the rectangle,
 the orange strip has area $bx$.  In the square, that same $bx$ area is split
 into two strips of $\tfrac{b}{2}\,x$ each, placed on adjacent sides.
 Completing the big square introduces the red corner of area
 $\left(\tfrac{b}{2}\right)^{2}$, which must be subtracted to keep the total
-area equal."""
-)
+area equal.""")
 
 
 # ── General Formula ─────────────────────────────────────────────────────────────
@@ -331,13 +322,11 @@ latex_code = (
 st.code(latex_code, language="latex")
 st.latex(latex_code)
 
-st.write(
-    r"""Where:
+st.write(r"""Where:
 - $$h = -\dfrac{b}{2a}$$ is the $$x$$-coordinate of the vertex
 - $$k = c - \dfrac{b^{2}}{4a}$$ is the $$y$$-coordinate of the vertex
 - The vertex form is $$a(x - h)^{2} + k$$
-"""
-)
+""")
 
 
 # ── Interactive Section ─────────────────────────────────────────────────────────
@@ -575,11 +564,9 @@ st.pyplot(fig)
 st.markdown("---")
 st.markdown("#### Why Completing the Square is Useful")
 
-st.write(
-    """
+st.write("""
 - **Solving quadratics** when factorisation is difficult
 - **Deriving the quadratic formula** — the proof uses completing the square on the general form $$ax^{2} + bx + c = 0$$
 - **Graphing parabolas** — the vertex form directly gives the vertex $$(h, k)$$ and direction of opening
 - **Calculus** — appears in Gaussian integrals and other integration techniques
-"""
-)
+""")

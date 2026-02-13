@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 st.set_page_config(layout="wide")
 st.markdown("### Calculus Rules")
 
@@ -26,8 +25,6 @@ table_md = """
 # Render the table with math
 st.markdown(table_md)
 
-st.markdown(
-    """
+st.markdown("""
 These rules are fundamental in calculus for finding derivatives and integrals of functions. The differentiation rules help in finding the rate of change, while the integration rules assist in finding the area under curves or the accumulation of quantities.
-"""
-)
+""")

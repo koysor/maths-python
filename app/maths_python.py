@@ -1,7 +1,6 @@
 import streamlit as st
 import pathlib
 
-
 st.set_page_config(layout="wide")
 st.markdown("### Snippets of Python and LaTex Code for Maths Operations")
 

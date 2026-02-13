@@ -3,7 +3,6 @@ import sympy as sp  # noqa: F401 — used by exec'd SymPy snippet
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 st.set_page_config(layout="wide")
 st.markdown("### The Natural Logarithm and Euler's Number")
 
@@ -16,14 +15,12 @@ foundation of continuous growth, calculus, and many areas of applied
 mathematics."""
 )
 
-st.info(
-    r"""**Euler's Number** — The constant $e$ is defined as the limit
+st.info(r"""**Euler's Number** — The constant $e$ is defined as the limit
 
 $$e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{\!n}$$
 
 It arises naturally when modelling continuous compound growth and is the
-unique base for which the exponential function equals its own derivative."""
-)
+unique base for which the exponential function equals its own derivative.""")
 
 
 # -- Definitions of e ----------------------------------------------------------
@@ -106,10 +103,8 @@ with col1:
 st.markdown("---")
 st.markdown("#### Relationship between $e$ and $\\ln$")
 
-st.write(
-    r"""The **natural logarithm**, written $\ln(x)$ or $\log_e(x)$, is the inverse
-function of the exponential $e^x$. If $e^y = x$ then $\ln(x) = y$."""
-)
+st.write(r"""The **natural logarithm**, written $\ln(x)$ or $\log_e(x)$, is the inverse
+function of the exponential $e^x$. If $e^y = x$ then $\ln(x) = y$.""")
 
 st.info(
     r"""**Inverse Relationship** — The exponential and natural logarithm undo
@@ -273,15 +268,13 @@ with col_deriv_right:
         r"the curve flattening out for large $x$."
     )
 
-st.info(
-    r"""**Why $e$ is special** — For a general exponential $a^x$ the derivative is
+st.info(r"""**Why $e$ is special** — For a general exponential $a^x$ the derivative is
 
 $$\frac{d}{dx}\, a^{x} = a^{x} \ln(a)$$
 
 Only when $a = e$ does $\ln(a) = 1$, so the extra factor disappears and
 $\frac{d}{dx}\, e^{x} = e^{x}$. This is the defining property that makes $e$ the
-*natural* base."""
-)
+*natural* base.""")
 
 st.markdown("**General formula**")
 
