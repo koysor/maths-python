@@ -5,21 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "antlr4-python3-runtime==4.11",
-    "black[jupyter]>=26.1.0",
-    "ipykernel>=6.29.5",
-    "jupyterlab>=4.3.5",
-    "marimo>=0.17.8",
-    "mathml2latex>=0.2.12",
     "matplotlib>=3.10.1",
-    "networkx>=3.4.2",
     "pandas>=2.2.3",
-    "pytest>=9.0.2",
-    "ruff>=0.14.5",
     "scipy>=1.15.2",
     "streamlit>=1.51.0",
     "sympy>=1.13.3",
-    "ty>=0.0.1a1",
 ]
 
 [tool.pytest.ini_options]
@@ -27,5 +17,15 @@ pythonpath = ["."]
 
 [dependency-groups]
 dev = [
+    "antlr4-python3-runtime==4.11",
+    "black[jupyter]>=26.1.0",
+    "ipykernel>=6.29.5",
+    "jupyterlab>=4.3.5",
+    "marimo>=0.17.8",
+    "mathml2latex>=0.2.12",
+    "networkx>=3.4.2",
     "pre-commit>=4.5.1",
+    "pytest>=9.0.2",
+    "ruff>=0.14.5",
+    "ty>=0.0.1a1",
 ]

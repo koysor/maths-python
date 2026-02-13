@@ -10,6 +10,8 @@ services:
     ports:
       - "8505:8501"
     restart: unless-stopped
+    mem_limit: 180m
+    memswap_limit: 256m
     environment:
       - STREAMLIT_SERVER_HEADLESS=true
       - STREAMLIT_SERVER_BASE_URL_PATH=maths

@@ -991,49 +991,51 @@ name = "maths-python"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "matplotlib" },
+    { name = "pandas" },
+    { name = "scipy" },
+    { name = "streamlit" },
+    { name = "sympy" },
+]
+
+[package.dev-dependencies]
+dev = [
     { name = "antlr4-python3-runtime" },
     { name = "black", extra = ["jupyter"] },
     { name = "ipykernel" },
     { name = "jupyterlab" },
     { name = "marimo" },
     { name = "mathml2latex" },
-    { name = "matplotlib" },
     { name = "networkx" },
-    { name = "pandas" },
+    { name = "pre-commit" },
     { name = "pytest" },
     { name = "ruff" },
-    { name = "scipy" },
-    { name = "streamlit" },
-    { name = "sympy" },
     { name = "ty" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pre-commit" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "matplotlib", specifier = ">=3.10.1" },
+    { name = "pandas", specifier = ">=2.2.3" },
+    { name = "scipy", specifier = ">=1.15.2" },
+    { name = "streamlit", specifier = ">=1.51.0" },
+    { name = "sympy", specifier = ">=1.13.3" },
+]
+
+[package.metadata.requires-dev]
+dev = [
     { name = "antlr4-python3-runtime", specifier = "==4.11" },
     { name = "black", extras = ["jupyter"], specifier = ">=26.1.0" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "jupyterlab", specifier = ">=4.3.5" },
     { name = "marimo", specifier = ">=0.17.8" },
     { name = "mathml2latex", specifier = ">=0.2.12" },
-    { name = "matplotlib", specifier = ">=3.10.1" },
     { name = "networkx", specifier = ">=3.4.2" },
-    { name = "pandas", specifier = ">=2.2.3" },
+    { name = "pre-commit", specifier = ">=4.5.1" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.14.5" },
-    { name = "scipy", specifier = ">=1.15.2" },
-    { name = "streamlit", specifier = ">=1.51.0" },
-    { name = "sympy", specifier = ">=1.13.3" },
     { name = "ty", specifier = ">=0.0.1a1" },
 ]
-
-[package.metadata.requires-dev]
-dev = [{ name = "pre-commit", specifier = ">=4.5.1" }]
 
 [[package]]
 name = "matplotlib"
