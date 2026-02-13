@@ -65,3 +65,26 @@ uv run pre-commit autoupdate       # Update hook versions
 ## Live Application
 
 - **AWS EC2:** https://koysor.duckdns.org/maths/
+
+## Docker Deployment
+
+The application is containerised using Docker and deployed as part of a multi-container environment.
+
+### Resource Limits
+
+To ensure stability on resource-constrained environments (like AWS EC2 t2.micro), the following memory limits are enforced in production:
+
+- **Memory Limit:** 180MB
+- **Swap Limit:** 256MB
+
+These limits prevent the application from consuming excessive system resources, which could impact other services on the same host.
+
+### Local Build and Run
+
+```bash
+# Build the image
+docker build -t maths-python .
+
+# Run the container
+docker run -d -p 8501:8501 --name maths-python maths-python
+```
