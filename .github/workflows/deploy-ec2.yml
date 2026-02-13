@@ -98,11 +98,15 @@ jobs:
             git fetch origin
             git reset --hard origin/main
 
-            # Stop existing containers
+            # Stop existing containers (docker-compose managed)
             cd docker
             docker-compose -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
             docker-compose down --remove-orphans 2>/dev/null || true
             cd ..
+
+            # Stop legacy standalone container (from previous docker run deployments)
+            docker stop maths-python 2>/dev/null || true
+            docker rm maths-python 2>/dev/null || true
 
             # Stop nginx if previously installed (Caddy now handles reverse proxy)
             sudo systemctl stop nginx 2>/dev/null || true
