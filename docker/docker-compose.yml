@@ -1,0 +1,15 @@
+# Docker Compose for local development and testing
+# Run the Maths Python Streamlit application
+
+services:
+  maths-python:
+    image: maths-python
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8505:8501"
+    restart: unless-stopped
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_BASE_URL_PATH=maths

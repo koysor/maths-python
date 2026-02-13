@@ -9,33 +9,41 @@ __pycache__
 *.so
 .Python
 .venv
-venv/
-ENV/
+venv
+ENV
+env
+.eggs
+*.egg-info
+*.egg
+dist
+build
 
 # IDE
-.vscode
 .idea
+.vscode
 *.swp
 *.swo
+*~
 
 # Testing
 .pytest_cache
 .coverage
-htmlcov/
+htmlcov
 .tox
+.nox
+
+# Documentation
+docs/_build
 
 # Jupyter
 .ipynb_checkpoints
-*.ipynb
 
-# Build
-*.egg-info
-dist/
-build/
-
-# Local env
+# Local development
+*.log
+*.tmp
 .env
-.env.*
+.env.local
+.env.*.local
 
 # OS
 .DS_Store
@@ -43,3 +51,12 @@ Thumbs.db
 
 # Docker
 docker/
+
+# Misc
+*.md
+!README.md
+LICENSE
+*.sh
+.pre-commit-config.yaml
+.python-version
+.ruff_cache

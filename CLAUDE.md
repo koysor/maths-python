@@ -37,8 +37,11 @@ ruff check .
 **Docker (local):**
 
 ```bash
-docker build -f docker/Dockerfile -t maths-python-app .
-docker run -p 8501:8501 maths-python-app
+cd docker
+docker-compose up --build
+# or directly:
+docker build -f docker/Dockerfile -t maths-python .
+docker run -p 8505:8501 maths-python
 ```
 
 **Dependency management (uses uv):**

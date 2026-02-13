@@ -1,0 +1,13 @@
+# Docker Compose for production deployment on EC2
+# Uses pre-built image from GitHub Container Registry (GHCR)
+# HTTPS is provided by the Caddy reverse proxy in the quant-finance deployment
+
+services:
+  maths-python:
+    image: ghcr.io/koysor/maths-python:latest
+    ports:
+      - "8505:8501"
+    restart: unless-stopped
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_BASE_URL_PATH=maths
