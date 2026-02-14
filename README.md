@@ -22,7 +22,6 @@ The codebase follows a modular architecture where each Python file in the `app/p
 | Library              | Purpose                                                                                  |
 | -------------------- | ---------------------------------------------------------------------------------------- |
 | **Matplotlib** | Function plots, distribution visualisations, 3D surface plots for multivariable calculus |
-| **NetworkX**   | Graph visualisation for discrete mathematics and network structures                      |
 | **Streamlit**  | Interactive web application with LaTeX rendering and parameter adjustment widgets        |
 
 ### Development Tools
@@ -33,6 +32,7 @@ The codebase follows a modular architecture where each Python file in the `app/p
 | **pytest**              | Testing framework                                      |
 | **Black / Ruff**        | Code formatting and linting                            |
 | **pre-commit**          | Git hooks for automated code quality checks            |
+| **NetworkX**            | Graph and network analysis for exploratory work        |
 
 ## Pre-commit Hooks
 
@@ -83,8 +83,8 @@ These limits prevent the application from consuming excessive system resources, 
 
 ```bash
 # Build the image
-docker build -t maths-python .
+docker build -f docker/Dockerfile -t maths-python .
 
 # Run the container
-docker run -d -p 8501:8501 --name maths-python maths-python
+docker run -d -p 8505:8501 --name maths-python maths-python
 ```

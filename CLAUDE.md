@@ -66,6 +66,7 @@ uv add <package>  # Add new dependency
 - 300s: Stochastic calculus
 - 700s: Linear algebra
 - 800s: Probability & statistics
+- 850s–860s: Algebra (logarithms, completing the square)
 - 999s: Reference pages
 
 **Key utility:** `app/utils.py:display_run_python_snippet()` - Standard pattern for showing code with 4/6 width layout and executing it inline.
@@ -91,7 +92,7 @@ Each page follows this structure:
 
 ### Numerical Computing
 
-- **NumPy** - Fundamental numerical computing (transitive dependency via SciPy/pandas)
+- **NumPy** - Fundamental numerical computing
   - Array operations for numerical examples
   - Linear algebra operations for matrix calculations
   - Random number generation for probability demonstrations
@@ -113,10 +114,6 @@ Each page follows this structure:
   - Distribution plots for probability topics
   - 3D surface plots for multivariable calculus
 
-- **NetworkX** - Graph and network analysis
-  - Graph visualisation for discrete mathematics
-  - Network structure demonstrations
-
 ### Web Application
 
 - **Streamlit** - Interactive web application framework
@@ -130,6 +127,7 @@ Each page follows this structure:
 - **pytest** - Testing framework
 - **Black** - Code formatting
 - **Ruff** - Linting
+- **NetworkX** - Graph and network analysis (dev dependency)
 
 ## Conventions
 
