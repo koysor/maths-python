@@ -2,8 +2,12 @@ import streamlit as st
 
 import utils
 
-st.set_page_config(layout="wide")
-st.markdown("### Linear Algebra - Eigenvalues and Eigenvectors")
+st.set_page_config(
+    page_title="Linear Algebra - Eigenvalues and Eigenvectors",
+    page_icon="📐",
+    layout="wide",
+)
+st.header("Linear Algebra - Eigenvalues and Eigenvectors")
 
 st.markdown("##### Introduction")
 

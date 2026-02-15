@@ -2,8 +2,10 @@ import streamlit as st
 
 import utils
 
-st.set_page_config(layout="wide")
-st.markdown("### Linear Algebra - Identity Matrices")
+st.set_page_config(
+    page_title="Linear Algebra - Identity Matrices", page_icon="📐", layout="wide"
+)
+st.header("Linear Algebra - Identity Matrices")
 
 st.markdown("##### Introduction")
 

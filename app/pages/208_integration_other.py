@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="208 Integration Other", page_icon="📐", layout="wide")
 st.markdown("#### Numerical Integration")
 
 

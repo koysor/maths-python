@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation of Parametric Equations")
+st.set_page_config(
+    page_title="Differentiation of Parametric Equations", page_icon="📐", layout="wide"
+)
+st.header("Differentiation of Parametric Equations")
 
 
 st.markdown("##### What is a Parametric Equation?")
@@ -75,7 +77,7 @@ with col1:
     st.code(latex_code, language="latex")
     st.latex(latex_code)
 
-    st.markdown("### With SymPy")
+    st.header("With SymPy")
 
     with open("app/pages/code_snippets/differentiation_parametric.py", "r") as f:
         code_snippet = f.read()

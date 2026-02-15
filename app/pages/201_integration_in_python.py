@@ -1,9 +1,11 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
+st.set_page_config(
+    page_title="Integration Example with SymPy", page_icon="📐", layout="wide"
+)
 
 
-st.markdown("### Integration Example with SymPy")
+st.header("Integration Example with SymPy")
 
 
 st.write("To calculate the definite integral:")
@@ -22,7 +24,7 @@ st.code(code_snippet)
 exec(code_snippet)
 
 
-st.markdown("### Integration Example with SciPy")
+st.header("Integration Example with SciPy")
 
 with open("app/pages/code_snippets/integration_scipy.py", "r") as f:
     code_snippet = f.read()

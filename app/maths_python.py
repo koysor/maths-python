@@ -1,8 +1,15 @@
 import streamlit as st
 import pathlib
 
-st.set_page_config(layout="wide")
-st.markdown("### Snippets of Python and LaTex Code for Maths Operations")
+st.set_page_config(page_title="Maths Python", page_icon="📐", layout="wide")
+st.header("Snippets of Python and LaTeX Code for Maths Operations")
+
+st.sidebar.title("📐 Maths Python")
+st.sidebar.info(
+    "Interactive Python code snippets for mathematics and statistics, "
+    "covering calculus, integration, linear algebra, probability, and algebra "
+    "with worked examples and visualisations."
+)
 
 
 st.write(

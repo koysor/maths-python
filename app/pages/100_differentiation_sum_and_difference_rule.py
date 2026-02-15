@@ -11,8 +11,10 @@ added or subtracted together. It includes:
 
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation Sum & Difference Rule")
+st.set_page_config(
+    page_title="Differentiation Sum & Difference Rule", page_icon="📐", layout="wide"
+)
+st.header("Differentiation Sum & Difference Rule")
 
 st.write("""The sum and difference rules allow you to differentiate functions that are
     composed of multiple terms added or subtracted together. Rather than treating the

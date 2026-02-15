@@ -1,7 +1,11 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Integration with Exponentials and Logarithms")
+st.set_page_config(
+    page_title="Integration with Exponentials and Logarithms",
+    page_icon="📐",
+    layout="wide",
+)
+st.header("Integration with Exponentials and Logarithms")
 
 
 col1, col2 = st.columns([4, 3])

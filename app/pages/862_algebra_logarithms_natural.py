@@ -3,8 +3,10 @@ import sympy as sp  # noqa: F401 — used by exec'd SymPy snippet
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.set_page_config(layout="wide")
-st.markdown("### The Natural Logarithm and Euler's Number")
+st.set_page_config(
+    page_title="The Natural Logarithm and Euler's Number", page_icon="📐", layout="wide"
+)
+st.header("The Natural Logarithm and Euler's Number")
 
 st.write(
     r"""The number $e \approx 2.71828\ldots$ is one of the most important constants in
@@ -100,7 +102,7 @@ with col1:
 
 # -- Relationship between e and ln ---------------------------------------------
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Relationship between $e$ and $\\ln$")
 
 st.write(r"""The **natural logarithm**, written $\ln(x)$ or $\log_e(x)$, is the inverse
@@ -156,7 +158,7 @@ st.latex(latex_code)
 
 # -- Graphs of e^x and ln(x) ---------------------------------------------------
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Graphs of $e^x$ and $\\ln(x)$")
 
 
@@ -239,7 +241,7 @@ st.pyplot(_build_static_graphs())
 
 # -- Derivatives ---------------------------------------------------------------
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Derivatives")
 
 col_deriv_left, col_deriv_right = st.columns(2)
@@ -287,7 +289,7 @@ st.write(r"When $a = e$ this reduces to $e^x \cdot \ln(e) = e^x \cdot 1 = e^x$."
 
 # -- Python verification with SymPy --------------------------------------------
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Python Verification with SymPy")
 
 sympy_code = """\

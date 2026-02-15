@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Complex Numbers")
+st.set_page_config(page_title="Complex Numbers", page_icon="📐", layout="wide")
+st.header("Complex Numbers")
 
 st.write(
     "A **Complex Number** is a number that has two parts.  A real part and an imaginary part."
@@ -90,7 +90,7 @@ st.pyplot(plt.gcf())
     st.code(code_snippet, language="python")
     exec(code_snippet)
 
-st.markdown("### Absolute Value of Complex Numbers")
+st.header("Absolute Value of Complex Numbers")
 
 st.write(
     "N.B. The **absolute value** of a complex number is the distance from the origin in the complex plane."
@@ -122,7 +122,7 @@ st.latex(latex_code)
 st.write("The absolute value of a complex number is always a **real number**.")
 
 
-st.markdown("### Usage of Complex Numbers")
+st.header("Usage of Complex Numbers")
 
 st.write(
     "Complex numbers are useful as they allow us to solve problems that can't be handled with just real numbers."

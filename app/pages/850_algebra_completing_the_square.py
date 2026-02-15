@@ -3,8 +3,8 @@ import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.set_page_config(layout="wide")
-st.markdown("### Completing the Square")
+st.set_page_config(page_title="Completing the Square", page_icon="📐", layout="wide")
+st.header("Completing the Square")
 
 st.write("""Completing the square is a method for rewriting a quadratic expression
 $$ax^{2} + bx + c$$ in a form that reveals it as (almost) a perfect square,
@@ -331,7 +331,7 @@ st.write(r"""Where:
 
 # ── Interactive Section ─────────────────────────────────────────────────────────
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Interactive Example")
 
 st.write(
@@ -462,7 +462,7 @@ with col_result:
 
 # ── SymPy verification ─────────────────────────────────────────────────────────
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Python Verification with SymPy")
 
 code_snippet = f"""\
@@ -492,7 +492,7 @@ with col1:
 
 # ── Solving the equation ────────────────────────────────────────────────────────
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Solving the Equation")
 
 st.write(
@@ -517,7 +517,7 @@ else:
 
 # ── Plot ────────────────────────────────────────────────────────────────────────
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Graph of the Parabola")
 
 h_float = float(h)
@@ -561,7 +561,7 @@ st.pyplot(fig)
 
 # ── Why it is useful ────────────────────────────────────────────────────────────
 
-st.markdown("---")
+st.divider()
 st.markdown("#### Why Completing the Square is Useful")
 
 st.write("""

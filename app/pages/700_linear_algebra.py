@@ -1,13 +1,13 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Linear Algebra")
+st.set_page_config(page_title="Linear Algebra", page_icon="📐", layout="wide")
+st.header("Linear Algebra")
 
 st.write(
     "Linear algebra is the branch of mathematics concerning linear equations, linear functions, and their representations through matrices and vector spaces."
 )
 
-st.markdown("### Vectors")
+st.header("Vectors")
 st.write(
     "A vector is a quantity that has both magnitude and direction. It can be represented as an ordered list of numbers, which are called components."
 )
@@ -40,7 +40,7 @@ st.code(code_snippet, language="python")
 exec(code_snippet)
 
 
-st.markdown("### Matrices")
+st.header("Matrices")
 
 st.write(
     "A matrix can be represented as a rectangular array of numbers, symbols, or expressions, arranged in rows and columns."

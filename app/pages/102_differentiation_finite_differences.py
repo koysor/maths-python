@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation Finite Differences")
+st.set_page_config(
+    page_title="Differentiation Finite Differences", page_icon="📐", layout="wide"
+)
+st.header("Differentiation Finite Differences")
 
 st.markdown("#### Differentiation Example Using the Finite Differences Method")
 

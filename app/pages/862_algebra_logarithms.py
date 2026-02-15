@@ -2,8 +2,8 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.set_page_config(layout="wide")
-st.markdown("### Logarithms")
+st.set_page_config(page_title="Logarithms", page_icon="📐", layout="wide")
+st.header("Logarithms")
 
 st.write(
     "Logarithms, or logs, are a way of expressing numbers in terms of their powers."
@@ -40,7 +40,7 @@ with col2:
     st.latex(latex_code)
 
 
-st.markdown("### Laws of Logarithms")
+st.header("Laws of Logarithms")
 
 latex_code = r"""
 \log_a{x} + \log_a{y} = \log_a{(x \cdot y)}
@@ -69,8 +69,8 @@ st.latex(latex_code)
 
 # -- Changing the base ---------------------------------------------------------
 
-st.markdown("---")
-st.markdown("### Changing the Base")
+st.divider()
+st.header("Changing the Base")
 
 st.write(
     r"The shape of $y = \log_a(x)$ depends entirely on the base $a$. "
@@ -166,8 +166,8 @@ base_explorer()
 
 # -- Inverse relationship: a^x and log_a(x) ------------------------------------
 
-st.markdown("---")
-st.markdown("### Inverse Relationship: $a^x$ and $\\log_a(x)$")
+st.divider()
+st.header("Inverse Relationship: $a^x$ and $\\log_a(x)$")
 
 st.write(
     r"The exponential $y = a^x$ and the logarithm $y = \log_a(x)$ are inverse "

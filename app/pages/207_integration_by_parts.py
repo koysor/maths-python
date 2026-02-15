@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Integration by Parts")
+st.set_page_config(page_title="Integration by Parts", page_icon="📐", layout="wide")
+st.header("Integration by Parts")
 
 
 col1, col2 = st.columns([4, 3])

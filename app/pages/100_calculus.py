@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Calculus Rules")
+st.set_page_config(page_title="Calculus Rules", page_icon="📐", layout="wide")
+st.header("Calculus Rules")
 
 
 table_md = """

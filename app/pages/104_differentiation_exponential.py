@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiating Exponential Functions")
+st.set_page_config(
+    page_title="Differentiating Exponential Functions", page_icon="📐", layout="wide"
+)
+st.header("Differentiating Exponential Functions")
 
 
 col1, col2 = st.columns([4, 3])

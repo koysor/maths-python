@@ -2,8 +2,10 @@ import streamlit as st
 
 import utils
 
-st.set_page_config(layout="wide")
-st.markdown("### Linear Algebra - Matrix Inversion")
+st.set_page_config(
+    page_title="Linear Algebra - Matrix Inversion", page_icon="📐", layout="wide"
+)
+st.header("Linear Algebra - Matrix Inversion")
 
 st.markdown("##### Introduction")
 

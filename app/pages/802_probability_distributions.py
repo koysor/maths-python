@@ -1,8 +1,10 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
+st.set_page_config(
+    page_title="Probability Distributions", page_icon="📐", layout="wide"
+)
 
-st.markdown("### Probability Distributions")
+st.header("Probability Distributions")
 
 st.write(
     "Probability distributions describe how the values of a random variable are distributed. "

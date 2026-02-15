@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-st.set_page_config(layout="wide")
-st.markdown("### The Normal Distribution")
+st.set_page_config(page_title="The Normal Distribution", page_icon="📐", layout="wide")
+st.header("The Normal Distribution")
 
 
 st.write(

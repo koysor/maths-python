@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Integrating Trigonometric Functions")
+st.set_page_config(
+    page_title="Integrating Trigonometric Functions", page_icon="📐", layout="wide"
+)
+st.header("Integrating Trigonometric Functions")
 
 
 col1, col2 = st.columns([4, 3])

@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Partial Differentiation")
+st.set_page_config(page_title="Partial Differentiation", page_icon="📐", layout="wide")
+st.header("Partial Differentiation")
 
 
 col1, col2 = st.columns([4, 3])
@@ -38,7 +38,7 @@ with col2:
     st.video("https://www.youtube.com/watch?v=AXqhWeUEtQU")
 
 
-st.markdown("### Using SymPy")
+st.header("Using SymPy")
 
 with open("app/pages/code_snippets/differentiation_partial.py", "r") as f:
     code_snippet = f.read()

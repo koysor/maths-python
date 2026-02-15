@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation Implicit")
+st.set_page_config(page_title="Differentiation Implicit", page_icon="📐", layout="wide")
+st.header("Differentiation Implicit")
 
 
 col1, col2 = st.columns([4, 3])

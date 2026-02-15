@@ -1,8 +1,8 @@
 import streamlit as st
 from scipy.stats import zscore
 
-st.set_page_config(layout="wide")
-st.markdown("### Z-Scores")
+st.set_page_config(page_title="Z-Scores", page_icon="📐", layout="wide")
+st.header("Z-Scores")
 
 st.write(
     "A Z-score indicates how many standard deviations an element is from the mean."

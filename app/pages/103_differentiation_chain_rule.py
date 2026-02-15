@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation Chain Rule")
+st.set_page_config(
+    page_title="Differentiation Chain Rule", page_icon="📐", layout="wide"
+)
+st.header("Differentiation Chain Rule")
 
 
 col1, col2 = st.columns([4, 3])

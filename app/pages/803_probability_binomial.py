@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 from scipy.stats import binom
 from math import comb
 
-
-st.set_page_config(layout="wide")
-st.markdown("### The Binomial Distribution")
+st.set_page_config(
+    page_title="The Binomial Distribution", page_icon="📐", layout="wide"
+)
+st.header("The Binomial Distribution")
 
 
 st.write(
@@ -26,14 +27,12 @@ with col1:
     """
     st.code(latex_code, language="latex")
     st.latex(latex_code)
-    st.write(
-        """Where:
+    st.write("""Where:
     - $$n$$ is the number of trials
     - $$p$$ is the probability of success on each trial
     - $$q = 1 - p$$ is the probability of failure
     - $$X$$ is the number of successes (can be 0, 1, 2, ..., n)
-    """
-    )
+    """)
 
     st.markdown("#### Key Properties")
     st.write("**Mean (Expected Value):**")
@@ -61,13 +60,11 @@ with col2:
     """
     st.code(latex_pmf, language="latex")
     st.latex(latex_pmf)
-    st.write(
-        """Where:
+    st.write("""Where:
     - $$\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$$ is the binomial coefficient ("n choose k")
     - $$p^k$$ is the probability of $$k$$ successes
     - $$(1-p)^{n-k}$$ is the probability of $$(n-k)$$ failures
-    """
-    )
+    """)
 
     st.markdown("#### Cumulative Distribution Function (CDF)")
     st.write("The probability of getting at most $k$ successes:")
@@ -78,8 +75,8 @@ with col2:
     st.latex(latex_cdf)
 
 
-st.markdown("---")
-st.markdown("### Interactive Visualisation")
+st.divider()
+st.header("Interactive Visualisation")
 
 # User inputs
 col_input1, col_input2 = st.columns(2)
@@ -137,8 +134,8 @@ with col_stat3:
     st.metric("Std Dev (σ)", f"{std_dev:.4f}")
 
 # Display probability calculations
-st.markdown("---")
-st.markdown("### Probability Calculations")
+st.divider()
+st.header("Probability Calculations")
 
 cdf_value = binom.cdf(k_highlight, n, p)
 pmf_at_k = binom.pmf(k_highlight, n, p)
@@ -154,8 +151,8 @@ with col_prob2:
 
 
 # Example calculation
-st.markdown("---")
-st.markdown("### Worked Example")
+st.divider()
+st.header("Worked Example")
 
 st.write(f"For n = {n} trials and p = {p:.2f}:")
 
@@ -172,37 +169,31 @@ P(X = {k_highlight}) = \binom{{{n}}}{{{k_highlight}}} \times {p:.2f}^{{{k_highli
 st.latex(latex_example)
 
 
-st.markdown("---")
-st.markdown("### Common Applications")
-st.write(
-    """
+st.divider()
+st.header("Common Applications")
+st.write("""
 - **Quality Control**: Number of defective items in a batch
 - **Clinical Trials**: Number of patients responding to treatment
 - **Polling**: Number of voters supporting a candidate
 - **Games of Chance**: Number of heads in coin flips
 - **Genetics**: Number of offspring with a particular trait
-"""
-)
+""")
 
-st.markdown("### Applications in Quantitative Finance")
+st.header("Applications in Quantitative Finance")
 
-st.write(
-    """
+st.write("""
 The binomial distribution is fundamental in quantitative finance, underpinning several
 important models and techniques.
-"""
-)
+""")
 
 col_fin1, col_fin2 = st.columns(2)
 
 with col_fin1:
     st.markdown("#### Binomial Option Pricing Model")
-    st.write(
-        """
+    st.write("""
 The **Cox-Ross-Rubinstein (CRR) model** uses a binomial tree to price options.
 At each time step, the underlying asset price can move up by factor $u$ or down by factor $d$.
-"""
-    )
+""")
     latex_crr = r"""
     u = e^{\sigma\sqrt{\Delta t}}, \quad d = e^{-\sigma\sqrt{\Delta t}} = \frac{1}{u}
     """
@@ -223,21 +214,17 @@ At each time step, the underlying asset price can move up by factor $u$ or down 
     st.code(latex_option, language="latex")
     st.latex(latex_option)
 
-    st.write(
-        """
+    st.write("""
 Where $r$ is the risk-free rate, $\\sigma$ is volatility, $\\Delta t = T/n$ is the time step,
 $S_0$ is the initial stock price, and $K$ is the strike price.
-"""
-    )
+""")
 
 with col_fin2:
     st.markdown("#### Credit Risk Modelling")
-    st.write(
-        """
+    st.write("""
 In credit portfolios, the binomial distribution models the **number of defaults**
 among $n$ obligors, each with default probability $p$.
-"""
-    )
+""")
     latex_default = r"""
     P(\text{exactly } k \text{ defaults}) = \binom{n}{k} p^k (1-p)^{n-k}
     """
@@ -245,21 +232,17 @@ among $n$ obligors, each with default probability $p$.
     st.latex(latex_default)
 
     st.markdown("#### Value at Risk (VaR)")
-    st.write(
-        """
+    st.write("""
 For a portfolio of $n$ independent positions with equal loss probability $p$,
 VaR can be computed using the binomial distribution to find the loss threshold
 at a given confidence level.
-"""
-    )
+""")
 
 
-st.markdown("---")
-st.markdown("### Relationship to Other Distributions")
-st.write(
-    """
+st.divider()
+st.header("Relationship to Other Distributions")
+st.write("""
 - As $$n \\to \\infty$$ and $$p \\to 0$$ with $$np = \\lambda$$ constant, the binomial approaches the **Poisson distribution**
 - For large $$n$$, the binomial can be approximated by the **Normal distribution** with $$\\mu = np$$ and $$\\sigma = \\sqrt{np(1-p)}$$
 - A single trial ($$n = 1$$) is a **Bernoulli distribution**
-"""
-)
+""")

@@ -1,8 +1,10 @@
 import streamlit as st
 import utils
 
-st.set_page_config(layout="wide")
-st.markdown("### Linear Algebra Matrix Operations")
+st.set_page_config(
+    page_title="Linear Algebra Matrix Operations", page_icon="📐", layout="wide"
+)
+st.header("Linear Algebra Matrix Operations")
 
 
 st.markdown("##### Matrix Addition")

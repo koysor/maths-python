@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Taylor Series")
+st.set_page_config(page_title="Taylor Series", page_icon="📐", layout="wide")
+st.header("Taylor Series")
 
 st.write(
     "The Taylor Series allows us to represent a function as an infinite sum of terms calculated from the values of its derivatives at a single point."

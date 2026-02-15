@@ -1,8 +1,8 @@
 import streamlit as st
 from sympy.parsing.latex import parse_latex
 
-st.set_page_config(layout="wide")
-st.markdown("### Lagrange")
+st.set_page_config(page_title="Lagrange", page_icon="📐", layout="wide")
+st.header("Lagrange")
 
 
 def latex_to_sympy_and_print(latex_code):

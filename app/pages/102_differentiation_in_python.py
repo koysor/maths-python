@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation Examples in Python")
+st.set_page_config(
+    page_title="Differentiation Examples in Python", page_icon="📐", layout="wide"
+)
+st.header("Differentiation Examples in Python")
 
 
 st.markdown("#### Differentiation Example with SymPy")

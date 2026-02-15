@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Binomial Expansion")
+st.set_page_config(page_title="Binomial Expansion", page_icon="📐", layout="wide")
+st.header("Binomial Expansion")
 st.write(
     "The Binomial Expansion allows us to expand expressions such as $$(a + b)^n$$ without multiplying them out."
 )

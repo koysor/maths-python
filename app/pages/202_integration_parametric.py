@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Parametric Integration")
+st.set_page_config(page_title="Parametric Integration", page_icon="📐", layout="wide")
+st.header("Parametric Integration")
 st.markdown(
     """Parametric integration is the process of integrating a function that is defined in terms of one or more parameters.
     \nThis is often used in calculus to find the area under a curve or the length of a curve defined by parametric equations."""

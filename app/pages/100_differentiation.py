@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation")
+st.set_page_config(page_title="Differentiation", page_icon="📐", layout="wide")
+st.header("Differentiation")
 
 summary_differentiation = """
 Differentiation is the process of finding the slope or rate of change of a function at a particular point.
@@ -11,7 +11,7 @@ Differentiation is the process of finding the slope or rate of change of a funct
 st.info(summary_differentiation)
 
 
-st.markdown("### Notation")
+st.header("Notation")
 
 col1, col2 = st.columns(2)
 
@@ -28,7 +28,7 @@ with col2:
     st.write("I.e. how quicky $$y$$ changes as $$x$$ changes.")
 
 
-st.markdown("### Differentiating from First Principles")
+st.header("Differentiating from First Principles")
 
 col1, col2 = st.columns([4, 3])
 
@@ -58,7 +58,7 @@ with col2:
     st.video("https://www.youtube.com/watch?v=K8bVclWiEoM")
 
 
-st.markdown("### Second Derivative")
+st.header("Second Derivative")
 
 col1, col2 = st.columns([4, 3])
 

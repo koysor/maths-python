@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Probability")
+st.set_page_config(page_title="Probability", page_icon="📐", layout="wide")
+st.header("Probability")
 
 
 st.markdown("##### Notation")

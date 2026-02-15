@@ -1,7 +1,9 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
-st.markdown("### Differentiation Quotient Rule")
+st.set_page_config(
+    page_title="Differentiation Quotient Rule", page_icon="📐", layout="wide"
+)
+st.header("Differentiation Quotient Rule")
 
 
 col1, col2 = st.columns([4, 3])
