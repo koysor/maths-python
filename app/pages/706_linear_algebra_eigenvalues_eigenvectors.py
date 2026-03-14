@@ -122,7 +122,7 @@ with col_right:
             linestyle="dashed",
         )
 
-    lim = max(abs(A @ eigenvecs).max()) + 0.5
+    lim = abs(A @ eigenvecs).max() + 0.5
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-lim, lim)
     ax.axhline(0, color="grey", linewidth=0.5)
