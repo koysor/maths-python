@@ -167,6 +167,7 @@ Verify: A·v₁ = 5·v₁ and A·v₂ = 2·v₂
 """)
 
 with col_right:
+    A = np.array([[4, 2], [1, 3]], dtype=float)
     v1 = np.array([2.0, 1.0])
     v2 = np.array([-1.0, 1.0])
     Av1 = A @ v1
@@ -264,6 +265,7 @@ st.write("Av = λv ✓" if Av == lambda_v else "Mismatch!")
     exec(code)
 
 with col_right:
+    A = np.array([[4, 2], [1, 3]], dtype=float)
     v = np.array([2.0, 1.0])
     lam = 5.0
     Av = A @ v
