@@ -75,14 +75,6 @@ st.latex(latex(Matrix(C_np)))
     st.write(
         "It may be useful to convert the result to a NumPy array for further processing as NumPy offers superior performance."
     )
-    st.info("""
-Top row:
-- 2 + (-1) = 1
-- -1 + 4 = 3
-\rBottom row:
-- 0 + 5 = 5
-- 3 + 3 = 6
-""")
 
 with col_right:
     A = np.array([[2, -1], [0, 3]], dtype=float)
@@ -98,6 +90,14 @@ with col_right:
     plt.tight_layout()
     st.pyplot(fig)
     plt.close(fig)
+    st.info("""
+Top row:
+- 2 + (-1) = 1
+- -1 + 4 = 3
+\rBottom row:
+- 0 + 5 = 5
+- 3 + 3 = 6
+""")
 
 
 # ── Matrix Subtraction ───────────────────────────────────────────────────────
@@ -125,7 +125,6 @@ st.latex(r'C = A - B = ' + latex(C))
 """
     st.code(code, language="python")
     exec(code)
-    st.info("You can only add or subtract matrices of the same size.")
 
 with col_right:
     A = np.array([[1, -3, 4], [2, 1, 1]], dtype=float)
@@ -141,6 +140,7 @@ with col_right:
     plt.tight_layout()
     st.pyplot(fig)
     plt.close(fig)
+    st.info("You can only add or subtract matrices of the same size.")
 
 
 # ── Scalar Multiplication (×2) ───────────────────────────────────────────────
