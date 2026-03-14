@@ -384,7 +384,7 @@ with col_right:
             width=0.006,
         )
 
-    lim = max(abs(A @ eigenvecs_np).max()) + 0.5
+    lim = abs(A @ eigenvecs_np).max() + 0.5
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-lim, lim)
     ax.axhline(0, color="grey", linewidth=0.5)
