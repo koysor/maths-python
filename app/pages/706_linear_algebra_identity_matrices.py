@@ -10,7 +10,8 @@ st.header("Linear Algebra - Identity Matrices")
 
 def matrix_heatmap(ax, data, title):
     """Draw an annotated heatmap for a matrix."""
-    ax.imshow(data, cmap="Blues", aspect="equal", vmin=0, vmax=1)
+    vmax = data.max() * 2 if data.max() > 0 else 1
+    ax.imshow(data, cmap="Blues", aspect="equal", vmin=0, vmax=vmax)
     for i in range(data.shape[0]):
         for j in range(data.shape[1]):
             ax.text(
