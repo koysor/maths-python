@@ -165,3 +165,170 @@ with col_right:
     plt.tight_layout()
     st.pyplot(fig)
     plt.close(fig)
+
+
+# ── Non-invertible Matrix ─────────────────────────────────────────────────────
+st.markdown("##### Non-invertible Matrix")
+st.info(
+    "When det(A) = 0 the matrix is singular — its columns are linearly dependent and the "
+    "transformation collapses space to a lower dimension. No inverse exists because the "
+    "transformation cannot be undone: information is permanently lost."
+)
+
+col_left, col_right = st.columns(2)
+
+with col_left:
+    code = """
+import streamlit as st
+from sympy import Matrix, latex
+
+A = Matrix([[2, 4], [1, 2]])
+st.latex(r'A = ' + latex(A))
+st.latex(r'\\det(A) = ' + latex(A.det()))
+
+try:
+    A_inv = A.inv()
+except Exception as e:
+    st.error(f"Cannot invert: {e}")
+"""
+    st.code(code, language="python")
+    exec(code)
+    st.info(
+        "Column 2 = 2 × column 1, so the columns are linearly dependent. "
+        "The matrix squashes 2D space onto a line — that cannot be reversed."
+    )
+
+with col_right:
+    A_sing = np.array([[2, 4], [1, 2]], dtype=float)
+    c1, c2 = A_sing[:, 0], A_sing[:, 1]
+    origin = np.zeros(2)
+
+    fig, axes = plt.subplots(1, 2, figsize=(7, 3))
+    for ax in axes:
+        ax.axhline(0, color="grey", linewidth=0.5)
+        ax.axvline(0, color="grey", linewidth=0.5)
+        ax.set_aspect("equal")
+        ax.grid(True, alpha=0.3)
+
+    plot_transformed_shape(axes[0], np.eye(2), UNIT_SQUARE, "royalblue", "unit square")
+    axes[0].set_title("Original", fontsize=10)
+    axes[0].legend(fontsize=8)
+    axes[0].set_xlim(-0.5, 2)
+    axes[0].set_ylim(-0.5, 2)
+
+    # the transformed square degenerates to a line segment
+    transformed = A_sing @ UNIT_SQUARE
+    axes[1].plot(
+        transformed[0],
+        transformed[1],
+        "tomato",
+        linewidth=3,
+        label="collapses to a line",
+    )
+    axes[1].set_title("Transformed by A (singular)", fontsize=10)
+    axes[1].legend(fontsize=8)
+    axes[1].set_xlim(-0.5, 7)
+    axes[1].set_ylim(-0.5, 4)
+    axes[1].text(
+        3,
+        2,
+        "det = 0\nno inverse",
+        ha="center",
+        fontsize=9,
+        color="tomato",
+        bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8),
+    )
+
+    fig.suptitle("Singular matrix — space collapses, inverse undefined", fontsize=10)
+    plt.tight_layout()
+    st.pyplot(fig)
+    plt.close(fig)
+
+
+# ── 3×3 Inversion ─────────────────────────────────────────────────────────────
+st.markdown("##### 3×3 Matrix Inversion")
+st.info(
+    "For matrices larger than 2×2 there is no simple closed-form formula. In practice "
+    "we rely on numerical methods (Gaussian elimination, LU decomposition) implemented "
+    "in SymPy or NumPy. The same conditions apply: the matrix must be square with det ≠ 0."
+)
+
+col_left, col_right = st.columns(2)
+
+with col_left:
+    code = """
+import streamlit as st
+from sympy import Matrix, latex
+
+A = Matrix([[2, 1, 0], [1, 3, 1], [0, 1, 4]])
+st.latex(r'A = ' + latex(A))
+st.latex(r'\\det(A) = ' + latex(A.det()))
+
+A_inv = A.inv()
+st.latex(r'A^{-1} = ' + latex(A_inv))
+
+I = A * A_inv
+st.latex(r'A \\cdot A^{-1} = ' + latex(I))
+"""
+    st.code(code, language="python")
+    exec(code)
+
+with col_right:
+    code_np = """
+import streamlit as st
+from sympy import Matrix, latex
+import numpy as np
+
+A = np.array([[2, 1, 0], [1, 3, 1], [0, 1, 4]], dtype=float)
+A_inv = np.linalg.inv(A)
+st.latex(r'A^{-1} \\approx ' + latex(Matrix(A_inv.round(4))))
+
+# verify
+I = A @ A_inv
+st.latex(r'A \\cdot A^{-1} \\approx ' + latex(Matrix(I.round(10))))
+"""
+    st.code(code_np, language="python")
+    exec(code_np)
+    st.info(
+        "NumPy uses floating-point arithmetic so results may have tiny rounding errors, "
+        "but A·A⁻¹ is effectively the identity matrix."
+    )
+
+
+# ── Key Properties ────────────────────────────────────────────────────────────
+st.markdown("##### Key Properties")
+st.info(
+    "These identities are useful when manipulating expressions involving inverses. "
+    "Note that the order reverses for products — (AB)⁻¹ = B⁻¹A⁻¹, not A⁻¹B⁻¹."
+)
+
+col_left, col_right = st.columns(2)
+
+with col_left:
+    st.markdown("""
+| Property | Rule |
+|---|---|
+| Double inverse | (A⁻¹)⁻¹ = A |
+| Product | (AB)⁻¹ = B⁻¹A⁻¹ |
+| Transpose | (Aᵀ)⁻¹ = (A⁻¹)ᵀ |
+| Determinant | det(A⁻¹) = 1 / det(A) |
+| Scalar | (cA)⁻¹ = (1/c) A⁻¹ |
+""")
+
+with col_right:
+    code = """
+import streamlit as st
+from sympy import Matrix, latex
+
+A = Matrix([[3, 1], [2, 4]])
+B = Matrix([[1, 2], [0, 3]])
+
+st.latex(r'(A^{-1})^{-1} = A \\quad \\Rightarrow ' + latex(A.inv().inv()))
+st.latex(r'(AB)^{-1} = ' + latex((A * B).inv()))
+st.latex(r'B^{-1}A^{-1} = ' + latex(B.inv() * A.inv()))
+st.latex(r'(A^T)^{-1} = ' + latex(A.T.inv()))
+st.latex(r'(A^{-1})^T = ' + latex(A.inv().T))
+st.latex(r'\\det(A^{-1}) = ' + latex(A.inv().det()) + r',\\quad 1/\\det(A) = ' + latex(1 / A.det()))
+"""
+    st.code(code, language="python")
+    exec(code)
