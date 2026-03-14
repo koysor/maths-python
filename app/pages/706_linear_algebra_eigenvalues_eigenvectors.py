@@ -119,7 +119,6 @@ with col_right:
             color=color,
             label=f"Av{i+1} = {lam:.0f}v{i+1}",
             width=0.006,
-            linestyle="dashed",
         )
 
     lim = abs(A @ eigenvecs).max() + 0.5
