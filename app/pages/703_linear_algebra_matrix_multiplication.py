@@ -8,8 +8,8 @@ st.set_page_config(
 st.header("Linear Algebra Matrix Multiplication")
 
 
-def matrix_heatmap(ax, data, title, highlight_row=None, highlight_col=None):
-    """Draw an annotated heatmap for a matrix, with optional row/col highlighting."""
+def matrix_heatmap(ax, data, title):
+    """Draw an annotated heatmap for a matrix."""
     im = ax.imshow(data, cmap="coolwarm", aspect="equal")
     for i in range(data.shape[0]):
         for j in range(data.shape[1]):
@@ -21,30 +21,6 @@ def matrix_heatmap(ax, data, title, highlight_row=None, highlight_col=None):
                 va="center",
                 fontsize=12,
                 fontweight="bold",
-            )
-    if highlight_row is not None:
-        for j in range(data.shape[1]):
-            ax.add_patch(
-                plt.Rectangle(
-                    (j - 0.5, highlight_row - 0.5),
-                    1,
-                    1,
-                    fill=False,
-                    edgecolor="gold",
-                    linewidth=3,
-                )
-            )
-    if highlight_col is not None:
-        for i in range(data.shape[0]):
-            ax.add_patch(
-                plt.Rectangle(
-                    (highlight_col - 0.5, i - 0.5),
-                    1,
-                    1,
-                    fill=False,
-                    edgecolor="limegreen",
-                    linewidth=3,
-                )
             )
     ax.set_xticks([])
     ax.set_yticks([])
@@ -203,9 +179,6 @@ st.latex(r'C = AB = ' + latex(Matrix(C)))
     exec(code)
 
 with col_right:
-    A = np.array([[5, -1, 2], [8, 3, -4]], dtype=float)
-    B = np.array([[2, 2], [9, -3], [7, 4]], dtype=float)
-    C = np.dot(A, B)
     fig, axes = plt.subplots(1, 3, figsize=(7, 3))
     matrix_heatmap(axes[0], A, "A  (2×3)")
     matrix_heatmap(axes[1], B, "B  (3×2)")
