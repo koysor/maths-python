@@ -44,12 +44,21 @@ docker build -f docker/Dockerfile -t maths-python .
 docker run -p 8505:8501 maths-python
 ```
 
+**Run tests:**
+
+```bash
+pytest                        # Run all tests
+pytest tests/test_utils.py    # Run a single test file
+```
+
 **Dependency management (uses uv):**
 
 ```bash
 uv sync           # Install dependencies
 uv add <package>  # Add new dependency
 ```
+
+**Pre-commit hooks** (Black, Ruff, detect-secrets) run automatically on `git commit`. Black will auto-reformat files and abort the commit — re-stage the reformatted files and commit again.
 
 ## Architecture
 
@@ -79,6 +88,23 @@ Each page follows this structure:
 2. Markdown content with LaTeX math notation
 3. Code snippets using `display_run_python_snippet()` or direct `st.code()` + `exec()`
 4. Interactive components (sliders, inputs) for visualization
+
+**Choosing a code snippet pattern:**
+
+- `display_run_python_snippet(code)` — use for standalone snippets; renders code at 4/6 screen width with output below.
+- Code-as-string + `st.code` + `exec` — use for side-by-side layouts where the code is shown in one column and its output (e.g. a chart) in another. Define the code once as a string to avoid duplication:
+
+```python
+chart_code = """
+import matplotlib.pyplot as plt
+...
+st.pyplot(fig)
+"""
+with col_left:
+    st.code(chart_code, language="python")
+with col_right:
+    exec(chart_code)
+```
 
 ## Key Libraries
 
@@ -132,7 +158,9 @@ Each page follows this structure:
 ## Conventions
 
 - Use British English spellings (e.g., "colour", "centre", "organised", "behaviour")
-- Draft pages use `*_.py` pattern (e.g., `300_calculus_stochastic_.py`) and are gitignored
+- Use two spaces after a full stop in prose strings (`st.info`, `st.markdown`, etc.)
+- Draft pages use `*_.py` pattern (e.g., `300_calculus_stochastic_.py`) and are gitignored; pages without a numeric prefix appear in the sidebar but have no guaranteed ordering
 - Use `st.latex()` for math notation with SymPy's `latex()` function
 - Wide layout is standard: `st.set_page_config(layout="wide")`
 - Column-based layouts for side-by-side content
+- Heatmaps: use `cmap="Blues"` with `vmin=0, vmax=abs_max*2` for non-negative matrices; use `cmap="RdBu_r"` with symmetric `vmin=-abs_max, vmax=abs_max` when the matrix contains negative values
