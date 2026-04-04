@@ -2,3 +2,4 @@
 **/*.pyc
 __pycache__/
 app/pages/*_.py
+.claude/settings.local.json

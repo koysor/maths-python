@@ -328,9 +328,21 @@ st.latex(r'\\mathbf{a} \\times \\mathbf{b} = ' + latex(c))
 """
     st.code(code, language="python")
     exec(code)
-    st.info(
-        "The cross product is only defined for 3-dimensional vectors and returns a vector perpendicular to both inputs."
-    )
+    st.info(r"""
+The cross product is only defined for 3-dimensional vectors and returns a vector perpendicular to both inputs.
+
+Computed as a 3×3 determinant:
+
+$$\mathbf{a} \times \mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{vmatrix}$$
+
+Expanding each component:
+
+- **i**: $(0 \times 0) - (0 \times 1) = 0$
+- **j**: $-[(1 \times 0) - (0 \times 0)] = 0$
+- **k**: $(1 \times 1) - (0 \times 0) = 1$
+
+Result: $[0, 0, 1]$ — the unit vector along the z-axis.  By the right-hand rule, pointing along x then y must produce a vector pointing along z.
+""")
 
 with col_right:
     a = np.array([1, 0, 0])
