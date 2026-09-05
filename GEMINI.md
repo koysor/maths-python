@@ -1,45 +1,179 @@
-# Project Overview
+# CLAUDE.md
 
-This is an educational interactive web application that provides Python code snippets for mathematics and statistics. The application covers topics including calculus (differentiation and integration), stochastic calculus, linear algebra, and probability distributions. Each topic presents mathematical theory alongside executable Python code examples using libraries like SymPy, NumPy, SciPy, and Matplotlib.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Built with Streamlit, the application organises content into navigable pages where users can explore mathematical concepts through LaTeX-rendered equations and interactive visualisations. Users can adjust parameters with sliders and inputs to see how mathematical operations behave with different values, making it a useful reference for learning computational mathematics.
+## Project Overview
 
-The codebase follows a modular architecture where each Python file in the `app/pages/` directory automatically becomes a page in the application. This makes it straightforward to add new mathematical topics by creating new page files following the established patterns.
+Educational Streamlit web application providing interactive Python code snippets for mathematics and statistics.
 
-# Building and Running
+**Live deployments:**
 
-The project uses `uv` for dependency management. To set up the environment and run the application:
+- AWS EC2: https://koysor.duckdns.org/maths/
 
-1.  **Install dependencies**:
-    ```bash
-    uv sync
-    ```
+## Commands
 
-2.  **Launch the application**:
-    ```bash
-    ./launch_streamlit_app.sh
-    ```
-    This script activates the virtual environment and starts the Streamlit server.
+**Run the application:**
 
-# Directory Structure
+```bash
+./launch_streamlit_app.sh
+# or directly:
+streamlit run app/maths_python.py
+```
+
+**Format code:**
+
+```bash
+black .
+```
+
+**Lint code:**
+
+```bash
+ruff check .
+```
+
+**CI runs both checks on the entire repo** (not just `app/`), so format and lint from the root.
+
+**Docker (local):**
+
+```bash
+cd docker
+docker-compose up --build
+# or directly:
+docker build -f docker/Dockerfile -t maths-python .
+docker run -p 8505:8501 maths-python
+```
+
+**Run tests:**
+
+```bash
+pytest                        # Run all tests
+pytest tests/test_utils.py    # Run a single test file
+```
+
+**Dependency management (uses uv):**
+
+```bash
+uv sync           # Install dependencies
+uv add <package>  # Add new dependency
+```
+
+**Pre-commit hooks** (Black, Ruff, detect-secrets) run automatically on `git commit`. Black will auto-reformat files and abort the commit — re-stage the reformatted files and commit again.
+
+## Architecture
+
+**Multi-page Streamlit app** where each `.py` file in `app/pages/` becomes a navigable page.
+
+**Entry point:** `app/maths_python.py`
+
+**Page organization:** Numeric prefixes control sidebar order (e.g., `100_calculus.py`, `200_integration.py`). Prefixes are auto-hidden in the UI.
+
+**Topic clusters:**
+
+- 100s: Calculus/Differentiation
+- 200s: Integration techniques
+- 300s: Stochastic calculus
+- 700s: Linear algebra
+- 800s: Probability & statistics
+- 850s–860s: Algebra (logarithms, completing the square)
+- 999s: Reference pages
+
+**Key utility:** `app/utils.py:display_run_python_snippet()` - Standard pattern for showing code with 4/6 width layout and executing it inline.
+
+### Directory Structure
 
 - `app/`: Main application code.
-  - `pages/`: Individual Streamlit pages. Files are numbered to control their order in the sidebar.
+  - `pages/`: Individual Streamlit pages.  Files are numbered to control their order in the sidebar.
   - `pages/code_snippets/`: Standalone Python scripts that are displayed and executed within the pages.
   - `assets/`: Images and other static assets.
 - `tests/`: Unit tests for mathematical logic and utilities.
 - `notebooks/`: Jupyter notebooks used for research and prototyping.
 
-# Development Conventions
+## Page Pattern
 
-- **Linting & Formatting**: The project uses `ruff` for linting and `black` for formatting. These are enforced via `pre-commit` hooks.
-- **British English**: All spellings within the project (prose, variable names, and comments) must adhere to British English conventions (e.g., *visualisation*, *behaviour*, *centre*).
-- **Page Layout**: 
-  - Use `st.columns` to create side-by-side layouts (e.g., prose on the left, code/plots on the right).
-  - Prefer a `[2, 3]` ratio for a wider display area for code or visualisations.
-- **Interactive Elements**: Use `st.slider`, `st.selectbox`, and `st.latex` to create interactive and mathematically-rich experiences.
-- **Testing**: New mathematical logic should be accompanied by tests in the `tests/` directory. Run tests using `pytest`.
+Each page follows this structure:
 
-# Configuration
+1. `st.set_page_config(layout="wide")`
+2. Markdown content with LaTeX math notation
+3. Code snippets using `display_run_python_snippet()` or direct `st.code()` + `exec()`
+4. Interactive components (sliders, inputs) for visualization
 
-Streamlit configuration is managed in `.streamlit/config.toml`. Ensure that only supported options are used to avoid startup warnings.
+**Choosing a code snippet pattern:**
+
+- `display_run_python_snippet(code)` — use for standalone snippets; renders code at 4/6 screen width with output below.
+- Code-as-string + `st.code` + `exec` — use for side-by-side layouts where the code is shown in one column and its output (e.g. a chart) in another. Define the code once as a string to avoid duplication:
+
+```python
+chart_code = """
+import matplotlib.pyplot as plt
+...
+st.pyplot(fig)
+"""
+with col_left:
+    st.code(chart_code, language="python")
+with col_right:
+    exec(chart_code)
+```
+
+## Key Libraries
+
+### Symbolic Mathematics
+
+- **SymPy** - Computer algebra system for symbolic mathematics
+  - Symbolic differentiation and integration
+  - Equation solving and simplification
+  - LaTeX output via `sympy.latex()` for mathematical rendering
+  - Limit calculations and series expansions
+
+### Numerical Computing
+
+- **NumPy** - Fundamental numerical computing
+  - Array operations for numerical examples
+  - Linear algebra operations for matrix calculations
+  - Random number generation for probability demonstrations
+
+- **SciPy** - Scientific computing and advanced numerical methods
+  - `scipy.stats` - Probability distributions and statistical functions
+  - `scipy.integrate` - Numerical integration methods
+  - `scipy.linalg` - Advanced linear algebra operations
+  - `scipy.special` - Special mathematical functions
+
+- **pandas** - Data manipulation and tabular data
+  - DataFrame structures for organising computational results
+  - Data presentation in interactive examples
+
+### Visualisation
+
+- **Matplotlib** - Plotting and visualisations
+  - Function plots for calculus demonstrations
+  - Distribution plots for probability topics
+  - 3D surface plots for multivariable calculus
+
+### Web Application
+
+- **Streamlit** - Interactive web application framework
+  - Multi-page navigation for topic organisation
+  - Interactive widgets (sliders, inputs) for parameter adjustment
+  - LaTeX rendering via `st.latex()`
+
+### Development Tools
+
+- **JupyterLab / Marimo** - Interactive notebook environments
+- **pytest** - Testing framework
+- **Black** - Code formatting
+- **Ruff** - Linting
+- **NetworkX** - Graph and network analysis (dev dependency)
+
+## Conventions
+
+- Use British English spellings (e.g., "colour", "centre", "organised", "behaviour")
+- Use two spaces after a full stop in prose strings (`st.info`, `st.markdown`, etc.)
+- Draft pages use `*_.py` pattern (e.g., `300_calculus_stochastic_.py`) and are gitignored; pages without a numeric prefix appear in the sidebar but have no guaranteed ordering
+- Use `st.latex()` for math notation with SymPy's `latex()` function
+- Wide layout is standard: `st.set_page_config(layout="wide")`
+- Column-based layouts for side-by-side content: use `st.columns` for side-by-side layouts (e.g. prose on the left, code/plots on the right), and prefer a `[4, 3]` ratio to give code or visualisations the wider display area
+- Heatmaps: use `cmap="Blues"` with `vmin=0, vmax=abs_max*2` for non-negative matrices; use `cmap="RdBu_r"` with symmetric `vmin=-abs_max, vmax=abs_max` when the matrix contains negative values
+
+## Configuration
+
+Streamlit configuration is managed in `.streamlit/config.toml`.  Ensure that only supported options are used to avoid startup warnings.
