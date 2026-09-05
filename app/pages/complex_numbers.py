@@ -135,5 +135,5 @@ st.write(
     "A **real solution** is solution to an equation that is a **real number** in that is lies somewhere on the **real number line**."
 )
 st.write(
-    "And it does not include any **imaginary numbers**, e.g. $$i$$ where $$i = \sqrt(-1)$$ ."
+    r"And it does not include any **imaginary numbers**, e.g. $$i$$ where $$i = \sqrt(-1)$$ ."
 )
