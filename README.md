@@ -72,7 +72,7 @@ The application is containerised using Docker and deployed as part of a multi-co
 
 ### Resource Limits
 
-To ensure stability on resource-constrained environments (like AWS EC2 t2.micro), the following memory limits are enforced in production:
+To ensure stability on resource-constrained environments (like AWS EC2 t3.micro), the following memory limits are enforced in production:
 
 - **Memory Limit:** 180MB
 - **Swap Limit:** 256MB
