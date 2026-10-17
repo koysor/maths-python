@@ -3,7 +3,7 @@ name = "maths-python"
 version = "0.1.0"
 description = "Educational interactive Streamlit web application providing Python code snippets for mathematics and statistics"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
     "matplotlib>=3.10.1",
     "pandas>=2.2.3",
