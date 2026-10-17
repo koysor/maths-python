@@ -108,7 +108,7 @@ with col_s3:
     st.dataframe(
         {f"X{j+1}": [f"{cov[i, j]:.3f}" for i in range(3)] for j in range(3)},
         hide_index=False,
-        use_container_width=True,
+        width="stretch",
     )
     if is_psd:
         st.success("Positive semi-definite ✓")

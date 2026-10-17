@@ -63,7 +63,7 @@ for n in [1, 2, 5, 10, 50, 100, 1_000, 10_000, 100_000]:
     })
 
 df = pd.DataFrame(rows)
-st.dataframe(df, hide_index=True, use_container_width=False)
+st.dataframe(df, hide_index=True, width="content")
 st.write(f"**True value:** $e = {MATH_E:.15f}\\\\ldots$")
 """
 
@@ -96,7 +96,7 @@ with col1:
 
     st.code(convergence_code, language="python")
     df = _calculate_convergence_table()
-    st.dataframe(df, hide_index=True, use_container_width=False)
+    st.dataframe(df, hide_index=True, width="content")
     st.write(f"**True value:** $e = {MATH_E:.15f}\\\\ldots$")
 
 
