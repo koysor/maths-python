@@ -14,6 +14,7 @@ Caddy Reverse Proxy (managed by quant-finance)
     ├─► options:8501        (/options/)
     ├─► fixed-income:8501   (/fixed-income/)
     ├─► portfolio:8501      (/portfolio/)
+    ├─► host:8506           (/flashcards/, quant-finance-flash-cards)
     │
     └─► host:8505           (/maths/)
             │
@@ -88,6 +89,7 @@ Host Port    Container Port    App                  Repository
 8503         8501              fixed-income         quant-finance
 8504         8501              portfolio-management quant-finance
 8505         8501              maths-python         maths-python
+8506         8000              flashcards           quant-finance-flash-cards
 ```
 
 ## HTTPS
