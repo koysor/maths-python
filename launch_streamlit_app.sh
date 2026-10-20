@@ -2,10 +2,13 @@
 
 echo "Starting the Streamlit app for Maths Python..."
 
-VENV_DIR=".venv"
+# Resolve paths relative to this script so it works from any directory
+cd "$(dirname "$(readlink -f "$0")")" || exit 1
+
+# uv lives in ~/.local/bin (or ~/.cargo/bin), which may be missing from PATH in non-login shells
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+
 APP_SCRIPT="app/maths_python.py"
 
-source "$VENV_DIR/bin/activate"
-
 # Run the Streamlit app
-streamlit run "$APP_SCRIPT"
+uv run streamlit run "$APP_SCRIPT" "$@"

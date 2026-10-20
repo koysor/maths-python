@@ -3,3 +3,5 @@
 __pycache__/
 app/pages/*_.py
 .claude/settings.local.json
+# Coverage data
+.coverage
