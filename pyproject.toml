@@ -17,6 +17,7 @@ pythonpath = ["."]
 
 [dependency-groups]
 dev = [
+    # Exact pin: SymPy parse_latex breaks on antlr4 4.13.x (see tests/test_lagrange_latex.py)
     "antlr4-python3-runtime==4.11",
     "black[jupyter]>=26.1.0",
     "ipykernel>=6.29.5",

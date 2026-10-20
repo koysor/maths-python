@@ -7,6 +7,11 @@ updates:
     groups:
       python-dependencies:
         patterns: ["*"]
+    ignore:
+      # SymPy's parse_latex only works with antlr4 4.11 (4.13.x raises
+      # ImportError and breaks the Lagrange page).  Revisit when SymPy
+      # supports a newer runtime.
+      - dependency-name: antlr4-python3-runtime
   - package-ecosystem: github-actions
     directory: /
     schedule:
