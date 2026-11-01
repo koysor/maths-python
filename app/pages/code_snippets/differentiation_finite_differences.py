@@ -1,5 +1,5 @@
 import streamlit as st
-from app.maths_logic import numerical_derivative
+from maths_lib.calculus import numerical_derivative
 
 
 def f(x):

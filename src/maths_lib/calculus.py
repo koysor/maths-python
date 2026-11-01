@@ -1,9 +1,13 @@
-"""Mathematical logic functions for symbolic and numerical calculus operations."""
+"""Symbolic and numerical calculus operations."""
+
+from collections.abc import Callable
 
 import sympy
 
 
-def numerical_derivative(func, x, h=1e-5):
+def numerical_derivative(
+    func: Callable[[float], float], x: float, h: float = 1e-5
+) -> float:
     """
     Compute the numerical derivative of a function at a point using central differences.
 
@@ -18,7 +22,7 @@ def numerical_derivative(func, x, h=1e-5):
     return (func(x + h) - func(x - h)) / (2 * h)
 
 
-def power_rule(variable, exponent):
+def power_rule(variable: str, exponent: int) -> sympy.Expr:
     """
     Computes the derivative of a variable raised to a power.
     """

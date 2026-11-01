@@ -17,22 +17,28 @@ Educational Streamlit web application providing interactive Python code snippets
 ```bash
 ./launch_streamlit_app.sh
 # or directly:
-streamlit run app/maths_python.py
+uv run streamlit run app/maths_python.py
 ```
 
 **Format code:**
 
 ```bash
-black .
+uv run black .
 ```
 
 **Lint code:**
 
 ```bash
-ruff check .
+uv run ruff check .
 ```
 
-**CI runs both checks on the entire repo** (not just `app/`), so format and lint from the root.
+**Type check the library:**
+
+```bash
+uv run mypy src/maths_lib
+```
+
+**CI runs the format and lint checks on the entire repo** (not just `app/`), so format and lint from the root.
 
 **Docker (local):**
 
@@ -47,8 +53,8 @@ docker run -p 8505:8501 maths-python
 **Run tests:**
 
 ```bash
-pytest                        # Run all tests
-pytest tests/test_utils.py    # Run a single test file
+uv run pytest                          # Run all tests
+uv run pytest tests/test_calculus.py   # Run a single test file
 ```
 
 **Dependency management (uses uv):**
@@ -77,6 +83,10 @@ uv add <package>  # Add new dependency
 - 800s: Probability & statistics
 - 850s–860s: Algebra (logarithms, completing the square)
 - 999s: Reference pages
+
+**Library:** `src/maths_lib/` is an installable package (`calculus`, `algebra`, `logarithms`, `plotting`). Put code here if the reader never sees it or several pages share it, and import it with `from maths_lib.calculus import ...`. Code displayed on a page as part of a lesson stays in that page. `tests/test_pages.py` runs every page with the `sys.path` that `streamlit run` sets, so imports from `app.` fail.
+
+**Dependencies:** anything the app needs at runtime belongs in `[project].dependencies`, because the Docker image installs with `--no-dev`. `tests/test_dependencies.py` checks this.
 
 **Key utility:** `app/utils.py:display_run_python_snippet()` - Standard pattern for showing code with 4/6 width layout and executing it inline.
 
@@ -162,13 +172,12 @@ with col_right:
 - **pytest** - Testing framework
 - **Black** - Code formatting
 - **Ruff** - Linting
-- **NetworkX** - Graph and network analysis (dev dependency)
 
 ## Conventions
 
 - Use British English spellings (e.g., "colour", "centre", "organised", "behaviour")
-- Use two spaces after a full stop in prose strings (`st.info`, `st.markdown`, etc.)
-- Draft pages use `*_.py` pattern (e.g., `300_calculus_stochastic_.py`) and are gitignored; pages without a numeric prefix appear in the sidebar but have no guaranteed ordering
+- Use two spaces after a full stop in new prose strings (`st.info`, `st.markdown`, etc.); older pages are mixed
+- New draft pages use `*_.py` pattern and are gitignored, but 7 older ones (e.g., `300_calculus_stochastic_.py`) are tracked, so edits to them do show up; pages without a numeric prefix appear in the sidebar but have no guaranteed ordering
 - Use `st.latex()` for math notation with SymPy's `latex()` function
 - Wide layout is standard: `st.set_page_config(layout="wide")`
 - Column-based layouts for side-by-side content: use `st.columns` for side-by-side layouts (e.g. prose on the left, code/plots on the right), and prefer a `[4, 3]` ratio to give code or visualisations the wider display area

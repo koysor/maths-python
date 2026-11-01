@@ -1,19 +1,12 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.plotting import plot_transformed_shape
 
 st.set_page_config(
     page_title="Linear Algebra - Matrix Inversion", page_icon="📐", layout="wide"
 )
 st.header("Linear Algebra - Matrix Inversion")
-
-
-def plot_transformed_shape(ax, M, shape, color, label, alpha=0.3):
-    """Apply matrix M to a 2D shape (2×n array of column points) and plot it."""
-    transformed = M @ shape
-    closed = np.hstack([transformed, transformed[:, [0]]])
-    ax.fill(closed[0], closed[1], color=color, alpha=alpha)
-    ax.plot(closed[0], closed[1], color=color, linewidth=2, label=label)
 
 
 # unit square corners as column vectors

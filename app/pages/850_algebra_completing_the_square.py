@@ -2,6 +2,7 @@ import streamlit as st
 import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.algebra import vertex_coefficients
 
 st.set_page_config(page_title="Completing the Square", page_icon="📐", layout="wide")
 st.header("Completing the Square")
@@ -357,8 +358,7 @@ with col_input:
 x = sp.Symbol("x")
 original_expr = a_val * x**2 + b_val * x + c_val
 
-h = sp.Rational(-b_val, 2 * a_val)
-k = c_val - sp.Rational(b_val**2, 4 * a_val)
+h, k = vertex_coefficients(a_val, b_val, c_val)
 vertex_form = a_val * (x - h) ** 2 + k
 
 with col_result:

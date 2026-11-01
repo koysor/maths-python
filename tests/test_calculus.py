@@ -1,6 +1,6 @@
 import math
 import sympy
-from app.maths_logic import power_rule, numerical_derivative
+from maths_lib.calculus import power_rule, numerical_derivative
 
 
 def test_power_rule():

@@ -1,5 +1,4 @@
 import streamlit as st
-import sympy
 
 
 def display_run_python_snippet(code_snippet: str):
@@ -12,10 +11,3 @@ def display_run_python_snippet(code_snippet: str):
     with col1:
         st.code(code_snippet, language="python")
         exec(code_snippet)
-
-
-def to_latex(expression):
-    """
-    Converts a SymPy expression to a LaTeX string.
-    """
-    return sympy.latex(expression)

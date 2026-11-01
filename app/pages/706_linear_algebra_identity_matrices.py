@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.plotting import plot_transformed_shape
 
 st.set_page_config(
     page_title="Linear Algebra - Identity Matrices", page_icon="📐", layout="wide"
@@ -26,14 +27,6 @@ def matrix_heatmap(ax, data, title):
     ax.set_xticks([])
     ax.set_yticks([])
     ax.set_title(title, fontsize=11)
-
-
-def plot_transformed_shape(ax, M, shape, color, label, alpha=0.3):
-    """Apply matrix M to a 2D shape and plot it."""
-    transformed = M @ shape
-    closed = np.hstack([transformed, transformed[:, [0]]])
-    ax.fill(closed[0], closed[1], color=color, alpha=alpha)
-    ax.plot(closed[0], closed[1], color=color, linewidth=2, label=label)
 
 
 UNIT_SQUARE = np.array([[0, 1, 1, 0], [0, 0, 1, 1]], dtype=float)

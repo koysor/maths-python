@@ -1,31 +1,12 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.plotting import matrix_heatmap
 
 st.set_page_config(
     page_title="Linear Algebra Matrix Multiplication", page_icon="📐", layout="wide"
 )
 st.header("Linear Algebra Matrix Multiplication")
-
-
-def matrix_heatmap(ax, data, title):
-    """Draw an annotated heatmap for a matrix."""
-    im = ax.imshow(data, cmap="coolwarm", aspect="equal")
-    for i in range(data.shape[0]):
-        for j in range(data.shape[1]):
-            ax.text(
-                j,
-                i,
-                f"{data[i, j]:.4g}",
-                ha="center",
-                va="center",
-                fontsize=12,
-                fontweight="bold",
-            )
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.set_title(title, fontsize=11)
-    return im
 
 
 # ── Summary ──────────────────────────────────────────────────────────────────
@@ -133,9 +114,9 @@ with col_right:
     B = np.array([[2, 2], [9, -3], [7, 4]], dtype=float)
     C = A @ B
     fig, axes = plt.subplots(1, 3, figsize=(7, 3))
-    matrix_heatmap(axes[0], A, "A  (2×3)")
-    matrix_heatmap(axes[1], B, "B  (3×2)")
-    matrix_heatmap(axes[2], C, "C = AB  (2×2)")
+    matrix_heatmap(axes[0], A, "A  (2×3)", cmap="coolwarm")
+    matrix_heatmap(axes[1], B, "B  (3×2)", cmap="coolwarm")
+    matrix_heatmap(axes[2], C, "C = AB  (2×2)", cmap="coolwarm")
     axes[1].set_xlabel("×", fontsize=18, labelpad=2)
     axes[2].set_xlabel("=  AB", fontsize=11, labelpad=2)
     fig.suptitle("Matrix Multiplication — A (2×3) × B (3×2) = C (2×2)", fontsize=10)
@@ -180,9 +161,9 @@ st.latex(r'C = AB = ' + latex(Matrix(C)))
 
 with col_right:
     fig, axes = plt.subplots(1, 3, figsize=(7, 3))
-    matrix_heatmap(axes[0], A, "A  (2×3)")
-    matrix_heatmap(axes[1], B, "B  (3×2)")
-    matrix_heatmap(axes[2], C, "C = np.dot(A, B)")
+    matrix_heatmap(axes[0], A, "A  (2×3)", cmap="coolwarm")
+    matrix_heatmap(axes[1], B, "B  (3×2)", cmap="coolwarm")
+    matrix_heatmap(axes[2], C, "C = np.dot(A, B)", cmap="coolwarm")
     axes[1].set_xlabel("×", fontsize=18, labelpad=2)
     axes[2].set_xlabel("=  np.dot(A, B)", fontsize=10, labelpad=2)
     fig.suptitle("NumPy dot product — same result as SymPy", fontsize=10)

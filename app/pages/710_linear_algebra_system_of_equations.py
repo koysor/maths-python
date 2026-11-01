@@ -16,50 +16,12 @@ Covers the matrix form Ax = b for 2×2 linear systems, including:
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.plotting import matrix_heatmap  # noqa: F401 — used by exec'd code
 
 st.set_page_config(
     page_title="Linear Algebra - System of Equations", page_icon="📐", layout="wide"
 )
 st.header("Linear Algebra - Solving Systems of Equations")
-
-
-def matrix_heatmap(ax, data, title):
-    """
-    Draw an annotated heatmap for a matrix on the given Axes.
-
-    Uses a diverging colourmap (RdBu_r) when the data contains negative
-    values, and a sequential colourmap (Blues) otherwise.  Each cell is
-    labelled with its value formatted to four significant figures.
-
-    Parameters
-    ----------
-    ax : matplotlib.axes.Axes
-        The axes to draw on.
-    data : array-like
-        The matrix values to visualise.
-    title : str
-        Title displayed above the heatmap.
-    """
-    data = np.array(data, dtype=float)
-    abs_max = np.abs(data).max() or 1
-    if data.min() < 0:
-        ax.imshow(data, cmap="RdBu_r", aspect="equal", vmin=-abs_max, vmax=abs_max)
-    else:
-        ax.imshow(data, cmap="Blues", aspect="equal", vmin=0, vmax=abs_max * 2)
-    for i in range(data.shape[0]):
-        for j in range(data.shape[1]):
-            ax.text(
-                j,
-                i,
-                f"{data[i, j]:.4g}",
-                ha="center",
-                va="center",
-                fontsize=12,
-                fontweight="bold",
-            )
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.set_title(title, fontsize=11)
 
 
 # ── Introduction ───────────────────────────────────────────────────────────────
