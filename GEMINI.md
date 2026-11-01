@@ -167,8 +167,8 @@ with col_right:
 ## Conventions
 
 - Use British English spellings (e.g., "colour", "centre", "organised", "behaviour")
-- Use two spaces after a full stop in prose strings (`st.info`, `st.markdown`, etc.)
-- Draft pages use `*_.py` pattern (e.g., `300_calculus_stochastic_.py`) and are gitignored; pages without a numeric prefix appear in the sidebar but have no guaranteed ordering
+- Use two spaces after a full stop in new prose strings (`st.info`, `st.markdown`, etc.); older pages are mixed
+- New draft pages use `*_.py` pattern and are gitignored, but 7 older ones (e.g., `300_calculus_stochastic_.py`) are tracked, so edits to them do show up; pages without a numeric prefix appear in the sidebar but have no guaranteed ordering
 - Use `st.latex()` for math notation with SymPy's `latex()` function
 - Wide layout is standard: `st.set_page_config(layout="wide")`
 - Column-based layouts for side-by-side content: use `st.columns` for side-by-side layouts (e.g. prose on the left, code/plots on the right), and prefer a `[4, 3]` ratio to give code or visualisations the wider display area
