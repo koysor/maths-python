@@ -1,32 +1,12 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from maths_lib.plotting import plot_transformed_shape
+from maths_lib.plotting import matrix_heatmap, plot_transformed_shape
 
 st.set_page_config(
     page_title="Linear Algebra - Identity Matrices", page_icon="📐", layout="wide"
 )
 st.header("Linear Algebra - Identity Matrices")
-
-
-def matrix_heatmap(ax, data, title):
-    """Draw an annotated heatmap for a matrix."""
-    vmax = data.max() * 2 if data.max() > 0 else 1
-    ax.imshow(data, cmap="Blues", aspect="equal", vmin=0, vmax=vmax)
-    for i in range(data.shape[0]):
-        for j in range(data.shape[1]):
-            ax.text(
-                j,
-                i,
-                f"{data[i, j]:.4g}",
-                ha="center",
-                va="center",
-                fontsize=12,
-                fontweight="bold",
-            )
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.set_title(title, fontsize=11)
 
 
 UNIT_SQUARE = np.array([[0, 1, 1, 0], [0, 0, 1, 1]], dtype=float)

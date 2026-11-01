@@ -4,34 +4,40 @@ import numpy as np
 from matplotlib.axes import Axes
 from numpy.typing import ArrayLike
 
+# Values smaller than this fraction of the matrix's largest value are treated as zero
+ROUNDING_NOISE = 1e-12
 
-def matrix_heatmap(
-    ax: Axes, data: ArrayLike, title: str, cmap: str | None = None
-) -> None:
+
+def matrix_heatmap(ax: Axes, data: ArrayLike, title: str) -> None:
     """
     Draw an annotated heatmap for a matrix on the given Axes.
 
     Uses a diverging colourmap (RdBu_r) when the data contains negative
-    values, and a sequential colourmap (Blues) otherwise.  Passing `cmap`
-    overrides this and lets matplotlib scale the colours to the data.  Each
-    cell is labelled with its value formatted to four significant figures.
+    values, and a sequential colourmap (Blues) otherwise.  Each cell is
+    labelled with its value formatted to four significant figures, in white
+    on dark cells and black otherwise.  Floating-point noise is shown as zero,
+    so that a result such as A · A⁻¹ looks like the identity matrix it is.
 
     Args:
         ax: The axes to draw on.
         data: The matrix values to visualise.
         title: Title displayed above the heatmap.
-        cmap: Colourmap to use instead of the default choice.
     """
     values = np.array(data, dtype=float)
     abs_max = np.abs(values).max() or 1
-    if cmap is not None:
-        ax.imshow(values, cmap=cmap, aspect="equal")
-    elif values.min() < 0:
-        ax.imshow(values, cmap="RdBu_r", aspect="equal", vmin=-abs_max, vmax=abs_max)
+    values[np.abs(values) < abs_max * ROUNDING_NOISE] = 0
+    if values.min() < 0:
+        image = ax.imshow(
+            values, cmap="RdBu_r", aspect="equal", vmin=-abs_max, vmax=abs_max
+        )
     else:
-        ax.imshow(values, cmap="Blues", aspect="equal", vmin=0, vmax=abs_max * 2)
+        image = ax.imshow(
+            values, cmap="Blues", aspect="equal", vmin=0, vmax=abs_max * 2
+        )
     for i in range(values.shape[0]):
         for j in range(values.shape[1]):
+            red, green, blue, _ = image.cmap(image.norm(values[i, j]))
+            luminance = 0.2126 * red + 0.7152 * green + 0.0722 * blue
             ax.text(
                 j,
                 i,
@@ -40,6 +46,7 @@ def matrix_heatmap(
                 va="center",
                 fontsize=12,
                 fontweight="bold",
+                color="white" if luminance < 0.4 else "black",
             )
     ax.set_xticks([])
     ax.set_yticks([])
