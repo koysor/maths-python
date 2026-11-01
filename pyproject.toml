@@ -5,7 +5,10 @@ description = "Educational interactive Streamlit web application providing Pytho
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    # Exact pin: SymPy parse_latex breaks on antlr4 4.13.x (see tests/test_lagrange_latex.py)
+    "antlr4-python3-runtime==4.11",
     "matplotlib>=3.10.1",
+    "numpy>=2.5.4",
     "pandas>=3.1.0",
     "scipy>=1.15.2",
     "streamlit>=1.66.1",
@@ -17,8 +20,6 @@ pythonpath = ["."]
 
 [dependency-groups]
 dev = [
-    # Exact pin: SymPy parse_latex breaks on antlr4 4.13.x (see tests/test_lagrange_latex.py)
-    "antlr4-python3-runtime==4.11",
     "black[jupyter]>=26.1.0",
     "ipykernel>=6.29.5",
     "jupyterlab>=4.6.4",
