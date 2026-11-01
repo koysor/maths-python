@@ -16,7 +16,7 @@ Covers the matrix form Ax = b for 2×2 linear systems, including:
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from maths_lib.plotting import matrix_heatmap
+from maths_lib.plotting import matrix_heatmap  # noqa: F401 — used by exec'd code
 
 st.set_page_config(
     page_title="Linear Algebra - System of Equations", page_icon="📐", layout="wide"

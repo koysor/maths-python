@@ -32,7 +32,10 @@ The codebase follows a modular architecture where each Python file in the `app/p
 | **pytest**              | Testing framework                                      |
 | **Black / Ruff**        | Code formatting and linting                            |
 | **pre-commit**          | Git hooks for automated code quality checks            |
-| **NetworkX**            | Graph and network analysis for exploratory work        |
+
+## Library
+
+Calculations the reader never sees, and helpers shared between pages, live in the installable `src/maths_lib/` package. Code displayed on a page as part of a lesson stays in that page. Exploratory notebooks are in `notebooks/`.
 
 ## Pre-commit Hooks
 

@@ -1,4 +1,4 @@
-.ipynb
+.ipynb_checkpoints/
 **/*.pyc
 __pycache__/
 app/pages/*_.py

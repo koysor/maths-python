@@ -21,13 +21,11 @@ dev = [
     "ipykernel>=6.29.5",
     "jupyterlab>=4.6.4",
     "marimo>=0.25.1",
-    "mathml2latex>=0.2.12",
-    "networkx>=3.4.2",
+    "mypy>=1.18.0",
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
     "pytest-cov>=7.1.0",
     "ruff>=0.14.5",
-    "ty>=0.0.1a1",
 ]
 
 [build-system]
@@ -36,6 +34,16 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/maths_lib"]
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["maths_lib.*"]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_any_generics = true
+warn_return_any = true
 
 [tool.ruff.lint]
 # Pin the rule set: Ruff 0.17 widened the defaults, which broke CI (unpinned ruff).

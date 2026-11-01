@@ -9,10 +9,11 @@ uv sync
 ./launch_streamlit_app.sh
 uv run streamlit run app/maths_python.py
 uv run pytest
-uv run pytest tests/test_utils.py
-uv run pytest tests/test_utils.py::test_name
+uv run pytest tests/test_calculus.py
+uv run pytest tests/test_calculus.py::test_name
 uv run black --check .
 uv run ruff check .
+uv run mypy src/maths_lib
 uv run pre-commit run --all-files
 ```
 
@@ -27,10 +28,16 @@ Python file in `app/pages/` as a page; numeric filename prefixes set sidebar
 order and group topics (100s calculus, 200s integration, 300s stochastic
 calculus, 700s linear algebra, 800s probability and algebra, and 999s reference
 pages).
-`app/maths_logic.py` holds reusable symbolic/numerical calculations, while
-`app/utils.py` provides shared snippet display and LaTeX helpers. Tests cover
-these calculations and utilities. `app/pages/code_snippets/` contains
-standalone examples used by pages; `src/notebooks/` is for exploratory work.
+`src/maths_lib/` is an installable package for calculations the reader never
+sees and helpers shared between pages; code displayed as part of a lesson stays
+in its page. `app/utils.py` provides the shared snippet display helper.
+`app/pages/code_snippets/` contains standalone examples used by pages;
+`notebooks/` is for exploratory work.
+
+`tests/test_pages.py` runs every page with the `sys.path` that `streamlit run`
+sets, so pages must not import from `app.`. Anything needed at runtime belongs in
+`[project].dependencies`, because the Docker image installs with `--no-dev`;
+`tests/test_dependencies.py` checks this.
 
 ## Repository-specific conventions
 
