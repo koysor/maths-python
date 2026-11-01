@@ -2,6 +2,7 @@ import streamlit as st
 import sympy as sp  # noqa: F401 — used by exec'd SymPy snippet
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.logarithms import convergence_table, exponential_derivatives
 
 st.set_page_config(
     page_title="The Natural Logarithm and Euler's Number", page_icon="📐", layout="wide"
@@ -70,24 +71,7 @@ st.write(f"**True value:** $e = {MATH_E:.15f}\\\\ldots$")
 
 @st.cache_data
 def _calculate_convergence_table():
-    import pandas as pd
-    from math import factorial
-
-    rows = []
-    for n in [1, 2, 5, 10, 50, 100, 1_000, 10_000, 100_000]:
-        limit_approx = (1 + 1 / n) ** n
-        series_terms = min(n, 20)  # series converges in ~20 terms
-        series_approx = 0
-        for k in range(series_terms + 1):
-            series_approx += 1 / factorial(k)
-        rows.append(
-            {
-                "n": f"{n:,}",
-                "Limit: (1 + 1/n)^n": f"{limit_approx:.10f}",
-                "Series: sum 1/k!": f"{series_approx:.10f}",
-            }
-        )
-    return pd.DataFrame(rows)
+    return convergence_table()
 
 
 col1, _ = st.columns([4, 2])
@@ -314,13 +298,7 @@ st.write("d/dx a^x =", deriv_ax)
 
 @st.cache_data
 def _compute_sympy_derivatives():
-    x = sp.Symbol("x")
-    a = sp.Symbol("a", positive=True)
-    return (
-        str(sp.diff(sp.exp(x), x)),
-        str(sp.diff(sp.ln(x), x)),
-        str(sp.diff(a**x, x)),
-    )
+    return exponential_derivatives()
 
 
 _deriv_exp, _deriv_ln, _deriv_ax = _compute_sympy_derivatives()

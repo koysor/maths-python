@@ -22,7 +22,7 @@ COPY pyproject.toml uv.lock ./
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv venv /opt/venv && \
     . /opt/venv/bin/activate && \
-    uv export --no-dev --format requirements-txt > requirements.txt && \
+    uv export --no-dev --no-emit-project --format requirements-txt > requirements.txt && \
     uv pip install --no-cache-dir -r requirements.txt
 
 # Stage 2: Runtime - minimal image
@@ -42,6 +42,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Copy application code
 COPY app/ ./app/
+COPY src/ ./src/
+ENV PYTHONPATH="/app/src"
 
 # Create non-root user for security
 RUN useradd --create-home --shell /bin/bash appuser && \

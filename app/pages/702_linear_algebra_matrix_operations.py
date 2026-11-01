@@ -1,31 +1,12 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from maths_lib.plotting import matrix_heatmap
 
 st.set_page_config(
     page_title="Linear Algebra Matrix Operations", page_icon="📐", layout="wide"
 )
 st.header("Linear Algebra Matrix Operations")
-
-
-def matrix_heatmap(ax, data, title):
-    """Draw an annotated heatmap for a matrix."""
-    im = ax.imshow(data, cmap="coolwarm", aspect="equal")
-    for i in range(data.shape[0]):
-        for j in range(data.shape[1]):
-            ax.text(
-                j,
-                i,
-                f"{data[i, j]:.4g}",
-                ha="center",
-                va="center",
-                fontsize=12,
-                fontweight="bold",
-            )
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.set_title(title, fontsize=11)
-    return im
 
 
 def transformed_square(ax, M, label, color, alpha=1.0):
@@ -81,9 +62,9 @@ with col_right:
     B = np.array([[-1, 4], [5, 3]], dtype=float)
     C = A + B
     fig, axes = plt.subplots(1, 3, figsize=(7, 3))
-    matrix_heatmap(axes[0], A, "A")
-    matrix_heatmap(axes[1], B, "B")
-    matrix_heatmap(axes[2], C, "A + B")
+    matrix_heatmap(axes[0], A, "A", cmap="coolwarm")
+    matrix_heatmap(axes[1], B, "B", cmap="coolwarm")
+    matrix_heatmap(axes[2], C, "A + B", cmap="coolwarm")
     axes[1].set_xlabel("+", fontsize=18, labelpad=2)
     axes[2].set_xlabel("=  A + B", fontsize=11, labelpad=2)
     fig.suptitle("Matrix Addition — element by element", fontsize=11)
@@ -131,9 +112,9 @@ with col_right:
     B = np.array([[0, 2, 1], [5, 2, 3]], dtype=float)
     C = A - B
     fig, axes = plt.subplots(1, 3, figsize=(7, 3))
-    matrix_heatmap(axes[0], A, "A")
-    matrix_heatmap(axes[1], B, "B")
-    matrix_heatmap(axes[2], C, "A − B")
+    matrix_heatmap(axes[0], A, "A", cmap="coolwarm")
+    matrix_heatmap(axes[1], B, "B", cmap="coolwarm")
+    matrix_heatmap(axes[2], C, "A − B", cmap="coolwarm")
     axes[1].set_xlabel("−", fontsize=18, labelpad=2)
     axes[2].set_xlabel("=  A − B", fontsize=11, labelpad=2)
     fig.suptitle("Matrix Subtraction — element by element", fontsize=11)
