@@ -8,23 +8,44 @@ matplotlib.use("Agg")
 
 
 @pytest.mark.parametrize(
-    ("data", "cmap", "expected_cmap", "expected_clim"),
+    ("data", "expected_cmap", "expected_clim"),
     [
-        ([[1, 2], [3, 4]], None, "Blues", (0, 8)),
-        ([[-1, 2], [3, -4]], None, "RdBu_r", (-4, 4)),
-        ([[0, 0], [0, 0]], None, "Blues", (0, 2)),
-        ([[1, 2], [3, 4]], "coolwarm", "coolwarm", (1, 4)),
+        ([[1, 2], [3, 4]], "Blues", (0, 8)),
+        ([[-1, 2], [3, -4]], "RdBu_r", (-4, 4)),
+        ([[0, 0], [0, 0]], "Blues", (0, 2)),
     ],
 )
-def test_matrix_heatmap_colour_scale(data, cmap, expected_cmap, expected_clim):
+def test_matrix_heatmap_colour_scale(data, expected_cmap, expected_clim):
     """Verify the colourmap and scale follow the heatmap convention."""
     _, ax = plt.subplots()
-    matrix_heatmap(ax, data, "title", cmap=cmap)
+    matrix_heatmap(ax, data, "title")
     image = ax.get_images()[0]
     assert image.get_cmap().name == expected_cmap
     assert image.get_clim() == expected_clim
     assert ax.get_title() == "title"
     assert len(ax.texts) == 4
+    plt.close("all")
+
+
+def test_matrix_heatmap_treats_rounding_noise_as_zero():
+    """Verify noise neither switches the colourmap nor appears in the labels."""
+    _, ax = plt.subplots()
+    matrix_heatmap(ax, [[1, -1.11e-16], [1.11e-16, 1]], "title")
+    assert ax.get_images()[0].get_cmap().name == "Blues"
+    assert [text.get_text() for text in ax.texts] == ["1", "0", "0", "1"]
+    plt.close("all")
+
+
+def test_matrix_heatmap_labels_contrast_with_their_cells():
+    """Verify labels are white on the darkest cells and black on the palest."""
+    _, ax = plt.subplots()
+    matrix_heatmap(ax, [[-4, 0], [4, 0]], "title")
+    assert [text.get_color() for text in ax.texts] == [
+        "white",
+        "black",
+        "white",
+        "black",
+    ]
     plt.close("all")
 
 
