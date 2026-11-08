@@ -80,71 +80,97 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up SSH
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          # Plain OpenSSH from the runner image: nothing is downloaded at run time,
+          # so an outage of GitHub release downloads cannot break the deploy.
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$EC2_SSH_KEY" > ~/.ssh/ec2
+          chmod 600 ~/.ssh/ec2
+          cat >> ~/.ssh/config <<EOF
+          Host ec2
+            HostName $EC2_HOST
+            User ec2-user
+            IdentityFile ~/.ssh/ec2
+            IdentitiesOnly yes
+            BatchMode yes
+            StrictHostKeyChecking accept-new
+            ConnectTimeout 30
+            ConnectionAttempts 3
+            ServerAliveInterval 30
+            ServerAliveCountMax 4
+          EOF
+
       - name: Deploy to EC2 via SSH
-        uses: appleboy/ssh-action@v1.2.5
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script_stop: true
-          command_timeout: 20m
-          script: |
-            set -e
+        timeout-minutes: 20
+        run: |
+          # Sent as the ssh command (not on stdin), like appleboy/ssh-action
+          # did; -n gives the remote side an empty stdin for docker exec.
+          script=$(cat <<'REMOTE'
+          set -e
 
-            # Clone or update repository (for docker-compose files)
-            cd ~/maths-python || git clone https://github.com/koysor/maths-python.git ~/maths-python
-            cd ~/maths-python
-            git fetch origin
-            git reset --hard origin/main
+          # Clone or update repository (for docker-compose files)
+          cd ~/maths-python || git clone https://github.com/koysor/maths-python.git ~/maths-python
+          cd ~/maths-python
+          git fetch origin
+          git reset --hard origin/main
 
-            # Stop existing containers (both named project and legacy 'docker' project)
-            cd docker
-            docker-compose -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
-            docker-compose -p docker -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
-            cd ..
+          # Stop existing containers (both named project and legacy 'docker' project)
+          cd docker
+          docker-compose -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
+          docker-compose -p docker -f docker-compose.prod.yml down --remove-orphans 2>/dev/null || true
+          cd ..
 
-            # Stop legacy standalone container (from previous docker run deployments)
-            docker stop maths-python 2>/dev/null || true
-            docker rm maths-python 2>/dev/null || true
+          # Stop legacy standalone container (from previous docker run deployments)
+          docker stop maths-python 2>/dev/null || true
+          docker rm maths-python 2>/dev/null || true
 
-            # Stop nginx if previously installed (Caddy now handles reverse proxy)
-            sudo systemctl stop nginx 2>/dev/null || true
-            sudo systemctl disable nginx 2>/dev/null || true
+          # Stop nginx if previously installed (Caddy now handles reverse proxy)
+          sudo systemctl stop nginx 2>/dev/null || true
+          sudo systemctl disable nginx 2>/dev/null || true
 
-            # Cleanup unused Docker resources (preserve caddy_data volume)
-            docker system prune -f || true
+          # Cleanup unused Docker resources (preserve caddy_data volume)
+          docker system prune -f || true
 
-            # Pull latest image from GHCR (public package, no auth required)
-            docker pull ghcr.io/koysor/maths-python:latest
+          # Pull latest image from GHCR (public package, no auth required)
+          docker pull ghcr.io/koysor/maths-python:latest
 
-            # Start service with docker-compose
-            cd docker
-            docker-compose -f docker-compose.prod.yml up -d
+          # Start service with docker-compose
+          cd docker
+          docker-compose -f docker-compose.prod.yml up -d
+          REMOTE
+          )
+          ssh -n ec2 "$script"
 
       - name: Health check
-        uses: appleboy/ssh-action@v1.2.5
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            set -e
-            echo "Waiting for app to start..."
-            sleep 30
+        timeout-minutes: 10
+        run: |
+          # Sent as the ssh command (not on stdin), like appleboy/ssh-action
+          # did; -n gives the remote side an empty stdin for docker exec.
+          script=$(cat <<'REMOTE'
+          set -e
+          echo "Waiting for app to start..."
+          sleep 30
 
-            # Verify container is running
-            cd ~/maths-python/docker
-            if ! docker-compose -f docker-compose.prod.yml ps | grep -q "maths-python"; then
-              echo "Container is not running!"
-              docker-compose -f docker-compose.prod.yml logs
-              exit 1
-            fi
+          # Verify container is running
+          cd ~/maths-python/docker
+          if ! docker-compose -f docker-compose.prod.yml ps | grep -q "maths-python"; then
+            echo "Container is not running!"
+            docker-compose -f docker-compose.prod.yml logs
+            exit 1
+          fi
 
-            # Check Streamlit health endpoint
-            docker-compose -f docker-compose.prod.yml exec -T maths-python curl -f http://localhost:8501/maths/_stcore/health
-            echo " Maths Python OK"
+          # Check Streamlit health endpoint
+          docker-compose -f docker-compose.prod.yml exec -T maths-python curl -f http://localhost:8501/maths/_stcore/health
+          echo " Maths Python OK"
 
-            echo "Health check passed!"
+          echo "Health check passed!"
+          REMOTE
+          )
+          ssh -n ec2 "$script"
 
       - name: Deployment summary
         run: |
