@@ -9,7 +9,7 @@ Educational Streamlit web application providing interactive Python code snippets
 **Live deployments:**
 
 - AWS EC2: https://koysor.duckdns.org/maths/
-- GitHub Pages (marimo notebooks): https://koysor.github.io/maths-python/ — `.github/workflows/deploy-marimo.yml` exports each `notebooks/*.py` twice, as `<name>.html` (read-only, no code) and `<name>-edit.html` (editable code). Notebooks run in Pyodide in the browser, so they cannot import `maths_lib`.
+- GitHub Pages (marimo notebooks): https://koysor.github.io/maths-python/ — `.github/workflows/deploy-marimo.yml` exports each `notebooks/*.py` twice, as `<name>.html` (read-only, no code) and `<name>-edit.html` (editable code). Notebooks run in Pyodide in the browser, so they cannot import `maths_lib`. Add a new one with the `new-notebook` skill (`/new-notebook <name> <topic>`); general marimo rules are in the shared `koysor-skills:marimo-helper` skill (from `repo-tools`).
 
 ## Commands
 
