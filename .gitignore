@@ -5,3 +5,6 @@ app/pages/*_.py
 .claude/settings.local.json
 # Coverage data
 .coverage
+
+# Marimo session cache
+__marimo__/
