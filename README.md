@@ -37,6 +37,18 @@ The codebase follows a modular architecture where each Python file in the `app/p
 
 Calculations the reader never sees, and helpers shared between pages, live in the installable `src/maths_lib/` package. Code displayed on a page as part of a lesson stays in that page. Exploratory notebooks are in `notebooks/`.
 
+## Interactive Marimo Notebooks
+
+The marimo notebooks in `notebooks/` are published to GitHub Pages at **https://koysor.github.io/maths-python/**.  They run entirely in your browser using WebAssembly (no server required).
+
+Each notebook is published in two versions from the same source file.  **View** is a read-only page showing only the outputs and interactive widgets.  **Edit code** shows the Python code and lets you change and re-run it in the browser; changes are kept only in your browser.
+
+| Notebook | View (read-only) | Code (editable) |
+|----------|------------------|-----------------|
+| Euler's Number | [View](https://koysor.github.io/maths-python/eulers_number.html) | [Edit code](https://koysor.github.io/maths-python/eulers_number-edit.html) |
+
+Notebooks run in Pyodide, so they can use numpy, matplotlib and other Pyodide packages, but not `maths_lib`.
+
 ## Pre-commit Hooks
 
 This repository uses [pre-commit](https://pre-commit.com/) to run code quality checks automatically before each commit.
@@ -68,6 +80,7 @@ uv run pre-commit autoupdate       # Update hook versions
 ## Live Application
 
 - **AWS EC2:** https://koysor.duckdns.org/maths/
+- **Notebooks (GitHub Pages):** https://koysor.github.io/maths-python/
 
 ## Docker Deployment
 
