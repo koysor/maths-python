@@ -14,6 +14,8 @@ Create the file at `notebooks/$0.py`. Read `notebooks/eulers_number.py` first as
 
 ## Marimo rules
 
+The full rules are in the shared `koysor-skills:marimo-helper` skill (from `repo-tools`). The essentials:
+
 - Every global name may be defined in only one cell. Prefix loop variables and temporaries with `_` (e.g. `for _n in range(10):`) and avoid generic globals like `df`, `fig`, `ax` or `x` when more than one cell would want them; use descriptive names such as `fig_convergence`.
 - Pass dependencies through the cell function's arguments and return what later cells need; no hidden state or side effects.
 
