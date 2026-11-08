@@ -1,3 +1,9 @@
+---
+name: new-page
+description: Create a new educational Streamlit page for the maths-python app following project conventions
+argument-hint: [topic]
+---
+
 # New Maths Page Skill
 
 Create a new educational Streamlit page for the maths-python app.
