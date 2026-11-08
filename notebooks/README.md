@@ -7,6 +7,7 @@ Each notebook is published in two versions from the same source file.  **View** 
 | Notebook | View (read-only) | Code (editable) |
 |----------|------------------|-----------------|
 | Euler's Number | [View](https://koysor.github.io/maths-python/eulers_number.html) | [Edit code](https://koysor.github.io/maths-python/eulers_number-edit.html) |
+| The Normal Distribution | [View](https://koysor.github.io/maths-python/normal_distribution.html) | [Edit code](https://koysor.github.io/maths-python/normal_distribution-edit.html) |
 
 Every `.py` file directly in this folder is published by `.github/workflows/deploy-marimo.yml`.  The notebooks run in Pyodide, so they can use numpy, matplotlib and other Pyodide packages, but cannot import `maths_lib`.  To run one locally:
 

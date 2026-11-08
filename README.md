@@ -46,6 +46,7 @@ Each notebook is published in two versions from the same source file.  **View** 
 | Notebook | View (read-only) | Code (editable) |
 |----------|------------------|-----------------|
 | Euler's Number | [View](https://koysor.github.io/maths-python/eulers_number.html) | [Edit code](https://koysor.github.io/maths-python/eulers_number-edit.html) |
+| The Normal Distribution | [View](https://koysor.github.io/maths-python/normal_distribution.html) | [Edit code](https://koysor.github.io/maths-python/normal_distribution-edit.html) |
 
 Notebooks run in Pyodide, so they can use numpy, matplotlib and other Pyodide packages, but not `maths_lib`.
 
