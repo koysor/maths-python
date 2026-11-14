@@ -48,3 +48,8 @@ warn_return_any = true
 [tool.ruff.lint]
 # Pin the rule set: Ruff 0.17 widened the defaults, which broke CI (unpinned ruff).
 select = ["E4", "E7", "E9", "F"]
+
+[tool.repo-tools.check-all]
+# Black is this repo's formatter (pre-commit and deploy-ec2.yml run it), not
+# ruff format, which lays out some marimo cells differently.
+format = ["black", "--check", "."]
