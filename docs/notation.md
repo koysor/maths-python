@@ -244,6 +244,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $D_T$, $F_T$ | Discount factor and forward price to $T$ | — | |
 | $\kappa$, $\nu$ | Transaction cost rate; shares traded | — | |
 | $\Lambda(S)$ | Exotic payoff in static hedging | — | |
+| $r_b$, $r_q$ | Interest rates of the base and quote currencies of an FX pair (Garman–Kohlhagen) | — | $r_b$ plays the role of $q$; written this way because "domestic" and "foreign" are used both ways round |
 
 ## Volatility surfaces
 
@@ -254,6 +255,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $y = \ln(K/F_T)$ | Log-moneyness | — | Also a generic variable |
 | $w(T, y) = T\,\sigma_{\text{imp}}^2$ | Total implied variance | — | Also portfolio weights |
 | $g$ | Denominator of the Dupire formula in $(w, y)$ form | — | |
+| $\text{RR}_{25}$, $\text{BF}_{25}$ | 25-delta risk reversal (call vol minus put vol, a measure of skew) and butterfly (average wing vol minus ATM vol, a measure of curvature) | — | FX quoting convention |
 
 ## Interest rates and fixed income
 
