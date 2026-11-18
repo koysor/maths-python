@@ -37,6 +37,10 @@ The codebase follows a modular architecture where each Python file in the `app/p
 
 Calculations the reader never sees, and helpers shared between pages, live in the installable `src/maths_lib/` package. Code displayed on a page as part of a lesson stays in that page. Exploratory notebooks are in `notebooks/`.
 
+## Documentation
+
+[`docs/notation.md`](docs/notation.md) is a guide to the mathematical notation used here and in [quant-finance](https://github.com/koysor/quant-finance): every symbol, what it means, and where one symbol has more than one meaning.
+
 ## Interactive Marimo Notebooks
 
 The marimo notebooks in `notebooks/` are published to GitHub Pages at **https://koysor.github.io/maths-python/**.  They run entirely in your browser using WebAssembly (no server required).
