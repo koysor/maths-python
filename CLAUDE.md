@@ -174,3 +174,11 @@ with col_right:
 - Wide layout is standard: `st.set_page_config(layout="wide")`
 - Column-based layouts for side-by-side content
 - Heatmaps: use `cmap="Blues"` with `vmin=0, vmax=abs_max*2` for non-negative matrices; use `cmap="RdBu_r"` with symmetric `vmin=-abs_max, vmax=abs_max` when the matrix contains negative values
+
+## Notation guide
+
+`docs/notation.md` is the guide to all mathematical notation used in maths-python, quant-finance and a private study-notes repo (named in `CLAUDE.private.md` in the repos folder). **Every code change in this repo must check it.** If the change adds a symbol, removes the last use of one, or gives a symbol a new meaning, update the guide in the same branch and commit. If nothing changed, say so when reporting the change. The same rule is in the `CLAUDE.md` of quant-finance and of the private repo; changes there update this file in a separate commit here.
+
+- Keep the guide's *Used in* column to `MP` (maths-python) and `QF` (quant-finance); a symbol used only in the private repo gets `—`.
+- **This repo is public: never name the private repo, its modules, lectures or exams anywhere in it**, including `docs/`, commit messages and pull requests, and never link to or quote its files. Refer to it only as "the private notes".
+- When a change uses a symbol in a way that clashes with another repo, add it to the "Overloaded symbols" or "Differences between repos" table rather than renaming code to match.
