@@ -73,7 +73,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\log x$, $\log_b x$ | Logarithm; to base $b$ | MP | Unsubscripted $\log$ means $\ln$ in the finance material |
 | $i$ | Imaginary unit, $i^2 = -1$ | MP | Also an index; see [Overloaded symbols](#overloaded-symbols) |
 | $z = a + bi$, $\bar{z}$, $\lvert z \rvert$ | Complex number, its conjugate, its modulus | MP | |
-| $\sin, \cos, \tan, \sec, \operatorname{cosec}, \cot$ | Trigonometric functions | MP | |
+| $\sin, \cos, \tan, \sec, \mathrm{cosec}, \cot$ | Trigonometric functions | MP | |
 | $\arcsin, \arctan$ | Inverse trigonometric functions | — | |
 | $\sinh, \cosh, \tanh$ | Hyperbolic functions | — | |
 | $\pi$ | $3.14159\ldots$ | MP, QF | Also a policy in reinforcement learning |
@@ -116,9 +116,9 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $A^\top$, $A'$ | Transpose | MP, QF | QF uses $^\top$; the private notes often use $'$, e.g. $w'\Sigma w$ |
 | $A^{-1}$ | Inverse | MP, QF | |
 | $\det(A)$, $\lvert A \rvert$ | Determinant | MP | |
-| $\operatorname{adj}(A)$ | Adjugate | — | |
-| $\operatorname{tr}(A)$ | Trace | — | |
-| $\operatorname{diag}(\sigma)$ | Diagonal matrix with $\sigma$ on the diagonal | MP, QF | |
+| $\mathrm{adj}(A)$ | Adjugate | — | |
+| $\mathrm{tr}(A)$ | Trace | — | |
+| $\mathrm{diag}(\sigma)$ | Diagonal matrix with $\sigma$ on the diagonal | MP, QF | |
 | $I$, $I_n$ | Identity matrix | MP | Also an information set; see [Time series](#time-series-and-econometrics) |
 | $\mathbf{0}$, $\mathbf{1}$ | Vector of zeros; vector of ones | MP | $\mathbf{1}_{A}$ is also an indicator; see [Probability](#probability-and-statistics) |
 | $\lambda$, $\mathbf{v}$ | Eigenvalue and eigenvector, $A\mathbf{v} = \lambda\mathbf{v}$ | MP | |
@@ -136,8 +136,8 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $P(A \mid B)$ | Conditional probability | — | |
 | $\mathbb{E}[X]$, $E[X]$, $E(X)$ | Expectation | MP, QF | Preferred: $\mathbb{E}[X]$ |
 | $\mathbb{E}[X \mid \mathcal{F}_t]$ | Conditional expectation given information at time $t$ | — | |
-| $\operatorname{Var}(X)$, $\text{Var}[X]$ | Variance | MP, QF | |
-| $\operatorname{Cov}(X, Y)$ | Covariance | MP, QF | |
+| $\mathrm{Var}(X)$, $\text{Var}[X]$ | Variance | MP, QF | Written `\operatorname{Var}` in quant-finance and `\text{Var}` elsewhere |
+| $\mathrm{Cov}(X, Y)$ | Covariance | MP, QF | |
 | $\mu$ | Mean | MP, QF | Also drift; see [Stochastic calculus](#stochastic-calculus) |
 | $\sigma$, $\sigma^2$ | Standard deviation, variance | MP, QF | Also volatility |
 | $\sigma_{ij}$, $\sigma_{XY}$ | Covariance of $i$ and $j$ | MP, QF | |
@@ -151,9 +151,9 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\Phi(x)$, $N(x)$ | Standard normal CDF | MP, QF | $N$ in pricing formulas, $\Phi$ in statistics |
 | $\Phi^{-1}$, $N^{-1}$ | Inverse normal CDF (quantile) | — | |
 | $z$, $z_\alpha$ | $z$-score; normal quantile at level $\alpha$ | MP | |
-| $\operatorname{LogN}(\mu, \sigma^2)$ | Lognormal distribution | — | |
-| $\operatorname{Bin}(n, p)$, $p$ | Binomial distribution; success probability | MP | $p$ is also a probability in a tree |
-| $\operatorname{Po}(\lambda)$, $\lambda$ | Poisson distribution; its rate | MP | |
+| $\mathrm{LogN}(\mu, \sigma^2)$ | Lognormal distribution | — | |
+| $\mathrm{Bin}(n, p)$, $p$ | Binomial distribution; success probability | MP | $p$ is also a probability in a tree |
+| $\mathrm{Po}(\lambda)$, $\lambda$ | Poisson distribution; its rate | MP | |
 | $U[0, 1]$ | Uniform distribution | — | |
 | $t_\nu$, $\nu$ | Student's $t$ distribution; degrees of freedom | MP | |
 | $\chi^2_k$ | Chi-squared distribution with $k$ degrees of freedom | — | |
@@ -275,7 +275,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\mathbf{w}$, $w_i$ | Portfolio weights, summing to one | MP, QF | |
 | $\mu_p$, $\sigma_p$ | Portfolio expected return and volatility | QF | Private notes write $\mu_\Pi$, $\sigma_\Pi$ |
 | $R_i$, $R_m$, $R_f$ | Return on asset $i$, the market, the risk-free asset | QF | |
-| $\beta_i$ | Beta, $\operatorname{Cov}(R_i, R_m)/\sigma_m^2$ | QF | |
+| $\beta_i$ | Beta, $\mathrm{Cov}(R_i, R_m)/\sigma_m^2$ | QF | |
 | $\alpha_i$ | Jensen's alpha | QF | |
 | $\lambda$ | Risk aversion; a factor risk premium (APT) | — | Also eigenvalue, Lagrange multiplier, Poisson rate |
 | $\Pi$, $P$, $Q$, $\Omega$, $\tau$ | Black–Litterman: equilibrium returns, pick matrix, view returns, view uncertainty, prior scaling | — | Every one of these letters means something else elsewhere |
