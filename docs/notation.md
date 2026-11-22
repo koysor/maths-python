@@ -160,7 +160,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\Phi^{-1}$, $N^{-1}$ | Inverse normal CDF (quantile) | MP | MP writes $\Phi^{-1}$ |
 | $z$, $z_\alpha$ | $z$-score; normal quantile at level $\alpha$ | MP | |
 | $\mathrm{LogN}(\mu, \sigma^2)$ | Lognormal distribution | — | |
-| $\mathrm{Bin}(n, p)$, $p$ | Binomial distribution; success probability | MP | $p$ is also a probability in a tree |
+| $\mathrm{Bin}(n, p)$, $p$ | Binomial distribution; success probability | MP, QF | $p$ is also a probability in a tree |
 | $\mathrm{Po}(\lambda)$, $\lambda$ | Poisson distribution; its rate | MP | |
 | $k$, $\theta$ | Shape and scale of a gamma distribution | — | Density proportional to $x^{k-1}e^{-x/\theta}$ |
 | $U[0, 1]$, $u$ | Uniform distribution; a draw from it | MP | $\phi = \Phi^{-1}(u)$ in inverse transform sampling |
@@ -203,9 +203,9 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $W_t$, $W(t)$ | Brownian motion (Wiener process) | MP, QF | Preferred letter.  $B_t$ appears occasionally |
 | $dW_t$, $dX$ | Brownian increment | MP, QF | $dX$ is the lecture-note letter for the same thing; see [Differences](#differences-between-repos) |
 | $W^{\mathbb{Q}}_t$ | Brownian motion under $\mathbb{Q}$ | — | |
-| $\mathbb{P}$ | Real-world (physical) measure | — | |
+| $\mathbb{P}$ | Real-world (physical) measure | QF | |
 | $\mathbb{Q}$ | Risk-neutral measure | QF | |
-| $\mathbb{E}^{\mathbb{Q}}[\cdot]$ | Expectation under $\mathbb{Q}$ | — | |
+| $\mathbb{E}^{\mathbb{Q}}[\cdot]$, $\mathbb{E}^{\mathbb{P}}[\cdot]$ | Expectation under $\mathbb{Q}$; under $\mathbb{P}$ | QF | |
 | $\frac{d\mathbb{Q}}{d\mathbb{P}}$, $\Lambda$, $Z_t$ | Radon–Nikodym derivative; its density process | — | |
 | $\theta_t$ | Girsanov kernel (market price of risk) | — | |
 | $\mathcal{F}_t$ | Filtration: the information known at time $t$ | — | |
@@ -267,6 +267,9 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\text{Payoff}(S_T)$ | Payoff at expiry | QF | e.g. $\max(S_T - K, 0)$ |
 | $u$, $d$ | Up and down factors in a binomial tree | MP, QF | $d$ is also a differential |
 | $p$ | Risk-neutral probability of an up move | QF | |
+| $p^{\mathbb{P}}$ | Real-world probability of an up move, $\frac{e^{\mu\Delta t} - d}{u - d}$ | QF | Does not enter the price |
+| $V^+$, $V^-$ | Option values after an up and a down move in a binomial tree | QF | |
+| $S_{i,j}$, $V_{i,j}$ | Stock price and option value at node $(i, j)$ of a tree: step $i$, after $j$ down moves | QF | |
 | $D_T$, $F_T$ | Discount factor and forward price to $T$ | — | |
 | $\kappa$, $\nu$ | Transaction cost rate; shares traded | — | |
 | $\Lambda(S)$ | Exotic payoff in static hedging | — | |
@@ -387,6 +390,7 @@ Where the repos write the same idea differently.  New work should follow the con
 | Time to expiry | — | $T$ (years) | $\tau = T - t$, with $T$ the expiry date |
 | Brownian increment | $dW_t$ | $dW_t$ | $dW_t$, and $dX$ in the lecture notes |
 | Small time step | $\Delta t$ | $\Delta t$ | $\delta t$ |
+| Binomial tree: down factor; risk-neutral up probability | — | $d$; $p$ | $v$; $q$ |
 | Normal distribution | $\mathcal{N}(\mu, \sigma^2)$ | $N(0, \Delta t)$ | $\mathcal{N}(\mu, \sigma^2)$ |
 | Normal PDF | $\phi(x)$, or $f(x)$ where $\phi$ is the random variable | $n(x)$ | $\phi(x)$ |
 | Normal CDF | $\Phi(x)$ | $N(x)$ | $N(x)$, with $\Phi$ in statistics |
