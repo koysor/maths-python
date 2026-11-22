@@ -142,19 +142,21 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\sigma$, $\sigma^2$ | Standard deviation, variance | MP, QF | Also volatility |
 | $\sigma_{ij}$, $\sigma_{XY}$ | Covariance of $i$ and $j$ | MP, QF | |
 | $\rho$, $\rho_{XY}$, $\rho_{ij}$ | Correlation coefficient | MP, QF | Also the option Greek rho |
-| $\bar{x}$, $s$ | Sample mean, sample standard deviation | MP, QF | |
+| $\bar{x}$, $s$ | Sample mean, sample standard deviation | MP, QF | $\bar{\phi}$ is the sample mean of draws of $\phi$ |
 | $\hat{\theta}$ | Estimate of parameter $\theta$ | — | e.g. $\hat{\beta}$ |
 | $n$ | Sample size; number of trials | MP, QF | |
 | $X \sim D$ | $X$ has distribution $D$ | MP, QF | |
 | $\mathcal{N}(\mu, \sigma^2)$ | Normal distribution | MP | QF writes $N(0, \Delta t)$; see [Differences](#differences-between-repos) |
-| $\phi(x)$ | Standard normal PDF | MP | QF writes $n(x)$ |
+| $\phi(x)$ | Standard normal PDF | MP | QF writes $n(x)$; MP writes $f(x)$ where $\phi$ is the random variable |
+| $\phi$, $\phi_i$ | Standard normal random variable; its $i$-th realisation | MP | $\phi \sim \mathcal{N}(0, 1)$; not the density $\phi(x)$ |
 | $\Phi(x)$, $N(x)$ | Standard normal CDF | MP, QF | $N$ in pricing formulas, $\Phi$ in statistics |
-| $\Phi^{-1}$, $N^{-1}$ | Inverse normal CDF (quantile) | — | |
+| $\Phi^{-1}$, $N^{-1}$ | Inverse normal CDF (quantile) | MP | MP writes $\Phi^{-1}$ |
 | $z$, $z_\alpha$ | $z$-score; normal quantile at level $\alpha$ | MP | |
 | $\mathrm{LogN}(\mu, \sigma^2)$ | Lognormal distribution | — | |
 | $\mathrm{Bin}(n, p)$, $p$ | Binomial distribution; success probability | MP | $p$ is also a probability in a tree |
 | $\mathrm{Po}(\lambda)$, $\lambda$ | Poisson distribution; its rate | MP | |
-| $U[0, 1]$ | Uniform distribution | — | |
+| $U[0, 1]$, $u$ | Uniform distribution; a draw from it | MP | $\phi = \Phi^{-1}(u)$ in inverse transform sampling |
+| $a, b$ | Endpoints of an interval, as in $P(a \le \phi \le b)$ | MP | Also polynomial coefficients |
 | $t_\nu$, $\nu$ | Student's $t$ distribution; degrees of freedom | MP | |
 | $\chi^2_k$ | Chi-squared distribution with $k$ degrees of freedom | — | |
 | $f(x)$, $F(x)$ | PDF, CDF | MP, QF | $f_{\mathbb{Q}}$ is the risk-neutral density |
@@ -353,9 +355,9 @@ Where the repos write the same idea differently.  New work should follow the con
 | Brownian increment | $dW_t$ | $dW_t$ | $dW_t$, and $dX$ in the lecture notes |
 | Small time step | $\Delta t$ | $\Delta t$ | $\delta t$ |
 | Normal distribution | $\mathcal{N}(\mu, \sigma^2)$ | $N(0, \Delta t)$ | $\mathcal{N}(\mu, \sigma^2)$ |
-| Normal PDF | $\phi(x)$ | $n(x)$ | $\phi(x)$ |
+| Normal PDF | $\phi(x)$, or $f(x)$ where $\phi$ is the random variable | $n(x)$ | $\phi(x)$ |
 | Normal CDF | $\Phi(x)$ | $N(x)$ | $N(x)$, with $\Phi$ in statistics |
-| Standard normal draw | $\phi_i$ | $Z$ | $\phi$, $\varepsilon$ |
+| Standard normal draw | $\phi$, $\phi_i$ | $Z$ | $\phi$, $\varepsilon$ |
 | Transpose | $^\top$ | $^\top$ | $'$ and $^\top$ |
 | Portfolio volatility | — | $\sigma_p$ | $\sigma_\Pi$ |
 | Mean reversion (Vasicek) | — | — | $\gamma(\bar{r} - r)$ and $\kappa(\theta - r)$ |
