@@ -74,11 +74,13 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $i$ | Imaginary unit, $i^2 = -1$ | MP | Also an index; see [Overloaded symbols](#overloaded-symbols) |
 | $z = a + bi$, $\bar{z}$, $\lvert z \rvert$ | Complex number, its conjugate, its modulus | MP | |
 | $\sin, \cos, \tan, \sec, \mathrm{cosec}, \cot$ | Trigonometric functions | MP | |
-| $\arcsin, \arctan$ | Inverse trigonometric functions | — | |
+| $\arcsin, \arctan$, $\sin^{-1}$ | Inverse trigonometric functions | — | $\sin^{-1}x$ means $\arcsin x$, not $1/\sin x$ |
 | $\sinh, \cosh, \tanh$ | Hyperbolic functions | — | |
 | $\pi$ | $3.14159\ldots$ | MP, QF | Also a policy in reinforcement learning |
 | $a, b, c$ | Coefficients of a polynomial, e.g. $ax^2 + bx + c$ | MP | |
+| $a^x$, $a$ | Exponential with constant base $a$ | — | $\frac{d}{dx}a^x = a^x \ln a$ |
 | $C$ | Constant of integration | MP | Also a call price; see [Overloaded symbols](#overloaded-symbols) |
+| $c_1$, $c_2$ | Constants of integration, when there are several | — | |
 
 ## Calculus
 
@@ -95,12 +97,16 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\delta x$ | A small (finite) increment of $x$ | QF | $\delta t$ is a small time step |
 | $\Delta x$ | A finite change in $x$ | MP, QF | $\Delta t$ is a time step; $\Delta$ is also the option delta |
 | $h$ | Step size in a finite difference | MP | |
+| $h(x)$ | A smooth test function in a derivation | — | Not the step size $h$ |
 | $O(h^n)$ | Order of the error, $\le c\,h^n$ for small $h$ | MP, QF | |
 | $u, v$ | Parts in integration by parts, $\int u\,dv = uv - \int v\,du$; the substitution variable | MP | |
 | $x(t), y(t)$ | Parametric curve | MP | |
 | $L(x, y, \lambda)$, $\mathcal{L}$ | Lagrangian | MP | |
 | $\lambda$ | Lagrange multiplier | MP | |
 | $\xi$ | Similarity variable in a PDE, e.g. $\xi = y/\sqrt{t}$ | — | |
+| $u(x, t)$, $v(x, t)$ | Unknown functions in a PDE, before and after a substitution | — | $a$ and $b$ are constant coefficients in $u_t = u_{xx} + a u_x + b u$ |
+| $\alpha, \beta$ | Constants in the substitution $u = e^{\alpha x + \beta t}v$ | — | Chosen to reduce a PDE to the heat equation $v_t = v_{xx}$ |
+| $w(z, t)$, $z = x + at$ | Unknown function and position in a moving frame | — | |
 
 ## Linear algebra
 
@@ -137,6 +143,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\mathbb{E}[X]$, $E[X]$, $E(X)$ | Expectation | MP, QF | Preferred: $\mathbb{E}[X]$ |
 | $\mathbb{E}[X \mid \mathcal{F}_t]$ | Conditional expectation given information at time $t$ | — | |
 | $\mathrm{Var}(X)$, $\text{Var}[X]$ | Variance | MP, QF | Written `\operatorname{Var}` in quant-finance and `\text{Var}` elsewhere |
+| $\mathbb{V}[X]$ | Variance | — | The lecture-note form of $\mathrm{Var}[X]$ |
 | $\mathrm{Cov}(X, Y)$ | Covariance | MP, QF | |
 | $\mu$ | Mean | MP, QF | Also drift; see [Stochastic calculus](#stochastic-calculus) |
 | $\sigma$, $\sigma^2$ | Standard deviation, variance | MP, QF | Also volatility |
@@ -155,6 +162,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\mathrm{LogN}(\mu, \sigma^2)$ | Lognormal distribution | — | |
 | $\mathrm{Bin}(n, p)$, $p$ | Binomial distribution; success probability | MP | $p$ is also a probability in a tree |
 | $\mathrm{Po}(\lambda)$, $\lambda$ | Poisson distribution; its rate | MP | |
+| $k$, $\theta$ | Shape and scale of a gamma distribution | — | Density proportional to $x^{k-1}e^{-x/\theta}$ |
 | $U[0, 1]$, $u$ | Uniform distribution; a draw from it | MP | $\phi = \Phi^{-1}(u)$ in inverse transform sampling |
 | $a, b$ | Endpoints of an interval, as in $P(a \le \phi \le b)$ | MP | Also polynomial coefficients |
 | $t_\nu$, $\nu$ | Student's $t$ distribution; degrees of freedom | MP | |
@@ -205,10 +213,25 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $dS = \mu S\,dt + \sigma S\,dW_t$ | Geometric Brownian motion | MP, QF | |
 | $\mu$ | Drift | MP, QF | |
 | $\sigma$ | Volatility (diffusion coefficient) | MP, QF | |
-| $A(\cdot)$, $B(\cdot)$ | Drift and diffusion of a general SDE, $dG = A\,dt + B\,dX$ | — | |
+| $A(\cdot)$, $B(\cdot)$ | Drift and diffusion of a general SDE, $dG = A\,dt + B\,dX$ | — | Sometimes the other way round, $dS = A\,dW_t + B\,dt$: read which differential each multiplies |
+| $G$ | A generic diffusion process | — | $A$, $B$, $C$ can also be constants inside a particular SDE |
+| $\delta W$ | Brownian increment over a finite step $\delta t$ | — | |
+| $\psi = \sqrt{dt}\,\phi$ | Standard normal draw scaled to one time step | — | Mean $0$, variance $dt$ |
+| $F(W_t, t)$ | Function of Brownian motion and time in Itô's lemma | — | $q(t)$ is an arbitrary function of time added to $F$ |
+| $\overline{F}(W_t)$, $G(W_\tau)$ | Boundary term and integrand of the time integral when a stochastic integral is rewritten | — | $\int_0^t f(W_\tau)\,dW_\tau = \overline{F}(W_t) + \int_0^t G(W_\tau)\,d\tau$ |
+| $F_t$, $G_t$; $F_0$, $G_0$ | A process defined as a function of $W_t$ and $t$; its starting value | — | $F_t$ is not a forward price here |
+| $Y = f(Z)$ | A process $Z$ and its transform $Y$ | — | e.g. $Z = \log y$, so $Y = e^Z = y$; $Z$ is not a normal draw here |
+| $\alpha$, $\beta$, $\delta$ | Drift constant, mean-reversion speed and diffusion constant of a log process | — | $d(\log y) = (\alpha - \beta\log y)\,dt + \delta\,dW_t$ |
+| $m(t)$ | Mean of a stochastic process at time $t$ | — | Found by averaging its SDE, e.g. $dm/dt = \tfrac{1}{2}(\ln a)^2 m$ for $a^{W_t}$ |
+| $\int_0^t H_\tau\,dW_\tau$ | Stochastic (Itô) integral of the integrand $H$ | — | $\tau$ is the running time; each $H_{t_i}$ is taken at the start of its step |
+| $W_i$ | Brownian motion after $i$ time steps | — | $W_{i+1} - W_i$ is the next increment |
 | $(dW)^2 = dt$ | Itô multiplication rule | — | |
 | $-\tfrac{1}{2}\sigma^2$ | Itô correction | QF | |
 | $p(y, t; y', t')$ | Transition probability density | — | Used in Fokker–Planck and backward Kolmogorov equations |
+| $p(r, t)$, $p_\infty(r)$ | Probability density of a process; its steady state | — | |
+| $u(r, t)$, $w(r, t)$ | Drift and diffusion in the Fokker–Planck equation | — | $dr = u\,dt + w\,dW_t$ |
+| $J$ | Probability flux | — | $J = up - \tfrac{1}{2}\partial_r(w^2 p)$; zero at a no-flow boundary |
+| $\nu$, $\beta$ | Scale and power of a rate-dependent diffusion | — | $w = \nu r^\beta$ |
 | $c^2$ | Diffusion coefficient of a random walk | — | |
 | $\gamma$, $\kappa$ | Mean-reversion speed | — | Vasicek: $dr = \gamma(\bar{r} - r)\,dt + \sigma\,dX$, or $\kappa(\theta - r)$ |
 | $\bar{r}$, $\theta$ | Long-run mean level | — | |
@@ -220,6 +243,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 |---|---|---|---|
 | $S$, $S_t$, $S_0$ | Underlying price; at time $t$; today | MP, QF | |
 | $S_T$ | Underlying price at expiry | QF | |
+| $S_i$ | Underlying price after $i$ time steps | — | |
 | $K$ | Strike | QF | |
 | $T$ | Expiry; in QF also the time to expiry in years | QF | See $\tau$ |
 | $t$ | Current time | MP, QF | |
@@ -323,23 +347,32 @@ The same letter means different things in different places.  Read the context.
 | $N$ | Standard normal CDF in pricing; the normal distribution in QF's $N(0, \Delta t)$; a count |
 | $\phi$ | Standard normal PDF; a standard normal draw; $\pm 1$ call/put sign in QF |
 | $\rho$ | Correlation; the Greek rho |
-| $\Delta$ / $\delta$ | Option delta; a finite change $\Delta x$; a small increment $\delta t$; $\delta_{BS}$ |
+| $\Delta$ / $\delta$ | Option delta; a finite change $\Delta x$; a small increment $\delta t$; a constant diffusion; $\delta_{BS}$ |
 | $\Pi$ | Hedged portfolio value; Black–Litterman equilibrium returns; portfolio subscript in $\sigma_\Pi$ |
 | $\lambda$ | Eigenvalue; Lagrange multiplier; Poisson rate; risk aversion; APT factor premium |
 | $\Lambda$ | Eigenvalue matrix; Radon–Nikodym derivative; exotic payoff |
 | $\gamma$ / $\Gamma$ | Mean-reversion speed; GJR leverage; RL discount factor / option gamma |
-| $\theta$ / $\Theta$ | Long-run mean; market price of risk; model parameters / option theta |
+| $\theta$ / $\Theta$ | Long-run mean; market price of risk; model parameters; a gamma scale / option theta |
 | $\kappa$ | Mean-reversion speed; kurtosis; transaction cost rate |
-| $\nu$ | Degrees of freedom; shares traded; a drift constant.  Vega is $\mathcal{V}$, never $\nu$ |
-| $\tau$ | Time to expiry $T - t$; Black–Litterman scaling constant |
+| $\nu$ | Degrees of freedom; shares traded; a drift constant; a diffusion scale.  Vega is $\mathcal{V}$, never $\nu$ |
+| $\tau$ | Time to expiry $T - t$; running time inside an integral; Black–Litterman scaling constant |
+| $\alpha$, $\beta$ | Significance level; Jensen's alpha and market beta; GARCH coefficients; exponents in a PDE substitution; drift constant and mean-reversion speed; $\beta$ is also a power in a diffusion |
+| $\psi$ | Uniform variates or a sampling density; a scaled normal draw $\sqrt{dt}\,\phi$ |
+| $a$, $b$ | Polynomial coefficients; constant PDE coefficients; $a$ is also the base of $a^x$ and a constant inside an SDE solution |
+| $u$, $v$ | Parts in integration by parts; unknown functions in a PDE; $u$ is also an up factor, an error term and a drift; $v$ is also a variance |
 | $T$ | Expiry date; time to expiry in years (QF); sample length in time series |
 | $r$ | Risk-free rate; short rate; a return $r_t$; the sample correlation in school statistics |
 | $R$ | Return; annually compounded rate; correlation matrix |
 | $V$ | Option value; long-run variance in GARCH.  Vega is $\mathcal{V}$ |
-| $w$ | Portfolio weight; total implied variance |
-| $C$ | Call price; constant of integration; a matrix product |
+| $w$ | Portfolio weight; total implied variance; PDE unknown in a moving frame; a diffusion; a possible value of $W_t$ |
+| $C$ | Call price; constant of integration; a matrix product; a constant SDE coefficient |
 | $p$ / $c$ | Put premium; probability; risk-neutral up probability / call premium |
-| $q$ | Dividend yield; position quantity |
+| $q$ | Dividend yield; position quantity; an arbitrary function of time; a helper function or integrand |
+| $A$, $B$ | Matrices; events; drift and diffusion of an SDE, in either order |
+| $F$, $G$ | CDF $F$; forward price $F_T$; functions in Itô's lemma; names of processes; $G$ is also an integrand |
+| $J$ | Cost function; probability flux |
+| $Z$ | Standard normal draw; a discount factor; a density process; the logarithm of a process |
+| $h$, $k$ | Finite-difference step; small moves in a Taylor series; a test function $h(x)$; $k$ is also a gamma shape |
 | $d$ | Down factor in a tree; differential in $dx$ |
 | $S$, $K$ | Spot, strike; skewness and kurtosis inside the Jarque–Bera statistic |
 | $i$ | Imaginary unit; an index |
