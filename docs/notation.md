@@ -78,6 +78,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\sinh, \cosh, \tanh$ | Hyperbolic functions | — | |
 | $\pi$ | $3.14159\ldots$ | MP, QF | Also a policy in reinforcement learning |
 | $a, b, c$ | Coefficients of a polynomial, e.g. $ax^2 + bx + c$ | MP | |
+| $a^x$, $a$ | Exponential with constant base $a$ | — | $\frac{d}{dx}a^x = a^x \ln a$ |
 | $C$ | Constant of integration | MP | Also a call price; see [Overloaded symbols](#overloaded-symbols) |
 
 ## Calculus
@@ -101,6 +102,9 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $L(x, y, \lambda)$, $\mathcal{L}$ | Lagrangian | MP | |
 | $\lambda$ | Lagrange multiplier | MP | |
 | $\xi$ | Similarity variable in a PDE, e.g. $\xi = y/\sqrt{t}$ | — | |
+| $u(x, t)$, $v(x, t)$ | Unknown functions in a PDE, before and after a substitution | — | $a$ and $b$ are constant coefficients in $u_t = u_{xx} + a u_x + b u$ |
+| $\alpha, \beta$ | Constants in the substitution $u = e^{\alpha x + \beta t}v$ | — | Chosen to reduce a PDE to the heat equation $v_t = v_{xx}$ |
+| $w(z, t)$, $z = x + at$ | Unknown function and position in a moving frame | — | |
 
 ## Linear algebra
 
@@ -206,6 +210,11 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\mu$ | Drift | MP, QF | |
 | $\sigma$ | Volatility (diffusion coefficient) | MP, QF | |
 | $A(\cdot)$, $B(\cdot)$ | Drift and diffusion of a general SDE, $dG = A\,dt + B\,dX$ | — | |
+| $G$ | A generic diffusion process | — | $A$, $B$, $C$ can also be constants inside a particular SDE |
+| $\delta W$ | Brownian increment over a finite step $\delta t$ | — | |
+| $\psi = \sqrt{dt}\,\phi$ | Standard normal draw scaled to one time step | — | Mean $0$, variance $dt$ |
+| $F(W_t, t)$ | Function of Brownian motion and time in Itô's lemma | — | $q(t)$ is an arbitrary function of time added to $F$ |
+| $\int_0^t H_\tau\,dW_\tau$ | Stochastic (Itô) integral of the integrand $H$ | — | $\tau$ is the running time; each $H_{t_i}$ is taken at the start of its step |
 | $(dW)^2 = dt$ | Itô multiplication rule | — | |
 | $-\tfrac{1}{2}\sigma^2$ | Itô correction | QF | |
 | $p(y, t; y', t')$ | Transition probability density | — | Used in Fokker–Planck and backward Kolmogorov equations |
@@ -331,15 +340,19 @@ The same letter means different things in different places.  Read the context.
 | $\theta$ / $\Theta$ | Long-run mean; market price of risk; model parameters / option theta |
 | $\kappa$ | Mean-reversion speed; kurtosis; transaction cost rate |
 | $\nu$ | Degrees of freedom; shares traded; a drift constant.  Vega is $\mathcal{V}$, never $\nu$ |
-| $\tau$ | Time to expiry $T - t$; Black–Litterman scaling constant |
+| $\tau$ | Time to expiry $T - t$; running time inside an integral; Black–Litterman scaling constant |
+| $\alpha$, $\beta$ | Significance level; Jensen's alpha and market beta; GARCH coefficients; exponents in a PDE substitution |
+| $\psi$ | Uniform variates or a sampling density; a scaled normal draw $\sqrt{dt}\,\phi$ |
+| $a$, $b$ | Polynomial coefficients; constant PDE coefficients; $a$ is also the base of $a^x$ |
+| $u$, $v$ | Parts in integration by parts; unknown functions in a PDE; $u$ is also an up factor and an error term |
 | $T$ | Expiry date; time to expiry in years (QF); sample length in time series |
 | $r$ | Risk-free rate; short rate; a return $r_t$; the sample correlation in school statistics |
 | $R$ | Return; annually compounded rate; correlation matrix |
 | $V$ | Option value; long-run variance in GARCH.  Vega is $\mathcal{V}$ |
-| $w$ | Portfolio weight; total implied variance |
-| $C$ | Call price; constant of integration; a matrix product |
+| $w$ | Portfolio weight; total implied variance; PDE unknown in a moving frame |
+| $C$ | Call price; constant of integration; a matrix product; a constant SDE coefficient |
 | $p$ / $c$ | Put premium; probability; risk-neutral up probability / call premium |
-| $q$ | Dividend yield; position quantity |
+| $q$ | Dividend yield; position quantity; an arbitrary function of time |
 | $d$ | Down factor in a tree; differential in $dx$ |
 | $S$, $K$ | Spot, strike; skewness and kurtosis inside the Jarque–Bera statistic |
 | $i$ | Imaginary unit; an index |
