@@ -214,6 +214,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 | $\delta W$ | Brownian increment over a finite step $\delta t$ | — | |
 | $\psi = \sqrt{dt}\,\phi$ | Standard normal draw scaled to one time step | — | Mean $0$, variance $dt$ |
 | $F(W_t, t)$ | Function of Brownian motion and time in Itô's lemma | — | $q(t)$ is an arbitrary function of time added to $F$ |
+| $m(t)$ | Mean of a stochastic process at time $t$ | — | Found by averaging its SDE, e.g. $dm/dt = 	frac{1}{2}(ln a)^2 m$ for $a^{W_t}$ |
 | $\int_0^t H_\tau\,dW_\tau$ | Stochastic (Itô) integral of the integrand $H$ | — | $\tau$ is the running time; each $H_{t_i}$ is taken at the start of its step |
 | $(dW)^2 = dt$ | Itô multiplication rule | — | |
 | $-\tfrac{1}{2}\sigma^2$ | Itô correction | QF | |
