@@ -303,7 +303,7 @@ Units (years, continuously compounded decimal rates, annualised volatility) and 
 |---|---|---|---|
 | $\mathbf{w}$, $w_i$ | Portfolio weights, summing to one | MP, QF | |
 | $\mu_p$, $\sigma_p$ | Portfolio expected return and volatility | QF | Private notes write $\mu_\Pi$, $\sigma_\Pi$ |
-| $R_i$, $R_m$, $R_f$ | Return on asset $i$, the market, the risk-free asset | QF | |
+| $R_i$, $R_m$, $R_f$ | Return on asset $i$, the market, the risk-free asset | QF | $R_i$ is also the return over step $i$ of a random walk, $R_i = (S_{i+1} - S_i)/S_i$ |
 | $\beta_i$ | Beta, $\mathrm{Cov}(R_i, R_m)/\sigma_m^2$ | QF | |
 | $\alpha_i$ | Jensen's alpha | QF | |
 | $\lambda$ | Risk aversion; a factor risk premium (APT) | — | Also eigenvalue, Lagrange multiplier, Poisson rate |
@@ -388,7 +388,7 @@ Where the repos write the same idea differently.  New work should follow the con
 | Idea | maths-python | quant-finance | Private notes |
 |---|---|---|---|
 | Time to expiry | — | $T$ (years) | $\tau = T - t$, with $T$ the expiry date |
-| Brownian increment | $dW_t$ | $dW_t$ | $dW_t$, and $dX$ in the lecture notes |
+| Brownian increment | $dW_t$ | $dW_t$, and $dX$ in the random-walk notebook | $dW_t$, and $dX$ in the lecture notes |
 | Small time step | $\Delta t$ | $\Delta t$ | $\delta t$ |
 | Binomial tree: down factor; risk-neutral up probability | — | $d$; $p$ | $v$; $q$ |
 | Normal distribution | $\mathcal{N}(\mu, \sigma^2)$ | $N(0, \Delta t)$ | $\mathcal{N}(\mu, \sigma^2)$ |
